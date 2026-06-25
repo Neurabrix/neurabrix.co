@@ -1,18 +1,21 @@
 {
   "product": "ClinicOS",
-  "current_version": "v1",
+  "current_version": "2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61",
+  "current_product_git_sha": "2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61",
+  "current_product_git_short_sha": "2fa1a6ee79e3",
   "versions": [
     {
-      "version": "v1",
-      "label": "ClinicOS docs v1",
+      "version": "2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61",
+      "label": "ClinicOS 2fa1a6ee79e3",
       "status": "current",
-      "base_path": "/docs/clinicos/v1/"
+      "product_git_sha": "2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61",
+      "base_path": "/docs/clinicos/2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61/"
     }
   ],
   "routes": {
     "doctor_dashboard": {
       "stable_path": "/docs/clinicos/doctor/dashboard/",
-      "current_path": "/docs/clinicos/v1/doctor/dashboard/"
+      "current_path": "/docs/clinicos/2fa1a6ee79e36cd3e53f30016dd7aa356ef93e61/doctor/dashboard/"
     }
   }
 }
