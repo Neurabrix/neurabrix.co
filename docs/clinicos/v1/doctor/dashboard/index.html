@@ -220,6 +220,27 @@
       gap: 8px;
     }
 
+    .guide-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .guide-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgba(20, 95, 159, 0.24);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
     main { padding: 10px 0 56px; }
 
     .band {
@@ -595,6 +616,118 @@
         </div>
       </section>
 
+      <section id="feature-guides" class="band" aria-labelledby="feature-guides-title">
+        <div class="section-head">
+          <h2 id="feature-guides-title">Feature guide pages</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#feature-guides" aria-label="Open feature guide pages section">#</a>
+            <button class="share-button" type="button" data-share-target="feature-guides">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">Each guide has a short video that names the feature, shows the action, and ends on the visible result. Use these links when someone needs to understand one Dashboard feature without watching the full walkthrough.</p>
+        <div class="feature-grid">
+          <article id="feature-guide-add-walkin" class="feature">
+            <span class="kicker">Intake</span>
+            <strong>Add walk-in</strong>
+            <p>Create a same-day walk-in directly from the Doctor Dashboard.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/add-walkin/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/add-walkin/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-computer-image-intake" class="feature">
+            <span class="kicker">Intake</span>
+            <strong>Computer image intake</strong>
+            <p>Start patient intake from files already saved on the clinic computer.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/computer-image-intake/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/computer-image-intake/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-mobile-photo-intake" class="feature">
+            <span class="kicker">Intake</span>
+            <strong>Mobile photo intake</strong>
+            <p>Capture patient intake through a phone photo path from the Dashboard.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/mobile-photo-intake/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/mobile-photo-intake/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-review-tab-routing" class="feature">
+            <span class="kicker blue">Queue</span>
+            <strong>Review tab routing</strong>
+            <p>Keep walk-ins and image-based intakes separate until they are ready for the active queue.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/review-tab-routing/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/review-tab-routing/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-date-range-selector" class="feature">
+            <span class="kicker gold">Search</span>
+            <strong>Date range selector</strong>
+            <p>Change which appointment window the Dashboard is showing.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/date-range-selector/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/date-range-selector/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-dashboard-search" class="feature">
+            <span class="kicker gold">Search</span>
+            <strong>Dashboard search</strong>
+            <p>Find a patient or registration number while staying in the queue.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/dashboard-search/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/dashboard-search/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-current-patient-view" class="feature">
+            <span class="kicker blue">Queue</span>
+            <strong>Current patient view</strong>
+            <p>Bring the active patient into focus while retaining the rest of the queue.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/current-patient-view/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/current-patient-view/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-queue-reordering" class="feature">
+            <span class="kicker blue">Queue</span>
+            <strong>Queue reordering</strong>
+            <p>Move a patient row when the clinic needs to change visit order.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/queue-reordering/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/queue-reordering/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-call-next" class="feature">
+            <span class="kicker">Action</span>
+            <strong>Call next</strong>
+            <p>Notify or advance the next patient from the selected appointment row.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/call-next/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/call-next/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-open-notes" class="feature">
+            <span class="kicker">Action</span>
+            <strong>Open notes</strong>
+            <p>Open the patient workspace from the Dashboard row.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/open-notes/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/open-notes/">Copy guide link</button>
+            </div>
+          </article>
+          <article id="feature-guide-more-row-actions" class="feature">
+            <span class="kicker">Action</span>
+            <strong>More row actions</strong>
+            <p>Open secondary appointment actions from the selected row.</p>
+            <div class="guide-actions">
+              <a class="guide-link" href="features/more-row-actions/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="features/more-row-actions/">Copy guide link</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section id="live-queue" class="band" aria-labelledby="live-queue-title">
         <div class="section-head">
           <h2 id="live-queue-title">Live queue table</h2>
@@ -960,141 +1093,176 @@
 
       <section id="dashboard-controls" class="band" aria-labelledby="dashboard-controls-title">
         <div class="section-head">
-          <h2 id="dashboard-controls-title">Dashboard control videos</h2>
+          <h2 id="dashboard-controls-title">Focused feature videos</h2>
           <span class="share-actions">
-            <a class="share-link" href="#dashboard-controls" aria-label="Open dashboard control videos section">#</a>
+            <a class="share-link" href="#dashboard-controls" aria-label="Open focused feature videos section">#</a>
             <button class="share-button" type="button" data-share-target="dashboard-controls">Copy link</button>
           </span>
         </div>
-        <p class="section-copy">Use these short clips when someone needs a focused walkthrough of one Dashboard button or control instead of the full page tour.</p>
+        <p class="section-copy">Use these short clips when someone needs a focused walkthrough of one Dashboard feature. Each clip explains the feature, the action, and the result without relying on surrounding documentation.</p>
         <div class="control-video-grid">
           <figure id="add-walkin-video" class="feature-video" aria-label="Add walk-in video">
-            <video controls preload="none" poster="media/control-videos/add-walkin-poster.jpg">
-              <source src="media/control-videos/add-walkin-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/add-walkin-poster.jpg">
+              <source src="media/feature-guide-videos/add-walkin-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: start a new walk-in from the Dashboard without leaving the queue.</span>
+              <span>Feature clip: click Add walk-in, start a same-day intake, and keep the queue context visible.</span>
               <span class="share-actions">
                 <a href="#add-walkin-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="add-walkin-video">Copy video link</button>
+                <a href="features/add-walkin/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/add-walkin/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="computer-image-intake-video" class="feature-video" aria-label="Computer image intake video">
-            <video controls preload="none" poster="media/control-videos/computer-image-intake-poster.jpg">
-              <source src="media/control-videos/computer-image-intake-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/computer-image-intake-poster.jpg">
+              <source src="media/feature-guide-videos/computer-image-intake-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: upload intake images from the computer while keeping Dashboard context.</span>
+              <span>Feature clip: start file-based intake from the computer image control without leaving the Dashboard.</span>
               <span class="share-actions">
                 <a href="#computer-image-intake-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="computer-image-intake-video">Copy video link</button>
+                <a href="features/computer-image-intake/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/computer-image-intake/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="mobile-photo-intake-video" class="feature-video" aria-label="Mobile photo intake video">
-            <video controls preload="none" poster="media/control-videos/mobile-photo-intake-poster.jpg">
-              <source src="media/control-videos/mobile-photo-intake-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/mobile-photo-intake-poster.jpg">
+              <source src="media/feature-guide-videos/mobile-photo-intake-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: start photo-based intake from the Dashboard for counter or bedside capture.</span>
+              <span>Feature clip: start mobile photo intake from the toolbar and route the captured details for review.</span>
               <span class="share-actions">
                 <a href="#mobile-photo-intake-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="mobile-photo-intake-video">Copy video link</button>
+                <a href="features/mobile-photo-intake/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/mobile-photo-intake/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="review-tab-routing-video" class="feature-video" aria-label="Review tab routing video">
-            <video controls preload="none" poster="media/control-videos/review-tab-routing-poster.jpg">
-              <source src="media/control-videos/review-tab-routing-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/review-tab-routing-poster.jpg">
+              <source src="media/feature-guide-videos/review-tab-routing-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: open Review to separate walk-ins or intake records before normal queue handling.</span>
+              <span>Feature clip: open Review and keep intake records separate until they are ready for queue handling.</span>
               <span class="share-actions">
                 <a href="#review-tab-routing-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="review-tab-routing-video">Copy video link</button>
+                <a href="features/review-tab-routing/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/review-tab-routing/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="date-range-selector-video" class="feature-video" aria-label="Date range selector video">
-            <video controls preload="none" poster="media/control-videos/date-range-selector-poster.jpg">
-              <source src="media/control-videos/date-range-selector-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/date-range-selector-poster.jpg">
+              <source src="media/feature-guide-videos/date-range-selector-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: switch the Dashboard between same-day, upcoming, recent, and custom ranges.</span>
+              <span>Feature clip: choose a date range and update the visible appointment window on the Dashboard.</span>
               <span class="share-actions">
                 <a href="#date-range-selector-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="date-range-selector-video">Copy video link</button>
+                <a href="features/date-range-selector/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/date-range-selector/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="dashboard-search-video" class="feature-video" aria-label="Dashboard search video">
-            <video controls preload="none" poster="media/control-videos/dashboard-search-poster.jpg">
-              <source src="media/control-videos/dashboard-search-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/dashboard-search-poster.jpg">
+              <source src="media/feature-guide-videos/dashboard-search-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: search by patient or registration number while preserving row actions.</span>
+              <span>Feature clip: search by patient or registration number while preserving row actions.</span>
               <span class="share-actions">
                 <a href="#dashboard-search-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="dashboard-search-video">Copy video link</button>
+                <a href="features/dashboard-search/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/dashboard-search/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="current-patient-view-video" class="feature-video" aria-label="Current patient view video">
-            <video controls preload="none" poster="media/control-videos/current-patient-view-poster.jpg">
-              <source src="media/control-videos/current-patient-view-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/current-patient-view-poster.jpg">
+              <source src="media/feature-guide-videos/current-patient-view-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: bring the active patient into focus while keeping the queue available.</span>
+              <span>Feature clip: use Current patient view to bring the active row into focus.</span>
               <span class="share-actions">
                 <a href="#current-patient-view-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="current-patient-view-video">Copy video link</button>
+                <a href="features/current-patient-view/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/current-patient-view/">Copy guide link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="queue-reordering-video" class="feature-video" aria-label="Queue reordering video">
+            <video controls preload="none" poster="media/feature-guide-videos/queue-reordering-poster.jpg">
+              <source src="media/feature-guide-videos/queue-reordering-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Feature clip: drag a patient row to a new position and confirm the queue order changed.</span>
+              <span class="share-actions">
+                <a href="#queue-reordering-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="queue-reordering-video">Copy video link</button>
+                <a href="features/queue-reordering/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/queue-reordering/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="call-next-video" class="feature-video" aria-label="Call next video">
-            <video controls preload="none" poster="media/control-videos/call-next-poster.jpg">
-              <source src="media/control-videos/call-next-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/call-next-poster.jpg">
+              <source src="media/feature-guide-videos/call-next-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: call or notify the next patient from the selected appointment row.</span>
+              <span>Feature clip: call or notify the next patient directly from the selected row.</span>
               <span class="share-actions">
                 <a href="#call-next-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="call-next-video">Copy video link</button>
+                <a href="features/call-next/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/call-next/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="open-notes-video" class="feature-video" aria-label="Open notes video">
-            <video controls preload="none" poster="media/control-videos/open-notes-poster.jpg">
-              <source src="media/control-videos/open-notes-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/open-notes-poster.jpg">
+              <source src="media/feature-guide-videos/open-notes-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: open the selected patient workspace directly from the Dashboard row.</span>
+              <span>Feature clip: open patient notes directly from the Dashboard row.</span>
               <span class="share-actions">
                 <a href="#open-notes-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="open-notes-video">Copy video link</button>
+                <a href="features/open-notes/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/open-notes/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
           <figure id="more-row-actions-video" class="feature-video" aria-label="More row actions video">
-            <video controls preload="none" poster="media/control-videos/more-row-actions-poster.jpg">
-              <source src="media/control-videos/more-row-actions-clarity-master-4k.mp4" type="video/mp4">
+            <video controls preload="none" poster="media/feature-guide-videos/more-row-actions-poster.jpg">
+              <source src="media/feature-guide-videos/more-row-actions-clarity-master-4k.mp4" type="video/mp4">
               Your browser does not support embedded video.
             </video>
             <figcaption>
-              <span>Control clip: open secondary appointment actions such as message, reschedule, complete, or cancel.</span>
+              <span>Feature clip: open More and choose secondary appointment actions from the selected row.</span>
               <span class="share-actions">
                 <a href="#more-row-actions-video">Open video</a>
                 <button class="share-button" type="button" data-share-target="more-row-actions-video">Copy video link</button>
+                <a href="features/more-row-actions/">Full guide</a>
+                <button class="share-button" type="button" data-copy-url="features/more-row-actions/">Copy guide link</button>
               </span>
             </figcaption>
           </figure>
@@ -1197,13 +1365,16 @@
         }
       };
 
-      document.querySelectorAll('[data-share-target]').forEach((button) => {
+      document.querySelectorAll('[data-share-target], [data-copy-url]').forEach((button) => {
         const originalText = button.textContent;
+        const explicitUrl = button.getAttribute('data-copy-url');
         const target = button.getAttribute('data-share-target');
 
         button.addEventListener('click', async () => {
-          const url = new URL(baseUrl, window.location.href);
-          url.hash = target;
+          const url = explicitUrl ? new URL(explicitUrl, baseUrl) : new URL(baseUrl, window.location.href);
+          if (!explicitUrl && target) {
+            url.hash = target;
+          }
 
           try {
             await copyText(url.href);

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review tab routing | ClinicOS Doctor Dashboard Docs</title>
+  <meta name="description" content="Keep walk-ins and image-based intakes separate until they are ready for the active queue. Click Review to view records that need checking before they become regular queue entries.">
+  <link rel="canonical" href="https://neurabrix.co/docs/clinicos/v1/doctor/dashboard/features/review-tab-routing/">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #162029;
+      --muted: #586572;
+      --line: #d8e1e8;
+      --surface: #ffffff;
+      --wash: #f5f7f9;
+      --blue: #145f9f;
+      --green: #166b5c;
+      --gold: #8d650c;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.5;
+    }
+    a { color: var(--blue); }
+    button { font: inherit; }
+    .page {
+      width: min(1120px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(380px, 1.15fr);
+      gap: 28px;
+      align-items: center;
+      padding: 32px 0 30px;
+      min-height: 82vh;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 10px 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+    p { margin: 0; color: var(--muted); }
+    .lede {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .back-link {
+      display: inline-flex;
+      margin-bottom: 20px;
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .fact {
+      min-height: 116px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+    .video-card {
+      background: #101820;
+      border: 1px solid #101820;
+      border-radius: 8px;
+      box-shadow: 0 22px 50px rgba(22, 32, 41, 0.24);
+      overflow: hidden;
+    }
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #101820;
+    }
+    .video-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      color: #dce6ed;
+      font-size: 0.9rem;
+      background: #101820;
+    }
+    .video-caption a { color: #9fd2ff; white-space: nowrap; }
+    .share-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .share-link,
+    .share-button,
+    .guide-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgba(20, 95, 159, 0.24);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .share-button { cursor: pointer; }
+    .video-caption .share-button {
+      color: #dce6ed;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(159, 210, 255, 0.38);
+    }
+    .share-button[data-copy-state="copied"] {
+      border-color: rgba(22, 107, 92, 0.34);
+      color: var(--green);
+      background: #e8f5f0;
+    }
+    .share-button[data-copy-state="failed"] {
+      border-color: rgba(141, 101, 12, 0.42);
+      color: var(--gold);
+      background: #fff7df;
+    }
+    .video-caption .share-button[data-copy-state="copied"] {
+      color: #aef0dc;
+      background: rgba(22, 107, 92, 0.34);
+    }
+    main { padding: 10px 0 56px; }
+    .band {
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-copy {
+      margin-top: 12px;
+      max-width: 760px;
+      color: var(--muted);
+    }
+    .workflow-grid,
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .card {
+      min-height: 156px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      margin-bottom: 10px;
+      padding: 0 8px;
+      border-radius: 999px;
+      color: var(--green);
+      background: #e8f5f0;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+    .related-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    footer {
+      padding: 24px 0 44px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+    .doc-version {
+      display: inline-block;
+      margin-left: 10px;
+      color: #667482;
+    }
+    @media (max-width: 900px) {
+      header,
+      .facts,
+      .workflow-grid,
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+      header { min-height: auto; padding-top: 26px; }
+      .video-caption,
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .video-caption a { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <section aria-labelledby="page-title">
+        <a class="back-link" href="../../">Back to Doctor Dashboard</a>
+        <div class="eyebrow">Review queue</div>
+        <h1 id="page-title">Review tab routing</h1>
+        <p class="lede">Keep walk-ins and image-based intakes separate until they are ready for the active queue. The short video is designed to explain the feature on its own: what it is, what action to take, and what changes after the action.</p>
+        <div class="facts" aria-label="Review tab routing highlights">
+          <div class="fact">
+            <strong>Use when</strong>
+            <span>Use this when a walk-in or captured intake needs review first.</span>
+          </div>
+          <div class="fact">
+            <strong>Action</strong>
+            <span>Click Review to view records that need checking before they become regular queue entries.</span>
+          </div>
+          <div class="fact">
+            <strong>Result</strong>
+            <span>Unreviewed intake stays separate from active OP and IP patients.</span>
+          </div>
+        </div>
+      </section>
+      <aside id="video" class="video-card" aria-label="Review tab routing video">
+        <video controls preload="none" poster="../../media/feature-guide-videos/review-tab-routing-poster.jpg">
+          <source src="../../media/feature-guide-videos/review-tab-routing-clarity-master-4k.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <div class="video-caption">
+          <span>Feature clip: open Review and keep intake records separate until they are ready for queue handling.</span>
+          <span class="share-actions">
+            <a href="#video">Open video</a>
+            <button class="share-button" type="button" data-share-target="video">Copy video link</button>
+          </span>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section id="workflow" class="band" aria-labelledby="workflow-title">
+        <div class="section-head">
+          <h2 id="workflow-title">How it works</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#workflow" aria-label="Open how it works section">#</a>
+            <button class="share-button" type="button" data-share-target="workflow">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">This feature page is intentionally short so the video and the expected result are easy to share.</p>
+        <div class="workflow-grid">
+          <article class="card">
+            <span class="kicker">Feature</span>
+            <strong>Review tab routing</strong>
+            <p>Keep walk-ins and image-based intakes separate until they are ready for the active queue.</p>
+          </article>
+          <article class="card">
+            <span class="kicker">Action</span>
+            <strong>What to do</strong>
+            <p>Click Review to view records that need checking before they become regular queue entries.</p>
+          </article>
+          <article class="card">
+            <span class="kicker">Result</span>
+            <strong>What changes</strong>
+            <p>Unreviewed intake stays separate from active OP and IP patients.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="value" class="band" aria-labelledby="value-title">
+        <div class="section-head">
+          <h2 id="value-title">Why it matters</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#value" aria-label="Open why it matters section">#</a>
+            <button class="share-button" type="button" data-share-target="value">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">Doctors and staff can avoid mixing incomplete intake with patients who are ready to be seen.</p>
+      </section>
+
+      <section id="related" class="band" aria-labelledby="related-title">
+        <div class="section-head">
+          <h2 id="related-title">Related Dashboard features</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#related" aria-label="Open related features section">#</a>
+            <button class="share-button" type="button" data-share-target="related">Copy link</button>
+          </span>
+        </div>
+        <div class="related-grid">
+          <article class="card">
+            <span class="kicker">Queue</span>
+            <strong>Current patient view</strong>
+            <p>Bring the active patient into focus while retaining the rest of the queue.</p>
+            <div class="related-actions">
+              <a class="guide-link" href="../current-patient-view/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="../current-patient-view/">Copy guide link</button>
+            </div>
+          </article>
+          <article class="card">
+            <span class="kicker">Queue</span>
+            <strong>Queue reordering</strong>
+            <p>Move a patient row when the clinic needs to change visit order.</p>
+            <div class="related-actions">
+              <a class="guide-link" href="../queue-reordering/">Open guide</a>
+              <button class="share-button" type="button" data-copy-url="../queue-reordering/">Copy guide link</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Neurabrix ClinicOS documentation. <a href="../../">Back to Doctor Dashboard</a>.
+      <span class="doc-version">Docs version v1</span>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      const baseUrl = canonicalLink ? canonicalLink.href : window.location.href.split('#')[0];
+
+      const copyText = async (text) => {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'fixed';
+        textArea.style.top = '-1000px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        const copied = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (!copied) {
+          throw new Error('Copy command failed');
+        }
+      };
+
+      document.querySelectorAll('[data-share-target], [data-copy-url]').forEach((button) => {
+        const originalText = button.textContent;
+        const explicitUrl = button.getAttribute('data-copy-url');
+        const target = button.getAttribute('data-share-target');
+
+        button.addEventListener('click', async () => {
+          const url = explicitUrl ? new URL(explicitUrl, baseUrl) : new URL(baseUrl, window.location.href);
+          if (!explicitUrl && target) {
+            url.hash = target;
+          }
+
+          try {
+            await copyText(url.href);
+            button.textContent = 'Copied';
+            button.setAttribute('data-copy-state', 'copied');
+          } catch (error) {
+            button.textContent = 'Copy failed';
+            button.setAttribute('data-copy-state', 'failed');
+          }
+
+          window.setTimeout(() => {
+            button.textContent = originalText;
+            button.removeAttribute('data-copy-state');
+          }, 1800);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

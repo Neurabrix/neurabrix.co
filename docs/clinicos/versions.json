@@ -13,6 +13,50 @@
     "doctor_dashboard": {
       "stable_path": "/docs/clinicos/doctor/dashboard/",
       "current_path": "/docs/clinicos/v1/doctor/dashboard/"
+    },
+    "doctor_dashboard_add_walkin": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/add-walkin/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/add-walkin/"
+    },
+    "doctor_dashboard_computer_image_intake": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/computer-image-intake/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/computer-image-intake/"
+    },
+    "doctor_dashboard_mobile_photo_intake": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/mobile-photo-intake/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/mobile-photo-intake/"
+    },
+    "doctor_dashboard_review_tab_routing": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/review-tab-routing/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/review-tab-routing/"
+    },
+    "doctor_dashboard_date_range_selector": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/date-range-selector/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/date-range-selector/"
+    },
+    "doctor_dashboard_dashboard_search": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/dashboard-search/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/dashboard-search/"
+    },
+    "doctor_dashboard_current_patient_view": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/current-patient-view/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/current-patient-view/"
+    },
+    "doctor_dashboard_queue_reordering": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/queue-reordering/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/queue-reordering/"
+    },
+    "doctor_dashboard_call_next": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/call-next/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/call-next/"
+    },
+    "doctor_dashboard_open_notes": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/open-notes/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/open-notes/"
+    },
+    "doctor_dashboard_more_row_actions": {
+      "stable_path": "/docs/clinicos/doctor/dashboard/features/more-row-actions/",
+      "current_path": "/docs/clinicos/v1/doctor/dashboard/features/more-row-actions/"
     }
   }
 }
