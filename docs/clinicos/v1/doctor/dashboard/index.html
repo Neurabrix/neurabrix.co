@@ -272,6 +272,13 @@
       margin-top: 18px;
     }
 
+    .control-video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
     .feature,
     .value {
       min-height: 164px;
@@ -420,6 +427,7 @@
 
       .facts,
       .feature-grid,
+      .control-video-grid,
       .value-grid {
         grid-template-columns: 1fr;
       }
@@ -948,6 +956,149 @@
             </span>
           </figcaption>
         </figure>
+      </section>
+
+      <section id="dashboard-controls" class="band" aria-labelledby="dashboard-controls-title">
+        <div class="section-head">
+          <h2 id="dashboard-controls-title">Dashboard control videos</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#dashboard-controls" aria-label="Open dashboard control videos section">#</a>
+            <button class="share-button" type="button" data-share-target="dashboard-controls">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">Use these short clips when someone needs a focused walkthrough of one Dashboard button or control instead of the full page tour.</p>
+        <div class="control-video-grid">
+          <figure id="add-walkin-video" class="feature-video" aria-label="Add walk-in video">
+            <video controls preload="none" poster="media/control-videos/add-walkin-poster.jpg">
+              <source src="media/control-videos/add-walkin-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: start a new walk-in from the Dashboard without leaving the queue.</span>
+              <span class="share-actions">
+                <a href="#add-walkin-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="add-walkin-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="computer-image-intake-video" class="feature-video" aria-label="Computer image intake video">
+            <video controls preload="none" poster="media/control-videos/computer-image-intake-poster.jpg">
+              <source src="media/control-videos/computer-image-intake-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: upload intake images from the computer while keeping Dashboard context.</span>
+              <span class="share-actions">
+                <a href="#computer-image-intake-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="computer-image-intake-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="mobile-photo-intake-video" class="feature-video" aria-label="Mobile photo intake video">
+            <video controls preload="none" poster="media/control-videos/mobile-photo-intake-poster.jpg">
+              <source src="media/control-videos/mobile-photo-intake-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: start photo-based intake from the Dashboard for counter or bedside capture.</span>
+              <span class="share-actions">
+                <a href="#mobile-photo-intake-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="mobile-photo-intake-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="review-tab-routing-video" class="feature-video" aria-label="Review tab routing video">
+            <video controls preload="none" poster="media/control-videos/review-tab-routing-poster.jpg">
+              <source src="media/control-videos/review-tab-routing-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: open Review to separate walk-ins or intake records before normal queue handling.</span>
+              <span class="share-actions">
+                <a href="#review-tab-routing-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="review-tab-routing-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="date-range-selector-video" class="feature-video" aria-label="Date range selector video">
+            <video controls preload="none" poster="media/control-videos/date-range-selector-poster.jpg">
+              <source src="media/control-videos/date-range-selector-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: switch the Dashboard between same-day, upcoming, recent, and custom ranges.</span>
+              <span class="share-actions">
+                <a href="#date-range-selector-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="date-range-selector-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="dashboard-search-video" class="feature-video" aria-label="Dashboard search video">
+            <video controls preload="none" poster="media/control-videos/dashboard-search-poster.jpg">
+              <source src="media/control-videos/dashboard-search-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: search by patient or registration number while preserving row actions.</span>
+              <span class="share-actions">
+                <a href="#dashboard-search-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="dashboard-search-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="current-patient-view-video" class="feature-video" aria-label="Current patient view video">
+            <video controls preload="none" poster="media/control-videos/current-patient-view-poster.jpg">
+              <source src="media/control-videos/current-patient-view-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: bring the active patient into focus while keeping the queue available.</span>
+              <span class="share-actions">
+                <a href="#current-patient-view-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="current-patient-view-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="call-next-video" class="feature-video" aria-label="Call next video">
+            <video controls preload="none" poster="media/control-videos/call-next-poster.jpg">
+              <source src="media/control-videos/call-next-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: call or notify the next patient from the selected appointment row.</span>
+              <span class="share-actions">
+                <a href="#call-next-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="call-next-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="open-notes-video" class="feature-video" aria-label="Open notes video">
+            <video controls preload="none" poster="media/control-videos/open-notes-poster.jpg">
+              <source src="media/control-videos/open-notes-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: open the selected patient workspace directly from the Dashboard row.</span>
+              <span class="share-actions">
+                <a href="#open-notes-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="open-notes-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+          <figure id="more-row-actions-video" class="feature-video" aria-label="More row actions video">
+            <video controls preload="none" poster="media/control-videos/more-row-actions-poster.jpg">
+              <source src="media/control-videos/more-row-actions-clarity-master-4k.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>
+              <span>Control clip: open secondary appointment actions such as message, reschedule, complete, or cancel.</span>
+              <span class="share-actions">
+                <a href="#more-row-actions-video">Open video</a>
+                <button class="share-button" type="button" data-share-target="more-row-actions-video">Copy video link</button>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
       </section>
 
       <section id="continuity" class="band" aria-labelledby="continuity-title">
