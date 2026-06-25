@@ -170,6 +170,50 @@
       background: rgba(22, 107, 92, 0.34);
     }
 
+    .feature-video {
+      margin: 18px 0 0;
+      background: #101820;
+      border: 1px solid #101820;
+      border-radius: 8px;
+      box-shadow: 0 16px 36px rgba(22, 32, 41, 0.18);
+      overflow: hidden;
+    }
+
+    .feature-video.wide {
+      grid-column: 1 / -1;
+    }
+
+    .feature-video video {
+      aspect-ratio: 16 / 9;
+    }
+
+    .feature-video figcaption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 0;
+      padding: 12px 14px;
+      color: #dce6ed;
+      font-size: 0.9rem;
+      background: #101820;
+    }
+
+    .feature-video a {
+      color: #9fd2ff;
+      white-space: nowrap;
+    }
+
+    .feature-video .share-button {
+      color: #dce6ed;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(159, 210, 255, 0.38);
+    }
+
+    .feature-video .share-button[data-copy-state="copied"] {
+      color: #aef0dc;
+      background: rgba(22, 107, 92, 0.34);
+    }
+
     .share-actions {
       display: inline-flex;
       flex-wrap: wrap;
@@ -381,12 +425,16 @@
       }
 
       .video-caption,
+      .feature-video figcaption,
       .section-head {
         align-items: flex-start;
         flex-direction: column;
       }
 
-      .video-caption a { white-space: normal; }
+      .video-caption a,
+      .feature-video a {
+        white-space: normal;
+      }
 
       .matrix {
         display: block;
@@ -493,6 +541,19 @@
           </span>
         </div>
         <p class="section-copy">The Dashboard is designed as a compact queue command center. These are the major feature groups exposed from the page.</p>
+        <figure id="feature-map-video" class="feature-video" aria-label="Dashboard feature map video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/feature-map.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: the Dashboard combines queue, search, intake, status, and row actions on one clinical surface.</span>
+            <span class="share-actions">
+              <a href="#feature-map-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="feature-map-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <div class="feature-grid">
           <article class="feature">
             <span class="kicker blue">Queue</span>
@@ -536,6 +597,19 @@
           </span>
         </div>
         <p class="section-copy">The table is optimized for fast scanning. It uses a fixed operational column order so clinicians can compare patients without opening each chart.</p>
+        <figure id="live-queue-video" class="feature-video" aria-label="Live queue table video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/live-queue.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: scan queue position, patient identity, visit time, token, diagnosis, labels, and actions row by row.</span>
+            <span class="share-actions">
+              <a href="#live-queue-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="live-queue-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <table class="matrix" aria-label="Dashboard queue table columns">
           <thead>
             <tr>
@@ -599,6 +673,19 @@
             <p>Use this tab for patients created from walk-in or photo-intake flows that need review before they are treated as regular queue entries.</p>
           </li>
         </ul>
+        <figure id="patient-tabs-video" class="feature-video wide" aria-label="Patient tabs video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/patient-tabs.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: switch between OP, IP, and Review queues while preserving the same table and row actions.</span>
+            <span class="share-actions">
+              <a href="#patient-tabs-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="patient-tabs-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="search-ranges" class="band" aria-labelledby="search-ranges-title">
@@ -610,6 +697,19 @@
           </span>
         </div>
         <p class="section-copy">The search area supports quick same-day filtering and wider appointment lookup without sending the doctor to another page.</p>
+        <figure id="search-ranges-video" class="feature-video" aria-label="Search and date ranges video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/search-ranges.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: choose a date range, filter patients, and search appointments without leaving the Dashboard.</span>
+            <span class="share-actions">
+              <a href="#search-ranges-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="search-ranges-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <div class="feature-grid">
           <article class="feature">
             <span class="kicker blue">Today</span>
@@ -677,6 +777,19 @@
             <p>Large queues use previous and next page controls while keeping the filtered count and page position visible.</p>
           </li>
         </ul>
+        <figure id="queue-controls-video" class="feature-video wide" aria-label="Queue controls video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/queue-controls.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: change queue view mode, paginate large queues, and reorder rows when queue sync allows it.</span>
+            <span class="share-actions">
+              <a href="#queue-controls-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="queue-controls-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="status-labels" class="band" aria-labelledby="status-labels-title">
@@ -688,6 +801,19 @@
           </span>
         </div>
         <p class="section-copy">Status and labels make the queue more than a schedule. They help the doctor and staff track what is already done and what still needs attention.</p>
+        <figure id="status-labels-video" class="feature-video" aria-label="Status and labels video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/status-labels.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: use status counts, waiting notes, and labels to turn the queue into a follow-up tracker.</span>
+            <span class="share-actions">
+              <a href="#status-labels-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="status-labels-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <table class="matrix" aria-label="Dashboard status and label walkthrough">
           <thead>
             <tr>
@@ -730,6 +856,19 @@
           </span>
         </div>
         <p class="section-copy">Each row includes direct actions for the most common visit-day tasks. The goal is to avoid hunting through separate menus before a patient can be handled.</p>
+        <figure id="row-actions-video" class="feature-video" aria-label="Patient row actions video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/row-actions.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: notify the next patient, open patient information, and access message, reschedule, or cancel actions from the row.</span>
+            <span class="share-actions">
+              <a href="#row-actions-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="row-actions-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <div class="feature-grid">
           <article class="feature">
             <span class="kicker blue">Next patient</span>
@@ -797,6 +936,19 @@
             <p>New or image-based walk-ins that still need review stay in the Review tab until they are ready for normal queue handling.</p>
           </li>
         </ul>
+        <figure id="walk-in-intake-video" class="feature-video wide" aria-label="Walk-in intake video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/walk-in-intake.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: start walk-in intake from the Dashboard and route records that need review into the Review tab.</span>
+            <span class="share-actions">
+              <a href="#walk-in-intake-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="walk-in-intake-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
       </section>
 
       <section id="continuity" class="band" aria-labelledby="continuity-title">
@@ -808,6 +960,19 @@
           </span>
         </div>
         <p class="section-copy">The Dashboard keeps context stable as clinicians move between queue review and patient work.</p>
+        <figure id="continuity-video" class="feature-video" aria-label="Continuity and return path video">
+          <video controls preload="auto" poster="media/doctor-dashboard-poster.png">
+            <source src="media/feature-videos/continuity.mp4" type="video/mp4">
+            Your browser does not support embedded video.
+          </video>
+          <figcaption>
+            <span>Feature clip: open notes from a row, return to Dashboard, and keep the same visit-day context anchored.</span>
+            <span class="share-actions">
+              <a href="#continuity-video">Open video</a>
+              <button class="share-button" type="button" data-share-target="continuity-video">Copy video link</button>
+            </span>
+          </figcaption>
+        </figure>
         <div class="feature-grid">
           <article class="feature">
             <span class="kicker blue">Return path</span>
