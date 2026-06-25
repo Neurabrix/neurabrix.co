@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClinicOS Doctor Dashboard | Neurabrix Docs</title>
+  <meta name="description" content="ClinicOS Doctor Dashboard documentation for live queue review, patient context, and first clinical action.">
+  <link rel="canonical" href="https://neurabrix.co/docs/clinicos/v1/doctor/dashboard/">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #162029;
+      --muted: #586572;
+      --line: #d8e1e8;
+      --surface: #ffffff;
+      --wash: #f5f7f9;
+      --blue: #145f9f;
+      --green: #166b5c;
+      --gold: #8d650c;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--wash);
+      line-height: 1.5;
+    }
+
+    a { color: var(--blue); }
+
+    .page {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+      gap: 30px;
+      align-items: center;
+      padding: 34px 0 28px;
+      min-height: 92vh;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 10px 0 14px;
+      max-width: 720px;
+      font-size: clamp(2.25rem, 5vw, 5.1rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .version {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      margin-top: 18px;
+      padding: 0 11px;
+      border: 1px solid rgba(20, 95, 159, 0.28);
+      border-radius: 999px;
+      color: var(--blue);
+      background: #eaf3fb;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .fact {
+      min-height: 96px;
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.28rem;
+      line-height: 1.1;
+    }
+
+    .fact span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .video-wrap {
+      background: #101820;
+      border: 1px solid #101820;
+      border-radius: 8px;
+      box-shadow: 0 22px 50px rgba(22, 32, 41, 0.26);
+      overflow: hidden;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #101820;
+    }
+
+    .video-caption {
+      padding: 12px 14px;
+      color: #dce6ed;
+      font-size: 0.9rem;
+      background: #101820;
+    }
+
+    main { padding: 10px 0 56px; }
+
+    .band {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+      gap: 28px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .beats { display: grid; gap: 12px; }
+
+    .beat {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 800;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .value {
+      min-height: 150px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .value:nth-child(2) h3 { color: var(--green); }
+    .value:nth-child(3) h3 { color: var(--gold); }
+
+    footer {
+      padding: 24px 0 44px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 860px) {
+      header,
+      .split {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      header { padding-top: 28px; }
+
+      .facts,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <section aria-labelledby="page-title">
+        <div class="eyebrow">ClinicOS docs</div>
+        <h1 id="page-title">Doctor Dashboard</h1>
+        <p class="lede">The Doctor Dashboard gives clinicians one place to review the live queue, understand patient context, and begin the right clinical workflow without switching between separate screens.</p>
+        <span class="version">ClinicOS docs v1</span>
+        <div class="facts" aria-label="Dashboard highlights">
+          <div class="fact">
+            <strong>Live queue</strong>
+            <span>Booked and walk-in patients stay visible in the first screen.</span>
+          </div>
+          <div class="fact">
+            <strong>Patient context</strong>
+            <span>Registration, appointment timing, queue number, and diagnosis readiness are shown together.</span>
+          </div>
+          <div class="fact">
+            <strong>First action</strong>
+            <span>The doctor can move from queue review into notes or patient detail.</span>
+          </div>
+        </div>
+      </section>
+      <aside class="video-wrap" aria-label="Doctor Dashboard walkthrough video">
+        <video controls preload="metadata" poster="media/doctor-dashboard-poster.png">
+          <source src="media/doctor-dashboard-demo.webm" type="video/webm">
+          Your browser does not support embedded video.
+        </video>
+        <div class="video-caption">Product walkthrough: live queue review, patient context, and first clinical action.</div>
+      </aside>
+    </header>
+
+    <main>
+      <section class="band split" aria-labelledby="workflow-title">
+        <div>
+          <h2 id="workflow-title">Workflow shown</h2>
+        </div>
+        <div class="beats">
+          <article class="beat">
+            <div class="num">1</div>
+            <div>
+              <h3>Open the doctor dashboard</h3>
+              <p>The portal opens with the clinician identity and today queue already loaded.</p>
+            </div>
+          </article>
+          <article class="beat">
+            <div class="num">2</div>
+            <div>
+              <h3>Review the queue table</h3>
+              <p>The doctor sees position, patient name, registration number, visit time, queue number, and diagnosis state in one compact table.</p>
+            </div>
+          </article>
+          <article class="beat">
+            <div class="num">3</div>
+            <div>
+              <h3>Confirm the active patient context</h3>
+              <p>The first queued patient remains clear so the clinician can start from the correct record.</p>
+            </div>
+          </article>
+          <article class="beat">
+            <div class="num">4</div>
+            <div>
+              <h3>Move into patient work</h3>
+              <p>The dashboard exposes the path into notes and patient detail without making the doctor search again.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="value-title">
+        <h2 id="value-title">What this helps with</h2>
+        <div class="value-grid">
+          <article class="value">
+            <h3>Faster queue review</h3>
+            <p>Clinicians can scan today’s roster and find the next patient without opening a separate scheduling view.</p>
+          </article>
+          <article class="value">
+            <h3>Better visit continuity</h3>
+            <p>Queue details and patient context stay together so handoff from front desk to doctor is easier to follow.</p>
+          </article>
+          <article class="value">
+            <h3>Lower navigation overhead</h3>
+            <p>The dashboard is a single starting point for notes, patient detail, and visit-day work.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Neurabrix ClinicOS documentation. <a href="/docs/clinicos/">Back to ClinicOS docs</a>.
+    </footer>
+  </div>
+</body>
+</html>

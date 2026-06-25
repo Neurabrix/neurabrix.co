@@ -7,6 +7,9 @@
     <loc>https://neurabrix.co/docs/clinicos/</loc>
   </url>
   <url>
-    <loc>https://neurabrix.co/docs/clinicos/doctor/dashboard/</loc>
+    <loc>https://neurabrix.co/docs/clinicos/v1/</loc>
+  </url>
+  <url>
+    <loc>https://neurabrix.co/docs/clinicos/v1/doctor/dashboard/</loc>
   </url>
 </urlset>
