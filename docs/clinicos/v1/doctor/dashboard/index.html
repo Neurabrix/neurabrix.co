@@ -67,30 +67,8 @@
       font-size: 1.1rem;
     }
 
-    .version {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      margin-top: 18px;
-      padding: 0 11px;
-      border: 1px solid rgba(20, 95, 159, 0.28);
-      border-radius: 999px;
-      color: var(--blue);
-      background: #eaf3fb;
-      font-size: 0.86rem;
-      font-weight: 800;
-    }
-
-    .share-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
     button { font: inherit; }
 
-    .share-row a,
     .share-link,
     .share-button {
       display: inline-flex;
@@ -285,6 +263,12 @@
       font-size: 0.92rem;
     }
 
+    .doc-version {
+      display: inline-block;
+      margin-left: 10px;
+      color: #667482;
+    }
+
     @media (max-width: 860px) {
       header,
       .split {
@@ -318,15 +302,6 @@
         <div class="eyebrow">ClinicOS docs</div>
         <h1 id="page-title">Doctor Dashboard</h1>
         <p class="lede">The Doctor Dashboard gives clinicians one place to review the live queue, understand patient context, and begin the right clinical workflow without switching between separate screens.</p>
-        <span class="version">ClinicOS docs v1</span>
-        <nav class="share-row" aria-label="Shareable page sections">
-          <a href="#video">Video</a>
-          <button class="share-button" type="button" data-share-target="video">Copy video link</button>
-          <a href="#workflow">Workflow</a>
-          <button class="share-button" type="button" data-share-target="workflow">Copy workflow link</button>
-          <a href="#value">Value</a>
-          <button class="share-button" type="button" data-share-target="value">Copy value link</button>
-        </nav>
         <div class="facts" aria-label="Dashboard highlights">
           <div class="fact">
             <strong>Live queue</strong>
@@ -428,6 +403,7 @@
 
     <footer>
       Neurabrix ClinicOS documentation. <a href="/docs/clinicos/">Back to ClinicOS docs</a>.
+      <span class="doc-version">Docs version v1</span>
     </footer>
   </div>
   <script>
