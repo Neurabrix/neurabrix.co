@@ -2,7 +2,7 @@
   "feature_id": "doctor.dashboard.live-queue",
   "title": "Doctor Dashboard",
   "surface": "doctor_portal",
-  "hosting_slug": "clinicos/doctor-dashboard",
+  "hosting_slug": "docs/clinicos/doctor/dashboard",
   "html": "index.html",
   "video": {
     "path": "media/doctor-dashboard-after-bvt.webm",
