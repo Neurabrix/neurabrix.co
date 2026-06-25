@@ -88,8 +88,11 @@
       margin-top: 16px;
     }
 
+    button { font: inherit; }
+
     .share-row a,
-    .share-link {
+    .share-link,
+    .share-button {
       display: inline-flex;
       align-items: center;
       min-height: 30px;
@@ -101,6 +104,22 @@
       font-size: 0.82rem;
       font-weight: 800;
       text-decoration: none;
+    }
+
+    .share-button {
+      cursor: pointer;
+    }
+
+    .share-button[data-copy-state="copied"] {
+      border-color: rgba(22, 107, 92, 0.34);
+      color: var(--green);
+      background: #e8f5f0;
+    }
+
+    .share-button[data-copy-state="failed"] {
+      border-color: rgba(141, 101, 12, 0.42);
+      color: var(--gold);
+      background: #fff7df;
     }
 
     .facts {
@@ -158,6 +177,24 @@
     .video-caption a {
       color: #9fd2ff;
       white-space: nowrap;
+    }
+
+    .video-caption .share-button {
+      flex: 0 0 auto;
+      color: #dce6ed;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(159, 210, 255, 0.38);
+    }
+
+    .video-caption .share-button[data-copy-state="copied"] {
+      color: #aef0dc;
+      background: rgba(22, 107, 92, 0.34);
+    }
+
+    .share-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     main { padding: 10px 0 56px; }
@@ -284,8 +321,11 @@
         <span class="version">ClinicOS docs v1</span>
         <nav class="share-row" aria-label="Shareable page sections">
           <a href="#video">Video</a>
+          <button class="share-button" type="button" data-share-target="video">Copy video link</button>
           <a href="#workflow">Workflow</a>
+          <button class="share-button" type="button" data-share-target="workflow">Copy workflow link</button>
           <a href="#value">Value</a>
+          <button class="share-button" type="button" data-share-target="value">Copy value link</button>
         </nav>
         <div class="facts" aria-label="Dashboard highlights">
           <div class="fact">
@@ -310,7 +350,10 @@
         </video>
         <div class="video-caption">
           <span>Product walkthrough: live queue review, patient context, and first clinical action. Captions describe each step.</span>
-          <a href="#video">Share video</a>
+          <span class="share-actions">
+            <a href="#video">Open video</a>
+            <button class="share-button" type="button" data-share-target="video">Copy video link</button>
+          </span>
         </div>
       </aside>
     </header>
@@ -320,7 +363,10 @@
         <div>
           <div class="section-head">
             <h2 id="workflow-title">Workflow shown</h2>
-            <a class="share-link" href="#workflow" aria-label="Share workflow section">#</a>
+            <span class="share-actions">
+              <a class="share-link" href="#workflow" aria-label="Open workflow section">#</a>
+              <button class="share-button" type="button" data-share-target="workflow">Copy link</button>
+            </span>
           </div>
         </div>
         <div class="beats">
@@ -358,7 +404,10 @@
       <section id="value" class="band" aria-labelledby="value-title">
         <div class="section-head">
           <h2 id="value-title">What this helps with</h2>
-          <a class="share-link" href="#value" aria-label="Share value section">#</a>
+          <span class="share-actions">
+            <a class="share-link" href="#value" aria-label="Open value section">#</a>
+            <button class="share-button" type="button" data-share-target="value">Copy link</button>
+          </span>
         </div>
         <div class="value-grid">
           <article class="value">
@@ -381,5 +430,55 @@
       Neurabrix ClinicOS documentation. <a href="/docs/clinicos/">Back to ClinicOS docs</a>.
     </footer>
   </div>
+  <script>
+    (() => {
+      const canonicalLink = document.querySelector('link[rel="canonical"]');
+      const baseUrl = canonicalLink ? canonicalLink.href : window.location.href.split('#')[0];
+
+      const copyText = async (text) => {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.setAttribute('readonly', '');
+        textArea.style.position = 'fixed';
+        textArea.style.top = '-1000px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        const copied = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (!copied) {
+          throw new Error('Copy command failed');
+        }
+      };
+
+      document.querySelectorAll('[data-share-target]').forEach((button) => {
+        const originalText = button.textContent;
+        const target = button.getAttribute('data-share-target');
+
+        button.addEventListener('click', async () => {
+          const url = new URL(baseUrl, window.location.href);
+          url.hash = target;
+
+          try {
+            await copyText(url.href);
+            button.textContent = 'Copied';
+            button.setAttribute('data-copy-state', 'copied');
+          } catch (error) {
+            button.textContent = 'Copy failed';
+            button.setAttribute('data-copy-state', 'failed');
+          }
+
+          window.setTimeout(() => {
+            button.textContent = originalText;
+            button.removeAttribute('data-copy-state');
+          }, 1800);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
