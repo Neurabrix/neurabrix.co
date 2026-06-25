@@ -81,6 +81,28 @@
       font-weight: 800;
     }
 
+    .share-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .share-row a,
+    .share-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgba(20, 95, 159, 0.24);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.74);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
     .facts {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -124,10 +146,18 @@
     }
 
     .video-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
       padding: 12px 14px;
       color: #dce6ed;
       font-size: 0.9rem;
       background: #101820;
+    }
+
+    .video-caption a {
+      color: #9fd2ff;
+      white-space: nowrap;
     }
 
     main { padding: 10px 0 56px; }
@@ -142,6 +172,15 @@
       grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
       gap: 28px;
     }
+
+    .section-head {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-head + .value-grid { margin-top: 18px; }
 
     h2 {
       margin: 0;
@@ -222,6 +261,16 @@
       .value-grid {
         grid-template-columns: 1fr;
       }
+
+      .video-caption,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .video-caption a {
+        white-space: normal;
+      }
     }
   </style>
 </head>
@@ -233,6 +282,11 @@
         <h1 id="page-title">Doctor Dashboard</h1>
         <p class="lede">The Doctor Dashboard gives clinicians one place to review the live queue, understand patient context, and begin the right clinical workflow without switching between separate screens.</p>
         <span class="version">ClinicOS docs v1</span>
+        <nav class="share-row" aria-label="Shareable page sections">
+          <a href="#video">Video</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#value">Value</a>
+        </nav>
         <div class="facts" aria-label="Dashboard highlights">
           <div class="fact">
             <strong>Live queue</strong>
@@ -248,20 +302,26 @@
           </div>
         </div>
       </section>
-      <aside class="video-wrap" aria-label="Doctor Dashboard walkthrough video">
+      <aside id="video" class="video-wrap" aria-label="Doctor Dashboard walkthrough video">
         <video controls preload="none" poster="media/doctor-dashboard-poster.png">
           <source src="media/doctor-dashboard-demo.webm" type="video/webm">
           <track src="media/doctor-dashboard-actions.vtt" kind="captions" srclang="en" label="Action descriptions" default>
           Your browser does not support embedded video.
         </video>
-        <div class="video-caption">Product walkthrough: live queue review, patient context, and first clinical action. Captions describe each step.</div>
+        <div class="video-caption">
+          <span>Product walkthrough: live queue review, patient context, and first clinical action. Captions describe each step.</span>
+          <a href="#video">Share video</a>
+        </div>
       </aside>
     </header>
 
     <main>
-      <section class="band split" aria-labelledby="workflow-title">
+      <section id="workflow" class="band split" aria-labelledby="workflow-title">
         <div>
-          <h2 id="workflow-title">Workflow shown</h2>
+          <div class="section-head">
+            <h2 id="workflow-title">Workflow shown</h2>
+            <a class="share-link" href="#workflow" aria-label="Share workflow section">#</a>
+          </div>
         </div>
         <div class="beats">
           <article class="beat">
@@ -295,8 +355,11 @@
         </div>
       </section>
 
-      <section class="band" aria-labelledby="value-title">
-        <h2 id="value-title">What this helps with</h2>
+      <section id="value" class="band" aria-labelledby="value-title">
+        <div class="section-head">
+          <h2 id="value-title">What this helps with</h2>
+          <a class="share-link" href="#value" aria-label="Share value section">#</a>
+        </div>
         <div class="value-grid">
           <article class="value">
             <h3>Faster queue review</h3>
