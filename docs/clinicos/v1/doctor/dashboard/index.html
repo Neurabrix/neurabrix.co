@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ClinicOS Doctor Dashboard | Neurabrix Docs</title>
-  <meta name="description" content="ClinicOS Doctor Dashboard documentation for live queue review, patient context, and first clinical action.">
+  <title>ClinicOS Doctor Dashboard Walkthrough | Neurabrix Docs</title>
+  <meta name="description" content="Detailed ClinicOS Doctor Dashboard documentation covering queue triage, search, filters, walk-ins, patient actions, and clinical handoff workflows.">
   <link rel="canonical" href="https://neurabrix.co/docs/clinicos/v1/doctor/dashboard/">
   <style>
     :root {
@@ -17,9 +17,12 @@
       --blue: #145f9f;
       --green: #166b5c;
       --gold: #8d650c;
+      --red: #9f322d;
     }
 
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -55,14 +58,14 @@
 
     h1 {
       margin: 10px 0 14px;
-      max-width: 720px;
+      max-width: 760px;
       font-size: clamp(2.25rem, 5vw, 5.1rem);
       line-height: 0.98;
       letter-spacing: 0;
     }
 
     .lede {
-      max-width: 680px;
+      max-width: 700px;
       color: var(--muted);
       font-size: 1.1rem;
     }
@@ -84,9 +87,7 @@
       text-decoration: none;
     }
 
-    .share-button {
-      cursor: pointer;
-    }
+    .share-button { cursor: pointer; }
 
     .share-button[data-copy-state="copied"] {
       border-color: rgba(22, 107, 92, 0.34);
@@ -108,7 +109,7 @@
     }
 
     .fact {
-      min-height: 96px;
+      min-height: 104px;
       padding: 14px;
       background: var(--surface);
       border: 1px solid var(--line);
@@ -118,7 +119,7 @@
     .fact strong {
       display: block;
       margin-bottom: 4px;
-      font-size: 1.28rem;
+      font-size: 1.18rem;
       line-height: 1.1;
     }
 
@@ -178,13 +179,13 @@
     main { padding: 10px 0 56px; }
 
     .band {
-      padding: 34px 0;
+      padding: 38px 0;
       border-top: 1px solid var(--line);
     }
 
     .split {
       display: grid;
-      grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+      grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
       gap: 28px;
     }
 
@@ -195,11 +196,15 @@
       justify-content: space-between;
     }
 
-    .section-head + .value-grid { margin-top: 18px; }
+    .section-copy {
+      margin-top: 12px;
+      max-width: 720px;
+      color: var(--muted);
+    }
 
     h2 {
       margin: 0;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.55rem, 3vw, 2.4rem);
       line-height: 1.08;
       letter-spacing: 0;
     }
@@ -215,9 +220,62 @@
       color: var(--muted);
     }
 
-    .beats { display: grid; gap: 12px; }
+    .feature-grid,
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
 
-    .beat {
+    .feature,
+    .value {
+      min-height: 164px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .feature strong,
+    .value strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      margin-bottom: 10px;
+      padding: 0 8px;
+      border-radius: 999px;
+      color: var(--green);
+      background: #e8f5f0;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .kicker.gold {
+      color: var(--gold);
+      background: #fff2cb;
+    }
+
+    .kicker.blue {
+      color: var(--blue);
+      background: #eaf3fb;
+    }
+
+    .walkthrough {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .step {
       display: grid;
       grid-template-columns: 42px minmax(0, 1fr);
       gap: 14px;
@@ -239,22 +297,60 @@
       font-weight: 800;
     }
 
-    .value-grid {
+    .detail-list {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 0;
+      list-style: none;
     }
 
-    .value {
-      min-height: 150px;
-      padding: 16px;
+    .detail-list li {
+      padding: 14px 16px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
     }
 
-    .value:nth-child(2) h3 { color: var(--green); }
-    .value:nth-child(3) h3 { color: var(--gold); }
+    .detail-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .matrix {
+      width: 100%;
+      margin-top: 18px;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .matrix th,
+    .matrix td {
+      padding: 13px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .matrix tr:last-child td { border-bottom: 0; }
+
+    .matrix th {
+      color: var(--ink);
+      background: #ecf2f7;
+      font-size: 0.86rem;
+    }
+
+    .matrix td { color: var(--muted); }
+
+    .matrix td:first-child {
+      color: var(--ink);
+      font-weight: 800;
+    }
 
     footer {
       padding: 24px 0 44px;
@@ -269,7 +365,7 @@
       color: #667482;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       header,
       .split {
         grid-template-columns: 1fr;
@@ -279,6 +375,7 @@
       header { padding-top: 28px; }
 
       .facts,
+      .feature-grid,
       .value-grid {
         grid-template-columns: 1fr;
       }
@@ -289,8 +386,11 @@
         flex-direction: column;
       }
 
-      .video-caption a {
-        white-space: normal;
+      .video-caption a { white-space: normal; }
+
+      .matrix {
+        display: block;
+        overflow-x: auto;
       }
     }
   </style>
@@ -301,19 +401,19 @@
       <section aria-labelledby="page-title">
         <div class="eyebrow">ClinicOS docs</div>
         <h1 id="page-title">Doctor Dashboard</h1>
-        <p class="lede">The Doctor Dashboard gives clinicians one place to review the live queue, understand patient context, and begin the right clinical workflow without switching between separate screens.</p>
+        <p class="lede">The Doctor Dashboard is the clinician’s operating surface for queue triage. It brings patient type, appointment timing, search, walk-in intake, status updates, labels, patient actions, and clinical handoff into one screen.</p>
         <div class="facts" aria-label="Dashboard highlights">
           <div class="fact">
-            <strong>Live queue</strong>
-            <span>Booked and walk-in patients stay visible in the first screen.</span>
+            <strong>Queue-first triage</strong>
+            <span>OP, IP, and Review queues stay visible with date, token, diagnosis, status, and action context.</span>
           </div>
           <div class="fact">
-            <strong>Patient context</strong>
-            <span>Registration, appointment timing, queue number, and diagnosis readiness are shown together.</span>
+            <strong>Search and filters</strong>
+            <span>Clinicians can narrow by day, date range, patient name, registration number, visit status, and labels.</span>
           </div>
           <div class="fact">
-            <strong>First action</strong>
-            <span>The doctor can move from queue review into notes or patient detail.</span>
+            <strong>One-click handoff</strong>
+            <span>Rows lead into notes, patient information, message, reschedule, notify, complete, and cancel actions.</span>
           </div>
         </div>
       </section>
@@ -324,7 +424,7 @@
           Your browser does not support embedded video.
         </video>
         <div class="video-caption">
-          <span>Product walkthrough: live queue review, patient context, and first clinical action. Captions describe each step.</span>
+          <span>Overview video: open the dashboard, scan the queue, confirm patient context, and move into the first clinical action.</span>
           <span class="share-actions">
             <a href="#video">Open video</a>
             <button class="share-button" type="button" data-share-target="video">Copy video link</button>
@@ -337,41 +437,392 @@
       <section id="workflow" class="band split" aria-labelledby="workflow-title">
         <div>
           <div class="section-head">
-            <h2 id="workflow-title">Workflow shown</h2>
+            <h2 id="workflow-title">Dashboard walkthrough</h2>
             <span class="share-actions">
-              <a class="share-link" href="#workflow" aria-label="Open workflow section">#</a>
+              <a class="share-link" href="#workflow" aria-label="Open dashboard walkthrough section">#</a>
               <button class="share-button" type="button" data-share-target="workflow">Copy link</button>
             </span>
           </div>
+          <p class="section-copy">Use this path when showing a clinician how the Dashboard supports the start of a visit day.</p>
         </div>
-        <div class="beats">
-          <article class="beat">
+        <div class="walkthrough">
+          <article class="step">
             <div class="num">1</div>
             <div>
-              <h3>Open the doctor dashboard</h3>
-              <p>The portal opens with the clinician identity and today queue already loaded.</p>
+              <h3>Open the Dashboard</h3>
+              <p>The doctor lands on the current patient queue instead of a blank landing page or separate scheduling view.</p>
             </div>
           </article>
-          <article class="beat">
+          <article class="step">
             <div class="num">2</div>
             <div>
-              <h3>Review the queue table</h3>
-              <p>The doctor sees position, patient name, registration number, visit time, queue number, and diagnosis state in one compact table.</p>
+              <h3>Choose the right queue segment</h3>
+              <p>Use OP, IP, or Review to focus on outpatient visits, admitted patients, or walk-ins that need review before joining the regular queue.</p>
             </div>
           </article>
-          <article class="beat">
+          <article class="step">
             <div class="num">3</div>
             <div>
-              <h3>Confirm the active patient context</h3>
-              <p>The first queued patient remains clear so the clinician can start from the correct record.</p>
+              <h3>Filter the appointment set</h3>
+              <p>Select Today, Tomorrow, Last 7 days, Last 30 days, or Custom, then search by patient name or registration number.</p>
             </div>
           </article>
-          <article class="beat">
+          <article class="step">
             <div class="num">4</div>
             <div>
-              <h3>Move into patient work</h3>
-              <p>The dashboard exposes the path into notes and patient detail without making the doctor search again.</p>
+              <h3>Prioritize the current patient</h3>
+              <p>Use Current patient view, First patient view, or Last patient view to organize the queue around how the doctor wants to work.</p>
             </div>
+          </article>
+          <article class="step">
+            <div class="num">5</div>
+            <div>
+              <h3>Act on the row</h3>
+              <p>Open notes, view patient information, notify the next patient, mark complete, message, reschedule, or cancel without leaving the dashboard context.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="feature-map" class="band" aria-labelledby="feature-map-title">
+        <div class="section-head">
+          <h2 id="feature-map-title">Feature map</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#feature-map" aria-label="Open feature map section">#</a>
+            <button class="share-button" type="button" data-share-target="feature-map">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">The Dashboard is designed as a compact queue command center. These are the major feature groups exposed from the page.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="kicker blue">Queue</span>
+            <strong>Live patient table</strong>
+            <p>Shows position, patient, registration number, appointment date and time, token, diagnosis summary, labels, and action controls.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Triage</span>
+            <strong>OP, IP, and Review tabs</strong>
+            <p>Separates outpatient patients, admitted patients, and walk-ins or photo-intake records that still need review.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Search</span>
+            <strong>Date ranges and patient search</strong>
+            <p>Filters today, tomorrow, recent ranges, or custom dates with patient name and registration number matching.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker blue">Control</span>
+            <strong>Queue view modes</strong>
+            <p>Current, first, and last patient views help the doctor focus on the active patient or scan the full queue order.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Follow-up</span>
+            <strong>Status and labels</strong>
+            <p>Patient status, waiting notes, and labels make it easier to track reports, calls, scans, and prescription review needs.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Action</span>
+            <strong>Visit-day actions</strong>
+            <p>The row action area supports call-next notification, patient information, notes, messaging, rescheduling, completion, and cancellation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="live-queue" class="band" aria-labelledby="live-queue-title">
+        <div class="section-head">
+          <h2 id="live-queue-title">Live queue table</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#live-queue" aria-label="Open live queue section">#</a>
+            <button class="share-button" type="button" data-share-target="live-queue">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">The table is optimized for fast scanning. It uses a fixed operational column order so clinicians can compare patients without opening each chart.</p>
+        <table class="matrix" aria-label="Dashboard queue table columns">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>What it shows</th>
+              <th>How to use it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Position and token</td>
+              <td>Queue position and token number for visit-day ordering.</td>
+              <td>Use these fields to call patients in order and verify the patient being handled.</td>
+            </tr>
+            <tr>
+              <td>Patient and registration</td>
+              <td>Patient name and registration number in the same row.</td>
+              <td>Confirm identity before opening notes, patient information, or messages.</td>
+            </tr>
+            <tr>
+              <td>Date and time</td>
+              <td>The scheduled or walk-in visit timestamp.</td>
+              <td>Compare arrival order, appointment timing, and delayed visits.</td>
+            </tr>
+            <tr>
+              <td>Diagnosis summary</td>
+              <td>A compact diagnosis or readiness indicator.</td>
+              <td>Spot rows where clinical context is already available or still not set.</td>
+            </tr>
+            <tr>
+              <td>Labels and actions</td>
+              <td>Patient labels, status controls, completion, and more actions.</td>
+              <td>Update queue state and move into the next clinical step from the row.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="patient-tabs" class="band split" aria-labelledby="patient-tabs-title">
+        <div>
+          <div class="section-head">
+            <h2 id="patient-tabs-title">Patient tabs</h2>
+            <span class="share-actions">
+              <a class="share-link" href="#patient-tabs" aria-label="Open patient tabs section">#</a>
+              <button class="share-button" type="button" data-share-target="patient-tabs">Copy link</button>
+            </span>
+          </div>
+          <p class="section-copy">Tabs keep different patient types separated while preserving the same table and action model.</p>
+        </div>
+        <ul class="detail-list">
+          <li>
+            <strong>OP patients</strong>
+            <p>Use this tab for outpatient visits and the normal visit-day queue.</p>
+          </li>
+          <li>
+            <strong>IP patients</strong>
+            <p>Use this tab for admitted or inpatient cases when the dashboard needs to keep ward or bed work separate from OP flow.</p>
+          </li>
+          <li>
+            <strong>Review</strong>
+            <p>Use this tab for patients created from walk-in or photo-intake flows that need review before they are treated as regular queue entries.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="search-ranges" class="band" aria-labelledby="search-ranges-title">
+        <div class="section-head">
+          <h2 id="search-ranges-title">Search and date ranges</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#search-ranges" aria-label="Open search and date ranges section">#</a>
+            <button class="share-button" type="button" data-share-target="search-ranges">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">The search area supports quick same-day filtering and wider appointment lookup without sending the doctor to another page.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="kicker blue">Today</span>
+            <strong>Same-day queue filter</strong>
+            <p>Filter today’s visible queue by patient name, registration number, status, or label while keeping the current dashboard context.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker blue">Tomorrow</span>
+            <strong>Next-day review</strong>
+            <p>Switch to tomorrow to preview the next visit day and find a patient before they arrive.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Recent history</span>
+            <strong>Last 7 or 30 days</strong>
+            <p>Use recent ranges when a clinician remembers the patient was seen recently but not exactly when.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Custom</span>
+            <strong>Specific date windows</strong>
+            <p>Select a start and end date for targeted appointment lookup across a known visit period.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Typing help</span>
+            <strong>Patient autocomplete</strong>
+            <p>When matching local patients are available, typing at least two characters surfaces likely patient matches for quicker selection.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">State feedback</span>
+            <strong>Search progress and empty results</strong>
+            <p>The dashboard shows when it is searching, when appointment search is unavailable, and when no results match the selected range.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="queue-controls" class="band split" aria-labelledby="queue-controls-title">
+        <div>
+          <div class="section-head">
+            <h2 id="queue-controls-title">Queue controls</h2>
+            <span class="share-actions">
+              <a class="share-link" href="#queue-controls" aria-label="Open queue controls section">#</a>
+              <button class="share-button" type="button" data-share-target="queue-controls">Copy link</button>
+            </span>
+          </div>
+          <p class="section-copy">These controls change how the same queue is organized without changing the patient records themselves.</p>
+        </div>
+        <ul class="detail-list">
+          <li>
+            <strong>Current patient view</strong>
+            <p>Moves the current active patient to the top so the doctor can start from the most relevant record.</p>
+          </li>
+          <li>
+            <strong>First patient view</strong>
+            <p>Sorts from the beginning of the queue for normal call-order review.</p>
+          </li>
+          <li>
+            <strong>Last patient view</strong>
+            <p>Sorts from the end of the queue when the clinician needs to inspect late additions or trailing appointments.</p>
+          </li>
+          <li>
+            <strong>Reorder handle</strong>
+            <p>When queue reordering is available, rows can be rearranged directly from the dashboard while preserving the rest of the row context.</p>
+          </li>
+          <li>
+            <strong>Pagination</strong>
+            <p>Large queues use previous and next page controls while keeping the filtered count and page position visible.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="status-labels" class="band" aria-labelledby="status-labels-title">
+        <div class="section-head">
+          <h2 id="status-labels-title">Status and labels</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#status-labels" aria-label="Open status and labels section">#</a>
+            <button class="share-button" type="button" data-share-target="status-labels">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">Status and labels make the queue more than a schedule. They help the doctor and staff track what is already done and what still needs attention.</p>
+        <table class="matrix" aria-label="Dashboard status and label walkthrough">
+          <thead>
+            <tr>
+              <th>Control</th>
+              <th>Options</th>
+              <th>Use case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Patient status</td>
+              <td>Not yet seen, Seen once, Waiting for results, Completed.</td>
+              <td>Keep clinical progress visible without opening the full note.</td>
+            </tr>
+            <tr>
+              <td>Waiting note</td>
+              <td>Short note such as a pending report or callback reason.</td>
+              <td>Clarify why a patient is waiting and what the next expected event is.</td>
+            </tr>
+            <tr>
+              <td>Labels</td>
+              <td>Reusable labels such as review scan, call attendant, or prescription review.</td>
+              <td>Group patients by operational needs and filter the table by those needs.</td>
+            </tr>
+            <tr>
+              <td>Filter strip</td>
+              <td>All patients, status counts, and the most common labels.</td>
+              <td>Jump directly to the subset that needs attention.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="row-actions" class="band" aria-labelledby="row-actions-title">
+        <div class="section-head">
+          <h2 id="row-actions-title">Patient row actions</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#row-actions" aria-label="Open patient row actions section">#</a>
+            <button class="share-button" type="button" data-share-target="row-actions">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">Each row includes direct actions for the most common visit-day tasks. The goal is to avoid hunting through separate menus before a patient can be handled.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="kicker blue">Next patient</span>
+            <strong>Call next and notify</strong>
+            <p>Signals that the next patient is ready and keeps the queue action attached to the selected row.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker blue">Patient context</span>
+            <strong>View patient information</strong>
+            <p>Opens a compact patient information view with registration, appointment, risk, reason, token, and related context.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Clinical work</span>
+            <strong>Open notes</strong>
+            <p>Moves from the dashboard row into the patient workspace so the doctor can continue with structured history and notes.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Completion</span>
+            <strong>Mark complete</strong>
+            <p>Closes the visit-day action when a patient is finished from the dashboard context.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Communication</span>
+            <strong>Message patient</strong>
+            <p>Starts a patient message from the row so communication remains tied to the appointment context.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Schedule change</span>
+            <strong>Reschedule or cancel</strong>
+            <p>Lets staff handle appointment changes directly from the row when the doctor or clinic workflow requires it.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="walk-in-intake" class="band split" aria-labelledby="walk-in-intake-title">
+        <div>
+          <div class="section-head">
+            <h2 id="walk-in-intake-title">Walk-in intake</h2>
+            <span class="share-actions">
+              <a class="share-link" href="#walk-in-intake" aria-label="Open walk-in intake section">#</a>
+              <button class="share-button" type="button" data-share-target="walk-in-intake">Copy link</button>
+            </span>
+          </div>
+          <p class="section-copy">The Dashboard includes walk-in entry points so clinics can register a patient while still working from the queue.</p>
+        </div>
+        <ul class="detail-list">
+          <li>
+            <strong>Manual walk-in entry</strong>
+            <p>Add a new walk-in when the clinic has the patient details available at the desk.</p>
+          </li>
+          <li>
+            <strong>Existing patient walk-in</strong>
+            <p>Bring an existing patient into today’s queue without creating a duplicate record.</p>
+          </li>
+          <li>
+            <strong>Computer image intake</strong>
+            <p>Upload patient intake images from the computer when registration or clinical information arrives as files.</p>
+          </li>
+          <li>
+            <strong>Mobile photo intake</strong>
+            <p>Use a phone photo path when the intake information is captured at the counter or bedside.</p>
+          </li>
+          <li>
+            <strong>Review tab routing</strong>
+            <p>New or image-based walk-ins that still need review stay in the Review tab until they are ready for normal queue handling.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="continuity" class="band" aria-labelledby="continuity-title">
+        <div class="section-head">
+          <h2 id="continuity-title">Continuity and page behavior</h2>
+          <span class="share-actions">
+            <a class="share-link" href="#continuity" aria-label="Open continuity section">#</a>
+            <button class="share-button" type="button" data-share-target="continuity">Copy link</button>
+          </span>
+        </div>
+        <p class="section-copy">The Dashboard keeps context stable as clinicians move between queue review and patient work.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="kicker blue">Return path</span>
+            <strong>Dashboard to notes and back</strong>
+            <p>A patient can be opened from the queue, reviewed in notes or patient information, and then the doctor can return to the same dashboard context.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker">Deep links</span>
+            <strong>Readable route state</strong>
+            <p>The dashboard route reflects the active dashboard area, so reloads and browser navigation reopen the expected surface.</p>
+          </article>
+          <article class="feature">
+            <span class="kicker gold">Empty states</span>
+            <strong>Clear no-result messages</strong>
+            <p>When filters or date ranges have no matching appointments, the page explains whether the current tab, query, or range is empty.</p>
           </article>
         </div>
       </section>
@@ -386,16 +837,16 @@
         </div>
         <div class="value-grid">
           <article class="value">
-            <h3>Faster queue review</h3>
-            <p>Clinicians can scan today’s roster and find the next patient without opening a separate scheduling view.</p>
+            <strong>Faster queue review</strong>
+            <p>Doctors can scan today’s roster, identify the active patient, and decide the next action without opening separate schedule screens.</p>
           </article>
           <article class="value">
-            <h3>Better visit continuity</h3>
-            <p>Queue details and patient context stay together so handoff from front desk to doctor is easier to follow.</p>
+            <strong>Cleaner handoff</strong>
+            <p>Front-desk intake, walk-in review, queue order, and doctor actions stay connected on the same operational surface.</p>
           </article>
           <article class="value">
-            <h3>Lower navigation overhead</h3>
-            <p>The dashboard is a single starting point for notes, patient detail, and visit-day work.</p>
+            <strong>Less navigation overhead</strong>
+            <p>The dashboard becomes the starting point for notes, patient information, messages, rescheduling, completion, and visit-day review.</p>
           </article>
         </div>
       </section>
