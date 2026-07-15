@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Request deletion of your ClinicOS account and associated personal data."
+    />
+    <meta property="og:title" content="Delete your ClinicOS account | Neurabrix" />
+    <meta
+      property="og:description"
+      content="Submit a request to delete your ClinicOS account and associated personal data."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://neurabrix.co/clinicos/deletemyaccount/" />
+    <title>Delete your ClinicOS account | Neurabrix</title>
+    <link rel="canonical" href="https://neurabrix.co/clinicos/deletemyaccount/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/privacy/privacy.css" />
+    <link rel="stylesheet" href="./delete-account.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Neurabrix home">
+        <span class="brand-mark">N</span>
+        <span>Neurabrix</span>
+      </a>
+      <nav aria-label="Account deletion navigation">
+        <a href="#request">Request deletion</a>
+        <a href="#what-happens">What happens</a>
+        <a href="/privacy/">Privacy policy</a>
+      </nav>
+      <a class="header-action" href="mailto:contact@neurabrix.co?subject=ClinicOS%20account%20deletion%20request">
+        Contact support
+      </a>
+    </header>
+
+    <main>
+      <section class="delete-hero">
+        <div>
+          <p class="eyebrow">ClinicOS privacy request</p>
+          <h1>Delete your ClinicOS account</h1>
+          <p class="lede">
+            Use this page to request deletion of your ClinicOS account and personal data associated with that account.
+            You do not need to reinstall or sign in to the app.
+          </p>
+        </div>
+        <div class="hero-note">
+          <strong>This is a request, not instant deletion.</strong>
+          <p>
+            We will contact you using the account email to verify your identity before deleting data. Never send your
+            password, one-time code, medical records, or government identification through this form.
+          </p>
+        </div>
+      </section>
+
+      <div class="delete-layout">
+        <section class="request-card" id="request">
+          <div class="section-intro">
+            <p class="eyebrow">Deletion request</p>
+            <h2>Tell us which account to locate</h2>
+            <p>
+              This form prepares an email to our privacy support team. Review and send the email in your email app to
+              submit your request.
+            </p>
+          </div>
+
+          <form id="delete-account-form" novalidate>
+            <div class="field-grid">
+              <div class="field full-width">
+                <label for="account-email">Email used for your ClinicOS account <span aria-hidden="true">*</span></label>
+                <input
+                  id="account-email"
+                  name="accountEmail"
+                  type="email"
+                  autocomplete="email"
+                  maxlength="254"
+                  required
+                  aria-describedby="account-email-help"
+                />
+                <small id="account-email-help">We use this only to locate the account and verify the request.</small>
+              </div>
+
+              <div class="field">
+                <label for="account-role">Your ClinicOS role <span aria-hidden="true">*</span></label>
+                <select id="account-role" name="accountRole" required>
+                  <option value="">Select a role</option>
+                  <option>Patient</option>
+                  <option>Doctor or clinician</option>
+                  <option>Clinic staff or administrator</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="organization">Clinic or organization</label>
+                <input id="organization" name="organization" type="text" autocomplete="organization" maxlength="120" />
+              </div>
+
+              <div class="field full-width">
+                <label for="notes">Additional information to help locate the account</label>
+                <textarea
+                  id="notes"
+                  name="notes"
+                  rows="4"
+                  maxlength="500"
+                  aria-describedby="notes-help"
+                ></textarea>
+                <small id="notes-help">Optional. Do not include health information or identity documents.</small>
+              </div>
+            </div>
+
+            <label class="confirmation">
+              <input id="authority-confirmation" name="authorityConfirmation" type="checkbox" required />
+              <span>I am the account holder or am authorized to make this request. <span aria-hidden="true">*</span></span>
+            </label>
+
+            <label class="confirmation">
+              <input id="retention-confirmation" name="retentionConfirmation" type="checkbox" required />
+              <span>
+                I understand that some clinical, billing, security, or legal records may be retained where required or
+                permitted by law. <span aria-hidden="true">*</span>
+              </span>
+            </label>
+
+            <div id="form-error" class="form-message error-message" role="alert" hidden></div>
+            <div class="form-actions">
+              <button class="submit-button" type="submit">Submit deletion request</button>
+              <p>
+                Or email
+                <a href="mailto:contact@neurabrix.co?subject=ClinicOS%20account%20deletion%20request">
+                  contact@neurabrix.co
+                </a>
+                with the subject “ClinicOS account deletion request.”
+              </p>
+            </div>
+
+            <div id="email-ready" class="form-message success-message" role="status" aria-live="polite" hidden>
+              <strong>Your request email is ready.</strong>
+              <span>If your email app did not open, use the button below and send the prepared message.</span>
+              <a id="email-fallback" class="secondary-button" href="mailto:contact@neurabrix.co">
+                Open prepared email
+              </a>
+            </div>
+          </form>
+        </section>
+
+        <aside class="process-card" id="what-happens">
+          <p class="eyebrow">What happens next</p>
+          <ol class="process-list">
+            <li>
+              <span>1</span>
+              <div>
+                <strong>Send the prepared email</strong>
+                <p>Your email app will open with the details you entered. Send it to complete the request.</p>
+              </div>
+            </li>
+            <li>
+              <span>2</span>
+              <div>
+                <strong>Verify your identity</strong>
+                <p>We may confirm account ownership or ask the relevant clinic to verify your request.</p>
+              </div>
+            </li>
+            <li>
+              <span>3</span>
+              <div>
+                <strong>Delete eligible data</strong>
+                <p>
+                  We will delete or de-identify the account and associated data that we are permitted to delete, and
+                  notify relevant service providers where required.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>4</span>
+              <div>
+                <strong>Confirm completion</strong>
+                <p>We will tell you when the request is complete or explain any lawful retention that still applies.</p>
+              </div>
+            </li>
+          </ol>
+        </aside>
+      </div>
+
+      <section class="data-details">
+        <div>
+          <p class="eyebrow">Data covered</p>
+          <h2>What we delete</h2>
+          <p>
+            Subject to verification, applicable law, and the instructions of the healthcare organization responsible
+            for the data, deletion generally covers your ClinicOS account, access credentials or login associations,
+            profile and preference data, and other personal data associated with your use of the app that is not
+            required to be retained.
+          </p>
+        </div>
+        <div>
+          <p class="eyebrow">Limited retention</p>
+          <h2>What may be retained</h2>
+          <p>
+            A clinic or healthcare provider may be legally required to retain medical records even after your app
+            account is deleted. Neurabrix or the provider may also retain limited billing, transaction, security,
+            fraud-prevention, audit, dispute, or legal-compliance records. Retained data remains protected and is used
+            only for the applicable retention purpose. Residual copies may remain in protected backups until their
+            normal deletion cycle completes.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand footer-brand" href="/">
+        <span class="brand-mark">N</span>
+        <span>Neurabrix</span>
+      </a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="mailto:contact@neurabrix.co?subject=ClinicOS%20account%20deletion%20request">
+        contact@neurabrix.co
+      </a>
+    </footer>
+
+    <script>
+      const form = document.getElementById("delete-account-form");
+      const errorMessage = document.getElementById("form-error");
+      const emailReady = document.getElementById("email-ready");
+      const emailFallback = document.getElementById("email-fallback");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        errorMessage.hidden = true;
+        emailReady.hidden = true;
+
+        if (!form.checkValidity()) {
+          errorMessage.textContent = "Complete the required fields and confirm both statements before continuing.";
+          errorMessage.hidden = false;
+          form.reportValidity();
+          return;
+        }
+
+        const values = new FormData(form);
+        const accountEmail = String(values.get("accountEmail") || "").trim();
+        const accountRole = String(values.get("accountRole") || "").trim();
+        const organization = String(values.get("organization") || "").trim() || "Not provided";
+        const notes = String(values.get("notes") || "").trim() || "None";
+        const subject = "ClinicOS account deletion request";
+        const body = [
+          "ClinicOS account deletion request",
+          "",
+          `Account email: ${accountEmail}`,
+          `Account role: ${accountRole}`,
+          `Clinic or organization: ${organization}`,
+          `Additional account-locating information: ${notes}`,
+          "",
+          "I request deletion of my ClinicOS account and associated personal data, subject to identity verification and lawful retention requirements.",
+          "I confirm that I am the account holder or am authorized to make this request.",
+          "",
+          "Please contact me at the account email above to verify and process this request.",
+        ].join("\n");
+        const mailto = `mailto:contact@neurabrix.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        emailFallback.href = mailto;
+        emailReady.hidden = false;
+        window.location.href = mailto;
+      });
+    </script>
+  </body>
+</html>
