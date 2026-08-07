@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 720" role="img" aria-labelledby="title desc">
+  <title id="title">Neurabrix intelligent systems architecture</title>
+  <desc id="desc">Voice, vision, and data connect to an evaluated intelligence core that powers agents, applications, and automation.</desc>
+  <defs>
+    <linearGradient id="background" x1="80" y1="40" x2="760" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFC"/>
+      <stop offset=".52" stop-color="#EAF5F2"/>
+      <stop offset="1" stop-color="#E6EEF8"/>
+    </linearGradient>
+    <linearGradient id="core" x1="318" y1="194" x2="548" y2="454" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A8D84"/>
+      <stop offset="1" stop-color="#2157A6"/>
+    </linearGradient>
+    <linearGradient id="coreGlow" x1="360" y1="230" x2="510" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9F0E4" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#DDE8FA" stop-opacity=".25"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#315A62" stroke-opacity=".07"/>
+    </pattern>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#173A42" flood-opacity=".12"/>
+    </filter>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#173A42" flood-opacity=".1"/>
+    </filter>
+  </defs>
+
+  <rect width="840" height="720" rx="32" fill="url(#background)"/>
+  <rect width="840" height="720" rx="32" fill="url(#grid)"/>
+  <circle cx="714" cy="92" r="116" fill="#BDE9DD" fill-opacity=".26"/>
+  <circle cx="88" cy="636" r="142" fill="#C9D9F5" fill-opacity=".28"/>
+
+  <g fill="none" stroke="#187A75" stroke-linecap="round">
+    <path d="M222 218C274 218 274 260 315 260" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M222 326H302" stroke-opacity=".34" stroke-width="2"/>
+    <path d="M222 434C274 434 274 392 315 392" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M548 260C592 260 592 218 628 218" stroke-opacity=".28" stroke-width="2"/>
+    <path d="M558 326H628" stroke-opacity=".34" stroke-width="2"/>
+    <path d="M548 392C592 392 592 434 628 434" stroke-opacity=".28" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#softShadow)" font-family="Inter, Arial, sans-serif">
+    <g transform="translate(52 174)">
+      <rect width="170" height="88" rx="16" fill="#FFFFFF" stroke="#1A756F" stroke-opacity=".15"/>
+      <circle cx="31" cy="31" r="12" fill="#DDF2EB"/>
+      <path d="M27 31c0-5 8-5 8 0s-8 5-8 0Zm4-8v3m0 10v3" fill="none" stroke="#147C76" stroke-width="2" stroke-linecap="round"/>
+      <text x="52" y="35" fill="#16333D" font-size="14" font-weight="700">Voice</text>
+      <text x="22" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">CONVERSATION</text>
+    </g>
+    <g transform="translate(52 282)">
+      <rect width="170" height="88" rx="16" fill="#FFFFFF" stroke="#1A756F" stroke-opacity=".15"/>
+      <circle cx="31" cy="31" r="12" fill="#E7EEF9"/>
+      <rect x="24" y="25" width="14" height="11" rx="2" fill="none" stroke="#285BA4" stroke-width="2"/>
+      <circle cx="34" cy="29" r="2" fill="#285BA4"/>
+      <path d="m25 34 4-4 3 3 2-2 3 3" fill="none" stroke="#285BA4" stroke-width="1.5"/>
+      <text x="52" y="35" fill="#16333D" font-size="14" font-weight="700">Vision</text>
+      <text x="22" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">DOCUMENTS</text>
+    </g>
+    <g transform="translate(52 390)">
+      <rect width="170" height="88" rx="16" fill="#FFFFFF" stroke="#1A756F" stroke-opacity=".15"/>
+      <circle cx="31" cy="31" r="12" fill="#E3F2EE"/>
+      <ellipse cx="31" cy="27" rx="7" ry="3.5" fill="none" stroke="#147C76" stroke-width="1.7"/>
+      <path d="M24 27v8c0 2 3 3.5 7 3.5s7-1.5 7-3.5v-8m-14 4c0 2 3 3.5 7 3.5s7-1.5 7-3.5" fill="none" stroke="#147C76" stroke-width="1.7"/>
+      <text x="52" y="35" fill="#16333D" font-size="14" font-weight="700">Data</text>
+      <text x="22" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">CONTEXT</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <circle cx="430" cy="326" r="144" fill="#FFFFFF" stroke="#1A8179" stroke-opacity=".16" stroke-width="2"/>
+    <circle cx="430" cy="326" r="116" fill="url(#core)"/>
+    <circle cx="430" cy="326" r="86" fill="url(#coreGlow)" fill-opacity=".24" stroke="#FFFFFF" stroke-opacity=".28"/>
+    <circle cx="430" cy="326" r="50" fill="#0E3C4D" fill-opacity=".48" stroke="#FFFFFF" stroke-opacity=".28"/>
+  </g>
+
+  <g fill="none" stroke="#D8F4EA" stroke-width="1.6" stroke-opacity=".72">
+    <path d="m390 286 34-23 38 18 25 36-21 45-43 19-43-27-8-39 18-29Z"/>
+    <path d="m390 286 33 39m39-44-39 44m64-8-64 8m43 37-43-37m0 56v-56m-43 29 43-29m-51-10 51 10"/>
+  </g>
+  <g fill="#D8F4EA">
+    <circle cx="390" cy="286" r="5"/>
+    <circle cx="424" cy="263" r="5"/>
+    <circle cx="462" cy="281" r="5"/>
+    <circle cx="487" cy="317" r="5"/>
+    <circle cx="466" cy="362" r="5"/>
+    <circle cx="423" cy="381" r="5"/>
+    <circle cx="380" cy="354" r="5"/>
+    <circle cx="372" cy="315" r="5"/>
+    <circle cx="423" cy="325" r="7" fill="#FFFFFF"/>
+  </g>
+  <text x="430" y="485" text-anchor="middle" fill="#16333D" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="2">INTELLIGENCE CORE</text>
+  <text x="430" y="505" text-anchor="middle" fill="#617178" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="600">Grounded · evaluated · accountable</text>
+
+  <g filter="url(#softShadow)" font-family="Inter, Arial, sans-serif">
+    <g transform="translate(628 174)">
+      <rect width="160" height="88" rx="16" fill="#FFFFFF" stroke="#285BA4" stroke-opacity=".14"/>
+      <rect x="20" y="21" width="24" height="24" rx="8" fill="#E6EEF9"/>
+      <path d="m28 29 8 4-8 4v-8Z" fill="#285BA4"/>
+      <text x="55" y="35" fill="#16333D" font-size="14" font-weight="700">Agents</text>
+      <text x="20" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">TOOL USE</text>
+    </g>
+    <g transform="translate(628 282)">
+      <rect width="160" height="88" rx="16" fill="#FFFFFF" stroke="#285BA4" stroke-opacity=".14"/>
+      <rect x="20" y="21" width="24" height="24" rx="8" fill="#DDF2EB"/>
+      <rect x="27" y="25" width="10" height="16" rx="2" fill="none" stroke="#147C76" stroke-width="1.8"/>
+      <path d="M30 38h4" stroke="#147C76" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="55" y="35" fill="#16333D" font-size="14" font-weight="700">Apps</text>
+      <text x="20" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">EXPERIENCE</text>
+    </g>
+    <g transform="translate(628 390)">
+      <rect width="160" height="88" rx="16" fill="#FFFFFF" stroke="#285BA4" stroke-opacity=".14"/>
+      <rect x="20" y="21" width="24" height="24" rx="8" fill="#E4F2EE"/>
+      <path d="M27 35h10M30 29l-3 6 3 6m4-12 3 6-3 6" fill="none" stroke="#147C76" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="55" y="35" fill="#16333D" font-size="14" font-weight="700">Automation</text>
+      <text x="20" y="64" fill="#617178" font-size="10" font-weight="600" letter-spacing="1.4">OPERATIONS</text>
+    </g>
+  </g>
+
+  <g transform="translate(88 574)" filter="url(#softShadow)" font-family="Inter, Arial, sans-serif">
+    <rect width="664" height="76" rx="20" fill="#FFFFFF" fill-opacity=".9" stroke="#234D55" stroke-opacity=".1"/>
+    <text x="28" y="30" fill="#607077" font-size="9" font-weight="800" letter-spacing="1.6">PRODUCTION LOOP</text>
+    <g transform="translate(28 44)" fill="#16333D" font-size="11" font-weight="700">
+      <text x="0">Prototype</text>
+      <text x="127">Evaluate</text>
+      <text x="252">Integrate</text>
+      <text x="382">Deploy</text>
+      <text x="500">Improve</text>
+    </g>
+    <g fill="#147C76">
+      <circle cx="110" cy="41" r="3"/>
+      <circle cx="237" cy="41" r="3"/>
+      <circle cx="365" cy="41" r="3"/>
+      <circle cx="484" cy="41" r="3"/>
+    </g>
+  </g>
+</svg>

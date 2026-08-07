@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">ClinicOS doctor workspace</title>
+  <desc id="desc">A vector representation of the ClinicOS doctor dashboard with a patient queue, filters, status chips, and workflow actions.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFCFD"/>
+      <stop offset="1" stop-color="#EEF4F6"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#554D8D"/>
+      <stop offset=".55" stop-color="#6E5DA5"/>
+      <stop offset="1" stop-color="#2F7775"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#243E48" flood-opacity=".13"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" rx="26" fill="url(#surface)"/>
+  <rect x="22" y="22" width="1156" height="631" rx="20" fill="#FFFFFF" stroke="#CBD7DB"/>
+  <path d="M42 22h1116a20 20 0 0 1 20 20v48H22V42a20 20 0 0 1 20-20Z" fill="url(#brand)"/>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <g transform="translate(48 42)">
+      <rect width="34" height="30" rx="9" fill="#FFFFFF" fill-opacity=".17"/>
+      <text x="17" y="21" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">N</text>
+      <text x="46" y="20" fill="#FFFFFF" font-size="14" font-weight="700">ClinicOS</text>
+    </g>
+    <rect x="348" y="40" width="370" height="34" rx="17" fill="#FFFFFF" fill-opacity=".14" stroke="#FFFFFF" stroke-opacity=".14"/>
+    <circle cx="372" cy="57" r="6" fill="none" stroke="#FFFFFF" stroke-opacity=".78" stroke-width="2"/>
+    <path d="m376 61 5 5" stroke="#FFFFFF" stroke-opacity=".78" stroke-width="2" stroke-linecap="round"/>
+    <text x="392" y="61" fill="#FFFFFF" fill-opacity=".76" font-size="11">Search patients, records, notes, actions…</text>
+    <circle cx="1096" cy="57" r="16" fill="#FFFFFF" fill-opacity=".17"/>
+    <text x="1096" y="61" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="800">DR</text>
+    <text x="1020" y="54" text-anchor="end" fill="#FFFFFF" font-size="10" font-weight="700">Doctor workspace</text>
+    <text x="1020" y="67" text-anchor="end" fill="#FFFFFF" fill-opacity=".68" font-size="8">Live queue · Today</text>
+  </g>
+
+  <rect x="22" y="90" width="184" height="563" fill="#F4F6FA"/>
+  <path d="M206 90v563" stroke="#D7E0E4"/>
+  <g font-family="Inter, Arial, sans-serif">
+    <text x="46" y="122" fill="#859196" font-size="8" font-weight="800" letter-spacing="1.4">NAVIGATION</text>
+    <g transform="translate(38 140)">
+      <rect width="146" height="42" rx="10" fill="#E8E4F5"/>
+      <rect width="4" height="42" rx="2" fill="#6B5BA2"/>
+      <circle cx="24" cy="21" r="7" fill="#6B5BA2"/>
+      <path d="M21 21h6M24 18v6" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="43" y="25" fill="#3D365F" font-size="11" font-weight="700">Dashboard</text>
+    </g>
+    <g fill="#657278" font-size="11" font-weight="600">
+      <text x="81" y="218">Notes</text>
+      <text x="81" y="262">Patients</text>
+      <text x="81" y="306">Digital clinic</text>
+      <text x="81" y="350">Analytics</text>
+      <text x="81" y="394">Inbox</text>
+      <text x="81" y="438">Education</text>
+      <text x="81" y="482">Profile</text>
+    </g>
+    <g fill="#A5B0B4">
+      <circle cx="61" cy="214" r="7"/>
+      <circle cx="61" cy="258" r="7"/>
+      <circle cx="61" cy="302" r="7"/>
+      <circle cx="61" cy="346" r="7"/>
+      <circle cx="61" cy="390" r="7"/>
+      <circle cx="61" cy="434" r="7"/>
+      <circle cx="61" cy="478" r="7"/>
+    </g>
+    <rect x="40" y="536" width="148" height="92" rx="14" fill="#FFFFFF" stroke="#D9E1E5"/>
+    <text x="56" y="558" fill="#859196" font-size="8" font-weight="800" letter-spacing="1.2">TODAY</text>
+    <text x="56" y="585" fill="#26383F" font-size="22" font-weight="800">08</text>
+    <text x="91" y="577" fill="#5F6E74" font-size="9" font-weight="700">patients</text>
+    <text x="91" y="591" fill="#5F6E74" font-size="9">in the queue</text>
+    <rect x="56" y="606" width="108" height="6" rx="3" fill="#DCECE8"/>
+    <rect x="56" y="606" width="72" height="6" rx="3" fill="#168279"/>
+  </g>
+
+  <g transform="translate(232 112)" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="20" fill="#1C3038" font-size="20" font-weight="800">Doctor dashboard</text>
+    <text x="0" y="42" fill="#728087" font-size="10">Review today’s queue and move each patient into the right next action.</text>
+
+    <g transform="translate(0 64)">
+      <rect width="88" height="36" rx="10" fill="#F3EFFB" stroke="#DDD5F0"/>
+      <text x="16" y="22" fill="#51457E" font-size="10" font-weight="800">IP 0</text>
+      <rect x="96" width="94" height="36" rx="10" fill="#E9E4F7" stroke="#D8D0EC"/>
+      <text x="112" y="22" fill="#51457E" font-size="10" font-weight="800">OP 8</text>
+      <rect x="198" width="112" height="36" rx="10" fill="#DFF2ED" stroke="#C7E7DE"/>
+      <text x="214" y="22" fill="#116F68" font-size="10" font-weight="800">Review 3</text>
+      <rect x="322" width="120" height="36" rx="10" fill="#EAE4F8" stroke="#D9D1EF"/>
+      <text x="340" y="22" fill="#51457E" font-size="10" font-weight="800">Today ▾</text>
+      <rect x="462" width="242" height="36" rx="18" fill="#FFFFFF" stroke="#CBD6DB"/>
+      <circle cx="484" cy="18" r="6" fill="none" stroke="#6E7C82" stroke-width="1.5"/>
+      <path d="m488 22 4 4" stroke="#6E7C82" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="503" y="22" fill="#859197" font-size="9">Filter today’s appointments…</text>
+      <rect x="720" width="74" height="36" rx="10" fill="#E2F3EF" stroke="#C7E5DE"/>
+      <text x="742" y="22" fill="#116F68" font-size="10" font-weight="800">Intake</text>
+      <rect x="804" width="74" height="36" rx="10" fill="#E8EEF8" stroke="#D4DFEF"/>
+      <text x="824" y="22" fill="#365C8D" font-size="10" font-weight="800">Export</text>
+    </g>
+
+    <g transform="translate(0 124)">
+      <rect width="920" height="42" rx="9" fill="#F0ECF7"/>
+      <g fill="#5B6470" font-size="9" font-weight="800">
+        <text x="24" y="26">#</text>
+        <text x="78" y="26">Patient</text>
+        <text x="304" y="26">Registration</text>
+        <text x="440" y="26">Time</text>
+        <text x="530" y="26">Token</text>
+        <text x="620" y="26">Diagnosis</text>
+        <text x="788" y="26">Actions</text>
+      </g>
+    </g>
+
+    <g transform="translate(0 174)" font-family="Inter, Arial, sans-serif">
+      <g transform="translate(0 0)">
+        <rect width="920" height="50" rx="8" fill="#F7F8FA" stroke="#E1E6E9"/>
+        <rect width="4" height="50" rx="2" fill="#6B5BA2"/>
+        <text x="24" y="30" fill="#6B5BA2" font-size="10" font-weight="800">01</text>
+        <text x="78" y="30" fill="#24363D" font-size="11" font-weight="700">Patient 01</text>
+        <text x="304" y="30" fill="#68777D" font-size="10">2270133</text>
+        <text x="440" y="30" fill="#24363D" font-size="10" font-weight="700">09:30</text>
+        <text x="530" y="30" fill="#51457E" font-size="10" font-weight="800">OP-08</text>
+        <rect x="620" y="14" width="76" height="23" rx="11.5" fill="#ECE7F7"/>
+        <text x="658" y="29" text-anchor="middle" fill="#51457E" font-size="9" font-weight="700">Not set</text>
+        <g transform="translate(786 11)">
+          <rect width="30" height="28" rx="8" fill="#E4F2EE"/>
+          <rect x="38" width="30" height="28" rx="8" fill="#E8EEF8"/>
+          <rect x="76" width="30" height="28" rx="8" fill="#F0ECF7"/>
+          <circle cx="15" cy="14" r="5" fill="#168279"/>
+          <path d="m49 10 8 4-8 4v-8Z" fill="#365C8D"/>
+          <circle cx="91" cy="14" r="2.5" fill="#6B5BA2"/>
+        </g>
+      </g>
+      <g transform="translate(0 58)">
+        <rect width="920" height="50" rx="8" fill="#FFFFFF" stroke="#E1E6E9"/>
+        <text x="24" y="30" fill="#6B5BA2" font-size="10" font-weight="800">02</text>
+        <text x="78" y="30" fill="#24363D" font-size="11" font-weight="700">Patient 02</text>
+        <text x="304" y="30" fill="#68777D" font-size="10">2242009</text>
+        <text x="440" y="30" fill="#24363D" font-size="10" font-weight="700">09:45</text>
+        <text x="530" y="30" fill="#51457E" font-size="10" font-weight="800">OP-07</text>
+        <rect x="620" y="14" width="76" height="23" rx="11.5" fill="#E3F2EE"/>
+        <text x="658" y="29" text-anchor="middle" fill="#116F68" font-size="9" font-weight="700">Review</text>
+        <g transform="translate(786 11)">
+          <rect width="30" height="28" rx="8" fill="#E4F2EE"/><rect x="38" width="30" height="28" rx="8" fill="#E8EEF8"/><rect x="76" width="30" height="28" rx="8" fill="#F0ECF7"/>
+          <circle cx="15" cy="14" r="5" fill="#168279"/><path d="m49 10 8 4-8 4v-8Z" fill="#365C8D"/><circle cx="91" cy="14" r="2.5" fill="#6B5BA2"/>
+        </g>
+      </g>
+      <g transform="translate(0 116)">
+        <rect width="920" height="50" rx="8" fill="#F7F8FA" stroke="#E1E6E9"/>
+        <text x="24" y="30" fill="#6B5BA2" font-size="10" font-weight="800">03</text>
+        <text x="78" y="30" fill="#24363D" font-size="11" font-weight="700">Patient 03</text>
+        <text x="304" y="30" fill="#68777D" font-size="10">2049686</text>
+        <text x="440" y="30" fill="#24363D" font-size="10" font-weight="700">10:15</text>
+        <text x="530" y="30" fill="#51457E" font-size="10" font-weight="800">OP-06</text>
+        <rect x="620" y="14" width="76" height="23" rx="11.5" fill="#E8EEF8"/>
+        <text x="658" y="29" text-anchor="middle" fill="#365C8D" font-size="9" font-weight="700">Follow-up</text>
+        <g transform="translate(786 11)">
+          <rect width="30" height="28" rx="8" fill="#E4F2EE"/><rect x="38" width="30" height="28" rx="8" fill="#E8EEF8"/><rect x="76" width="30" height="28" rx="8" fill="#F0ECF7"/>
+          <circle cx="15" cy="14" r="5" fill="#168279"/><path d="m49 10 8 4-8 4v-8Z" fill="#365C8D"/><circle cx="91" cy="14" r="2.5" fill="#6B5BA2"/>
+        </g>
+      </g>
+      <g transform="translate(0 174)">
+        <rect width="920" height="50" rx="8" fill="#FFFFFF" stroke="#E1E6E9"/>
+        <text x="24" y="30" fill="#6B5BA2" font-size="10" font-weight="800">04</text>
+        <text x="78" y="30" fill="#24363D" font-size="11" font-weight="700">Patient 04</text>
+        <text x="304" y="30" fill="#68777D" font-size="10">2048522</text>
+        <text x="440" y="30" fill="#24363D" font-size="10" font-weight="700">10:30</text>
+        <text x="530" y="30" fill="#51457E" font-size="10" font-weight="800">OP-05</text>
+        <rect x="620" y="14" width="76" height="23" rx="11.5" fill="#ECE7F7"/>
+        <text x="658" y="29" text-anchor="middle" fill="#51457E" font-size="9" font-weight="700">Not set</text>
+        <g transform="translate(786 11)">
+          <rect width="30" height="28" rx="8" fill="#E4F2EE"/><rect x="38" width="30" height="28" rx="8" fill="#E8EEF8"/><rect x="76" width="30" height="28" rx="8" fill="#F0ECF7"/>
+          <circle cx="15" cy="14" r="5" fill="#168279"/><path d="m49 10 8 4-8 4v-8Z" fill="#365C8D"/><circle cx="91" cy="14" r="2.5" fill="#6B5BA2"/>
+        </g>
+      </g>
+      <g transform="translate(0 232)">
+        <rect width="920" height="50" rx="8" fill="#F7F8FA" stroke="#E1E6E9"/>
+        <text x="24" y="30" fill="#6B5BA2" font-size="10" font-weight="800">05</text>
+        <text x="78" y="30" fill="#24363D" font-size="11" font-weight="700">Patient 05</text>
+        <text x="304" y="30" fill="#68777D" font-size="10">2257753</text>
+        <text x="440" y="30" fill="#24363D" font-size="10" font-weight="700">11:00</text>
+        <text x="530" y="30" fill="#51457E" font-size="10" font-weight="800">OP-04</text>
+        <rect x="620" y="14" width="76" height="23" rx="11.5" fill="#E3F2EE"/>
+        <text x="658" y="29" text-anchor="middle" fill="#116F68" font-size="9" font-weight="700">Ready</text>
+        <g transform="translate(786 11)">
+          <rect width="30" height="28" rx="8" fill="#E4F2EE"/><rect x="38" width="30" height="28" rx="8" fill="#E8EEF8"/><rect x="76" width="30" height="28" rx="8" fill="#F0ECF7"/>
+          <circle cx="15" cy="14" r="5" fill="#168279"/><path d="m49 10 8 4-8 4v-8Z" fill="#365C8D"/><circle cx="91" cy="14" r="2.5" fill="#6B5BA2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
