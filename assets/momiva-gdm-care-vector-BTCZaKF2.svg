@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Momiva gestational diabetes care experience</title>
+  <desc id="desc">A mobile care workspace showing a daily care plan, glucose logging, trends, offline sync, and connection to the care team.</desc>
+  <defs>
+    <linearGradient id="bg" x1="40" y1="20" x2="1150" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8F6"/>
+      <stop offset=".52" stop-color="#F3FAFA"/>
+      <stop offset="1" stop-color="#EDF5FF"/>
+    </linearGradient>
+    <linearGradient id="mint" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9DEBE0"/>
+      <stop offset="1" stop-color="#C8F1E8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0D9A9A"/>
+      <stop offset="1" stop-color="#1769C2"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#345A77" flood-opacity=".14"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#345A77" flood-opacity=".1"/>
+    </filter>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#4B7E97" fill-opacity=".08"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#dots)"/>
+  <circle cx="1090" cy="86" r="150" fill="#CBEFE9" fill-opacity=".35"/>
+  <circle cx="90" cy="620" r="180" fill="#D8E8FB" fill-opacity=".38"/>
+
+  <g transform="translate(74 38)" filter="url(#shadow)" font-family="Inter, Arial, sans-serif">
+    <rect width="372" height="600" rx="40" fill="#152738" fill-opacity=".13"/>
+    <rect x="8" y="8" width="356" height="584" rx="34" fill="#FFFFFF"/>
+    <rect x="138" y="18" width="96" height="7" rx="3.5" fill="#DCE3E8"/>
+
+    <text x="34" y="67" fill="#152738" font-size="21" font-weight="800">Momiva</text>
+    <text x="34" y="88" fill="#63717D" font-size="12" font-weight="600">Connected to your clinic</text>
+    <rect x="257" y="48" width="76" height="31" rx="15.5" fill="#ECF5F3" stroke="#93A9A5" stroke-opacity=".5"/>
+    <path d="M275 63c2-6 11-6 13 0 5-1 7 6 2 8h-14c-5-2-4-8-1-8Z" fill="none" stroke="#657A79" stroke-width="1.4"/>
+    <text x="299" y="69" fill="#657A79" font-size="10" font-weight="700">Synced</text>
+
+    <text x="34" y="132" fill="#152738" font-size="22" font-weight="800">Your care, today</text>
+    <text x="34" y="157" fill="#63717D" font-size="13" font-weight="500">Small check-ins keep your team informed.</text>
+
+    <rect x="28" y="181" width="316" height="112" rx="21" fill="url(#mint)"/>
+    <text x="47" y="215" fill="#15323B" font-size="17" font-weight="800">Today’s plan</text>
+    <text x="311" y="215" text-anchor="end" fill="#15323B" font-size="15" font-weight="800">1 / 2</text>
+    <rect x="47" y="234" width="278" height="5" rx="2.5" fill="#FFFFFF" fill-opacity=".7"/>
+    <rect x="47" y="234" width="154" height="5" rx="2.5" fill="#087F8C"/>
+    <text x="47" y="264" fill="#29424A" font-size="12" font-weight="600">One task left · visible after sync</text>
+
+    <rect x="28" y="309" width="316" height="89" rx="20" fill="#F6F8FA"/>
+    <circle cx="51" cy="337" r="9" fill="#FFFFFF" stroke="#4D6068" stroke-width="1.8"/>
+    <text x="72" y="343" fill="#182A34" font-size="14" font-weight="750">Submit pre-breakfast sugar</text>
+    <rect x="72" y="354" width="115" height="29" rx="14.5" fill="#D5ECE8"/>
+    <text x="129.5" y="373" text-anchor="middle" fill="#24464B" font-size="11" font-weight="750">Mark complete</text>
+
+    <rect x="28" y="414" width="316" height="91" rx="20" fill="#F6F8FA"/>
+    <text x="47" y="442" fill="#182A34" font-size="14" font-weight="800">Quick log</text>
+    <rect x="47" y="456" width="135" height="34" rx="17" fill="#D1ECE8"/>
+    <path d="M70 466c-7 8-6 15 1 15s8-7 1-15Z" fill="none" stroke="#24464B" stroke-width="1.5"/>
+    <text x="88" y="478" fill="#24464B" font-size="11" font-weight="750">Glucose</text>
+    <rect x="191" y="456" width="134" height="34" rx="17" fill="#D1ECE8"/>
+    <rect x="210" y="467" width="15" height="11" rx="2" fill="none" stroke="#24464B" stroke-width="1.5"/>
+    <circle cx="217.5" cy="472.5" r="3" fill="none" stroke="#24464B" stroke-width="1.2"/>
+    <text x="233" y="478" fill="#24464B" font-size="11" font-weight="750">Meal</text>
+
+    <rect x="28" y="521" width="316" height="43" rx="15" fill="#FFF0ED"/>
+    <path d="M48 535v10m-5-5h10" stroke="#C05E51" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="63" y="548" fill="#7E3C35" font-size="11" font-weight="750">Urgent help routes to clinic guidance</text>
+
+    <g transform="translate(31 570)">
+      <rect width="310" height="1" fill="#E6EBEE"/>
+      <g fill="#61717A" font-size="9" font-weight="650" text-anchor="middle">
+        <text x="33" y="18" fill="#087F8C">Today</text>
+        <text x="112" y="18">Log</text>
+        <text x="194" y="18">Trends</text>
+        <text x="276" y="18">Care</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(500 70)" font-family="Inter, Arial, sans-serif">
+    <text x="0" y="24" fill="#087F8C" font-size="11" font-weight="800" letter-spacing="1.8">GDM CARE · CONNECTED WORKFLOW</text>
+    <text x="0" y="73" fill="#142A3D" font-size="38" font-weight="800" letter-spacing="-1.6">Support between visits.</text>
+    <text x="0" y="105" fill="#657687" font-size="15" font-weight="550">A calm daily loop for patients and their care teams.</text>
+
+    <g transform="translate(0 144)" filter="url(#softShadow)">
+      <rect width="286" height="126" rx="22" fill="#FFFFFF" stroke="#2E7794" stroke-opacity=".12"/>
+      <circle cx="38" cy="38" r="18" fill="#E3F5F2"/>
+      <path d="M38 27c-9 12-8 22 0 22s9-10 0-22Z" fill="none" stroke="#0D8D8F" stroke-width="2"/>
+      <text x="68" y="36" fill="#142A3D" font-size="15" font-weight="800">Glucose logging</text>
+      <text x="68" y="58" fill="#657687" font-size="11" font-weight="600">Manual or phrase-assisted entry</text>
+      <rect x="26" y="80" width="234" height="24" rx="12" fill="#F2F7FA"/>
+      <text x="42" y="96" fill="#365364" font-size="10" font-weight="700">Fasting · 92 mg/dL · Synced</text>
+      <circle cx="240" cy="92" r="5" fill="#34C789"/>
+    </g>
+
+    <g transform="translate(312 144)" filter="url(#softShadow)">
+      <rect width="286" height="126" rx="22" fill="#FFFFFF" stroke="#2E7794" stroke-opacity=".12"/>
+      <circle cx="38" cy="38" r="18" fill="#EAF1FD"/>
+      <path d="M28 48 40 34l8 8 7-8" fill="none" stroke="#1769C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="68" y="36" fill="#142A3D" font-size="15" font-weight="800">Seven-day trends</text>
+      <text x="68" y="58" fill="#657687" font-size="11" font-weight="600">Readings with plan context</text>
+      <path d="M30 98 65 84l34 8 38-26 35 11 38-30 44 12" fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30 105H256" stroke="#DDE7ED" stroke-width="1"/>
+    </g>
+
+    <g transform="translate(0 294)" filter="url(#softShadow)">
+      <rect width="286" height="126" rx="22" fill="#FFFFFF" stroke="#2E7794" stroke-opacity=".12"/>
+      <circle cx="38" cy="38" r="18" fill="#FFF0ED"/>
+      <rect x="28" y="31" width="20" height="15" rx="3" fill="none" stroke="#C76759" stroke-width="2"/>
+      <circle cx="38" cy="38.5" r="4" fill="none" stroke="#C76759" stroke-width="1.5"/>
+      <text x="68" y="36" fill="#142A3D" font-size="15" font-weight="800">Meal-photo review</text>
+      <text x="68" y="58" fill="#657687" font-size="11" font-weight="600">Patient confirmation before sharing</text>
+      <rect x="26" y="80" width="234" height="24" rx="12" fill="#FFF6F3"/>
+      <text x="42" y="96" fill="#7B534D" font-size="10" font-weight="700">Photo → Review → Clinic visibility</text>
+    </g>
+
+    <g transform="translate(312 294)" filter="url(#softShadow)">
+      <rect width="286" height="126" rx="22" fill="#FFFFFF" stroke="#2E7794" stroke-opacity=".12"/>
+      <circle cx="38" cy="38" r="18" fill="#E3F5F2"/>
+      <path d="M28 31h20v14H37l-6 5v-5h-3V31Z" fill="none" stroke="#0D8D8F" stroke-width="2" stroke-linejoin="round"/>
+      <text x="68" y="36" fill="#142A3D" font-size="15" font-weight="800">Care-team connection</text>
+      <text x="68" y="58" fill="#657687" font-size="11" font-weight="600">Messages and urgent-help routing</text>
+      <rect x="26" y="80" width="234" height="24" rx="12" fill="#F2F8F7"/>
+      <text x="42" y="96" fill="#365E61" font-size="10" font-weight="700">Clinic plan · Secure message · Help</text>
+    </g>
+
+    <g transform="translate(0 458)">
+      <rect width="598" height="67" rx="20" fill="#173B55"/>
+      <circle cx="30" cy="33.5" r="7" fill="#34C789"/>
+      <text x="50" y="29" fill="#D8E8F2" font-size="10" font-weight="750" letter-spacing="1.1">OFFLINE-SAFE DELIVERY</text>
+      <text x="50" y="49" fill="#FFFFFF" font-size="13" font-weight="750">Queued → Retried → Synced without duplicate taps</text>
+      <rect x="473" y="20" width="99" height="27" rx="13.5" fill="#FFFFFF" fill-opacity=".12"/>
+      <text x="522.5" y="37.5" text-anchor="middle" fill="#DFF8F3" font-size="10" font-weight="750">ClinicOS connected</text>
+    </g>
+  </g>
+</svg>
