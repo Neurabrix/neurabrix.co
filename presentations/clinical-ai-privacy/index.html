@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081f23">
+  <meta name="description" content="A visual briefing for doctors on patient privacy, AI data handling, model training, public sharing, and India's DPDP framework.">
+  <title>Patient Data + AI — A Privacy Briefing for Doctors</title>
+  <style>
+    :root {
+      --ink: #102a2e;
+      --muted: #5e7375;
+      --paper: #f7f4ec;
+      --card: #fffdf8;
+      --night: #081f23;
+      --night-2: #0d3035;
+      --teal: #0e7c7b;
+      --teal-2: #65d1c5;
+      --mint: #dff5ed;
+      --amber: #e9a23b;
+      --amber-soft: #fff0cf;
+      --red: #bd4b4b;
+      --red-soft: #ffe5df;
+      --blue: #3467a9;
+      --blue-soft: #e5eefb;
+      --line: #d9dfda;
+      --shadow: 0 24px 70px rgba(11, 41, 44, .12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 4%, rgba(101, 209, 197, .14), transparent 25rem),
+        radial-gradient(circle at 8% 38%, rgba(233, 162, 59, .1), transparent 24rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin: 0 0 16px; color: var(--teal); font-weight: 800;
+      font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: currentColor; }
+    .section-title { margin: 0; font-size: clamp(2.2rem, 5vw, 4.7rem); line-height: .98; letter-spacing: -.055em; }
+    .section-lede { max-width: 780px; margin: 22px 0 0; color: var(--muted); font-size: clamp(1.02rem, 1.6vw, 1.28rem); }
+    .section-head { margin-bottom: 46px; }
+    .small { font-size: .86rem; color: var(--muted); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      color: #eefdf9; background: rgba(8, 31, 35, .92);
+      border-bottom: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(18px);
+    }
+    .topbar-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-mark { width: 30px; height: 30px; border: 2px solid var(--teal-2); border-radius: 50%; position: relative; }
+    .brand-mark::before, .brand-mark::after { content: ""; position: absolute; background: var(--teal-2); border-radius: 9px; }
+    .brand-mark::before { width: 15px; height: 4px; left: 5px; top: 11px; }
+    .brand-mark::after { width: 4px; height: 15px; left: 11px; top: 5px; }
+    .tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab { padding: 9px 13px; border-radius: 99px; color: #b9cdcb; text-decoration: none; font-weight: 700; font-size: .84rem; white-space: nowrap; }
+    .tab:hover, .tab.active { color: white; background: rgba(255,255,255,.1); }
+    .present-btn { border: 1px solid rgba(255,255,255,.22); background: transparent; color: white; border-radius: 99px; padding: 9px 14px; font-weight: 750; }
+
+    .hero { position: relative; color: white; background: var(--night); min-height: 730px; display: grid; align-items: center; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .32; background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(to bottom, black, transparent 82%); }
+    .hero::after { content: ""; position: absolute; width: 560px; height: 560px; right: -220px; top: -170px; border: 1px solid rgba(101,209,197,.3); border-radius: 50%; box-shadow: 0 0 0 80px rgba(101,209,197,.03), 0 0 0 160px rgba(101,209,197,.025); }
+    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 60px; padding: 80px 0 92px; }
+    .hero .eyebrow { color: var(--teal-2); }
+    h1 { margin: 0; max-width: 780px; font-size: clamp(3.4rem, 7.8vw, 7.2rem); line-height: .86; letter-spacing: -.07em; }
+    h1 span { color: var(--teal-2); }
+    .hero-copy { margin: 30px 0 0; max-width: 660px; color: #bed2d0; font-size: clamp(1.08rem, 1.7vw, 1.35rem); }
+    .hero-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; }
+    .hero-chip { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); padding: 9px 13px; border-radius: 99px; color: #d9e9e7; font-size: .83rem; }
+
+    .hero-visual { position: relative; min-height: 520px; display: grid; place-items: center; }
+    .data-orbit { position: relative; width: min(100%, 490px); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; display: grid; place-items: center; }
+    .data-orbit::before { content: ""; position: absolute; inset: 14%; border: 1px dashed rgba(101,209,197,.25); border-radius: 50%; animation: spin 28s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .patient-file { width: 190px; padding: 24px; border-radius: 22px; color: var(--ink); background: #fffdfa; box-shadow: 0 30px 70px rgba(0,0,0,.3); transform: rotate(-2deg); }
+    .file-top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--mint); color: var(--teal); font-weight: 900; }
+    .patient-file strong { display: block; font-size: .88rem; }
+    .patient-file small { color: #7c8d8d; }
+    .file-line { height: 7px; margin: 9px 0; border-radius: 9px; background: #dce5e2; }
+    .file-line.red { width: 72%; background: #e9aaa0; }
+    .file-line.short { width: 55%; }
+    .orbit-note { position: absolute; width: 160px; padding: 13px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 15px; background: rgba(13,48,53,.86); box-shadow: 0 14px 32px rgba(0,0,0,.2); font-size: .78rem; color: #d7e7e5; backdrop-filter: blur(12px); }
+    .orbit-note b { display: block; color: white; margin-bottom: 4px; font-size: .88rem; }
+    .orbit-note.one { top: 6%; left: -3%; }
+    .orbit-note.two { top: 17%; right: -3%; }
+    .orbit-note.three { bottom: 8%; right: 3%; }
+    .orbit-note.four { bottom: 9%; left: -5%; }
+    .hero-warning { position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: max-content; max-width: 94%; display: flex; gap: 10px; align-items: center; background: var(--amber); color: #2b2111; padding: 12px 16px; border-radius: 14px; font-weight: 850; box-shadow: 0 15px 40px rgba(0,0,0,.25); }
+
+    section { padding: 108px 0; scroll-margin-top: 68px; }
+    .key-message { background: var(--card); border-block: 1px solid var(--line); }
+    .big-callout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 64px; align-items: center; }
+    .big-number { color: var(--teal); font-size: clamp(7rem, 18vw, 14rem); font-weight: 900; line-height: .7; letter-spacing: -.08em; }
+    .big-callout h2 { margin: 0; font-size: clamp(2.5rem, 5vw, 5.1rem); line-height: .95; letter-spacing: -.055em; }
+    .big-callout p { margin: 22px 0 0; color: var(--muted); font-size: clamp(1.08rem, 1.7vw, 1.3rem); }
+    .three-risks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+    .risk-card { position: relative; min-height: 220px; padding: 28px; border-radius: 22px; overflow: hidden; }
+    .risk-card::after { content: attr(data-num); position: absolute; right: 14px; bottom: -23px; opacity: .08; font-weight: 950; font-size: 8rem; }
+    .risk-card:nth-child(1) { background: var(--blue-soft); }
+    .risk-card:nth-child(2) { background: var(--amber-soft); }
+    .risk-card:nth-child(3) { background: var(--red-soft); }
+    .risk-card .icon { font-size: 2rem; }
+    .risk-card h3 { margin: 18px 0 8px; font-size: 1.45rem; letter-spacing: -.03em; }
+    .risk-card p { margin: 0; color: #465b5d; }
+
+    .journey { background: #e9f1ed; }
+    .journey-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 13px; align-items: stretch; }
+    .journey-step { position: relative; min-height: 230px; padding: 22px; border-radius: 20px; background: var(--card); border: 1px solid #d6e0dc; box-shadow: 0 12px 32px rgba(18,53,55,.06); }
+    .journey-step:not(:last-child)::after { content: "→"; position: absolute; z-index: 2; right: -18px; top: 50%; width: 23px; height: 23px; display: grid; place-items: center; transform: translateY(-50%); color: var(--teal); background: var(--paper); border: 1px solid #cbdad4; border-radius: 50%; font-weight: 900; }
+    .step-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 15px; background: var(--mint); font-size: 1.5rem; }
+    .step-num { display: block; margin: 20px 0 5px; color: var(--teal); font-size: .73rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .journey-step h3 { margin: 0 0 10px; font-size: 1.08rem; line-height: 1.15; }
+    .journey-step p { margin: 0; color: var(--muted); font-size: .87rem; }
+    .journey-caption { margin: 24px 0 0; padding: 16px 18px; border-left: 4px solid var(--amber); background: #fff9ea; color: #564728; border-radius: 0 12px 12px 0; }
+
+    .training-lab { color: white; background: var(--night); }
+    .training-lab .section-lede { color: #b6cbc8; }
+    .toggle-panel { display: grid; grid-template-columns: .72fr 1.28fr; gap: 30px; margin-top: 50px; }
+    .control-card { padding: 30px; border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); background: rgba(255,255,255,.055); }
+    .control-card h3 { margin: 0 0 8px; font-size: 1.45rem; }
+    .control-card p { color: #abc1be; margin: 0; }
+    .switch-row { margin: 35px 0 26px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .switch-label strong { display: block; }
+    .switch-label small { color: #91aaa7; }
+    .switch { position: relative; width: 76px; height: 42px; border: 0; border-radius: 99px; background: var(--amber); transition: .25s ease; flex: 0 0 auto; }
+    .switch::after { content: ""; position: absolute; width: 32px; height: 32px; top: 5px; right: 5px; border-radius: 50%; background: white; transition: .25s ease; box-shadow: 0 3px 10px rgba(0,0,0,.25); }
+    .switch.off { background: #526567; }
+    .switch.off::after { right: 39px; }
+    .switch-state { padding: 13px 15px; border-radius: 12px; font-weight: 800; background: rgba(233,162,59,.16); color: #ffd68d; }
+    .switch-state.safeish { color: #bcefe8; background: rgba(101,209,197,.14); }
+    .paths { display: grid; gap: 12px; }
+    .path { display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 15px; padding: 17px; border-radius: 17px; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.045); transition: .25s ease; }
+    .path-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255,255,255,.08); font-size: 1.35rem; }
+    .path strong { display: block; }
+    .path small { color: #9fb5b2; }
+    .status { padding: 6px 9px; border-radius: 99px; font-size: .69rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 900; }
+    .status.on { background: rgba(239,119,105,.17); color: #ffb1a8; }
+    .status.varies { background: rgba(233,162,59,.18); color: #ffd58a; }
+    .status.off { background: rgba(101,209,197,.18); color: #b8f4ea; }
+    .path.training-disabled { opacity: .42; text-decoration: line-through; }
+    .plain-rule { margin: 20px 0 0; padding: 20px; border: 1px solid rgba(101,209,197,.25); border-radius: 18px; color: #d4e9e6; background: rgba(101,209,197,.08); font-size: 1.03rem; }
+    .plain-rule strong { color: var(--teal-2); }
+    .account-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 26px; }
+    .account-card { padding: 21px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(255,255,255,.045); }
+    .account-card .account-label { display: block; color: var(--teal-2); font-size: .7rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
+    .account-card strong { display: block; margin: 8px 0 6px; }
+    .account-card p { margin: 0; color: #a7bcba; font-size: .84rem; }
+
+    .identifiers { background: var(--card); }
+    .identifier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .id-card { min-height: 240px; padding: 25px; border: 1px solid var(--line); border-radius: 21px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+    .id-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(16,42,46,.09); }
+    .id-card .id-icon { font-size: 2rem; }
+    .id-card h3 { margin: 18px 0 12px; font-size: 1.2rem; }
+    .id-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .9rem; }
+    .id-card li + li { margin-top: 6px; }
+    .deid-example { margin-top: 28px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: center; padding: 28px; background: #edf3f0; border-radius: 24px; }
+    .mini-record { padding: 20px; border-radius: 16px; background: white; box-shadow: 0 10px 30px rgba(16,42,46,.07); }
+    .mini-record.bad { border-top: 5px solid var(--red); }
+    .mini-record.good { border-top: 5px solid var(--teal); }
+    .mini-record .record-label { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 900; }
+    .mini-record p { margin: 10px 0 0; }
+    .redact { color: transparent; background: var(--ink); border-radius: 2px; user-select: none; }
+    .arrow-circle { width: 48px; height: 48px; display: grid; place-items: center; color: white; background: var(--teal); border-radius: 50%; font-weight: 950; }
+
+    .law { background: #fff7e3; }
+    .law-status { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; }
+    .timeline-card, .law-principles { padding: 30px; border-radius: var(--radius); background: white; border: 1px solid #e8dcc2; box-shadow: 0 18px 50px rgba(90,65,25,.07); }
+    .timeline-card h3, .law-principles h3 { margin: 0 0 24px; font-size: 1.35rem; }
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: #e1d5bb; }
+    .time-item { position: relative; padding: 0 0 25px 16px; }
+    .time-item:last-child { padding-bottom: 0; }
+    .time-item::before { content: ""; position: absolute; width: 14px; height: 14px; left: -27px; top: 4px; background: white; border: 4px solid var(--amber); border-radius: 50%; }
+    .time-item.now::before { border-color: var(--teal); box-shadow: 0 0 0 5px rgba(14,124,123,.12); }
+    .time-item time { color: var(--teal); font-size: .77rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .time-item strong { display: block; margin-top: 3px; }
+    .time-item p { margin: 5px 0 0; color: var(--muted); font-size: .88rem; }
+    .law-list { display: grid; gap: 11px; }
+    .law-item { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; padding: 13px; background: #faf7ef; border-radius: 13px; }
+    .law-item .check { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 9px; color: var(--teal); background: var(--mint); font-weight: 950; }
+    .law-item strong { display: block; font-size: .94rem; }
+    .law-item small { color: var(--muted); }
+    .status-note { margin-top: 24px; padding: 16px; border-radius: 15px; background: var(--amber-soft); color: #59451e; font-size: .87rem; }
+
+    .incident { color: white; background: #17272b; }
+    .incident .section-lede { color: #b9c9c7; }
+    .incident-board { position: relative; padding: 38px; border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius); background: #0d1e22; overflow: hidden; }
+    .incident-board::after { content: "JUL 2026"; position: absolute; right: -12px; top: 4px; color: rgba(255,255,255,.035); font-size: clamp(4.2rem, 10vw, 8rem); font-weight: 950; letter-spacing: -.07em; }
+    .incident-flow { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; }
+    .incident-step { min-height: 190px; padding: 22px; border-radius: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08); }
+    .incident-step .incident-icon { font-size: 2rem; }
+    .incident-step .incident-num { display: block; margin: 22px 0 6px; color: var(--teal-2); font-size: .7rem; font-weight: 900; letter-spacing: .13em; }
+    .incident-step strong { display: block; font-size: 1.05rem; }
+    .incident-step p { margin: 7px 0 0; color: #a8bdbb; font-size: .85rem; }
+    .incident-verdict { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .verdict { padding: 20px; border-radius: 16px; }
+    .verdict.no { color: #c7dedb; background: rgba(101,209,197,.1); border: 1px solid rgba(101,209,197,.2); }
+    .verdict.yes { color: #ffd9d4; background: rgba(189,75,75,.15); border: 1px solid rgba(239,119,105,.2); }
+    .verdict b { display: block; margin-bottom: 4px; color: white; }
+    .incident-actions { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .action-chip { padding: 9px 12px; border-radius: 99px; color: #dcecea; background: rgba(255,255,255,.08); font-size: .8rem; }
+
+    .scenarios { background: #edf3f0; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .scenario { position: relative; display: flex; flex-direction: column; min-height: 420px; padding: 28px; border-radius: 25px; background: white; border: 1px solid #d9e2de; box-shadow: 0 18px 45px rgba(12,48,50,.07); }
+    .scenario-badge { align-self: flex-start; padding: 7px 10px; border-radius: 99px; font-size: .72rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .scenario.safe .scenario-badge { color: #075e59; background: var(--mint); }
+    .scenario.unsafe .scenario-badge { color: #8b3434; background: var(--red-soft); }
+    .scenario.emergency .scenario-badge { color: #725015; background: var(--amber-soft); }
+    .scenario h3 { margin: 20px 0 11px; font-size: 1.42rem; line-height: 1.1; letter-spacing: -.03em; }
+    .scenario > p { margin: 0; color: var(--muted); }
+    .scenario-visual { margin: 22px 0; min-height: 105px; display: grid; place-items: center; border-radius: 17px; background: #f2f6f4; font-size: 3.5rem; }
+    .scenario ul { margin: auto 0 0; padding-left: 18px; color: #405658; font-size: .89rem; }
+    .scenario li + li { margin-top: 7px; }
+
+    .dos { background: var(--card); }
+    .do-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .do-panel { padding: 32px; border-radius: 27px; }
+    .do-panel.yes { background: var(--mint); }
+    .do-panel.no { background: var(--red-soft); }
+    .do-panel h3 { margin: 0 0 22px; display: flex; align-items: center; gap: 12px; font-size: 1.6rem; }
+    .do-symbol { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; color: white; }
+    .yes .do-symbol { background: var(--teal); }
+    .no .do-symbol { background: var(--red); }
+    .do-list { display: grid; gap: 12px; }
+    .do-item { display: grid; grid-template-columns: 26px 1fr; gap: 11px; align-items: start; }
+    .do-item > span:first-child { font-weight: 950; }
+    .do-item strong { display: block; }
+    .do-item small { display: block; margin-top: 2px; color: #546869; }
+
+    .decision { color: white; background: var(--teal); }
+    .decision .eyebrow { color: #c8fff7; }
+    .decision .section-lede { color: #d0f1ed; }
+    .gate { margin-top: 42px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .gate-step { position: relative; min-height: 250px; padding: 24px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 20px; }
+    .gate-step:not(:last-child)::after { content: "→"; position: absolute; right: -18px; top: 34px; z-index: 2; width: 24px; height: 24px; display: grid; place-items: center; color: var(--teal); background: white; border-radius: 50%; font-weight: 950; }
+    .gate-step .gate-num { font-size: 3rem; line-height: 1; font-weight: 950; color: #a9eee5; }
+    .gate-step h3 { margin: 20px 0 9px; font-size: 1.15rem; }
+    .gate-step p { margin: 0; color: #d3efec; font-size: .87rem; }
+    .gate-answer { display: inline-block; margin-top: 18px; padding: 7px 10px; border-radius: 99px; color: #053b3a; background: #d8fff8; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
+    .stop-rule { margin-top: 22px; padding: 20px 22px; color: #3c2809; background: #ffd98f; border-radius: 18px; font-weight: 800; font-size: 1.07rem; }
+
+    .response { background: #f5eee1; }
+    .response-card { display: grid; grid-template-columns: .72fr 1.28fr; gap: 28px; padding: 34px; border-radius: 28px; background: white; border: 1px solid #e5d9c8; box-shadow: var(--shadow); }
+    .response-card h3 { margin: 0; font-size: 2rem; letter-spacing: -.04em; }
+    .response-card > div:first-child p { color: var(--muted); }
+    .response-steps { counter-reset: response; display: grid; gap: 10px; }
+    .response-step { counter-increment: response; display: grid; grid-template-columns: 40px 1fr; gap: 13px; padding: 14px; border-radius: 14px; background: #f5f8f6; }
+    .response-step::before { content: counter(response); width: 36px; height: 36px; display: grid; place-items: center; color: white; background: var(--red); border-radius: 10px; font-weight: 900; }
+    .response-step strong { display: block; }
+    .response-step small { color: var(--muted); }
+
+    .takeaway { padding: 94px 0; text-align: center; background: var(--night); color: white; }
+    .takeaway blockquote { margin: 0 auto; max-width: 1000px; font-size: clamp(2.2rem, 5vw, 5rem); line-height: 1.02; letter-spacing: -.05em; font-weight: 850; }
+    .takeaway blockquote span { color: var(--teal-2); }
+    .takeaway p { margin: 28px auto 0; max-width: 680px; color: #a9c0bd; }
+
+    footer { padding: 70px 0 42px; background: #06191c; color: #c6d7d4; }
+    .footer-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
+    footer h2 { margin: 0; color: white; font-size: 1.65rem; }
+    footer p { color: #8fa9a6; }
+    .source-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+    .source-list a { padding: 11px 0; color: #cfe2df; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.09); font-size: .86rem; }
+    .source-list a:hover { color: var(--teal-2); }
+    .legal-note { margin-top: 45px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.1); color: #78928f; font-size: .77rem; }
+
+    .progress { position: fixed; z-index: 80; top: 0; left: 0; height: 3px; width: 0; background: var(--teal-2); }
+    .present-mode .topbar { display: none; }
+    .present-mode section, .present-mode .hero { min-height: 100vh; display: grid; align-items: center; }
+
+    @media (max-width: 980px) {
+      .hero-inner, .big-callout, .toggle-panel, .law-status, .response-card, .footer-grid { grid-template-columns: 1fr; }
+      .hero-inner { padding-top: 64px; }
+      .hero-visual { min-height: 470px; }
+      .journey-flow { grid-template-columns: repeat(2, 1fr); }
+      .journey-step:not(:last-child)::after { display: none; }
+      .identifier-grid { grid-template-columns: repeat(2, 1fr); }
+      .scenario-grid { grid-template-columns: 1fr; }
+      .scenario { min-height: 0; }
+      .incident-flow, .gate { grid-template-columns: repeat(2, 1fr); }
+      .account-strip { grid-template-columns: 1fr; }
+      .gate-step:not(:last-child)::after { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .topbar-inner { min-height: 58px; }
+      .brand span:last-child, .present-btn { display: none; }
+      .tabs { margin-left: auto; }
+      .tab { padding: 8px 10px; font-size: .75rem; }
+      .hero { min-height: auto; }
+      .hero-inner { gap: 20px; padding: 60px 0 70px; }
+      h1 { font-size: clamp(3.4rem, 18vw, 5.3rem); }
+      .hero-visual { min-height: 390px; transform: scale(.88); margin-inline: -20px; }
+      .orbit-note { width: 135px; font-size: .7rem; }
+      section { padding: 78px 0; }
+      .three-risks, .do-grid { grid-template-columns: 1fr; }
+      .journey-flow, .identifier-grid, .incident-flow, .incident-verdict, .gate { grid-template-columns: 1fr; }
+      .journey-step { min-height: 0; }
+      .deid-example { grid-template-columns: 1fr; }
+      .arrow-circle { transform: rotate(90deg); justify-self: center; }
+      .path { grid-template-columns: 43px 1fr; }
+      .path .status { grid-column: 2; justify-self: start; }
+      .incident-board { padding: 22px; }
+      .source-list { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      .topbar, .progress, .present-btn { display: none !important; }
+      body { background: white; }
+      .hero, section, .takeaway { break-inside: avoid; min-height: 92vh; padding: 50px 0; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>Clinical AI Privacy</span></div>
+      <nav class="tabs" aria-label="Presentation sections">
+        <a class="tab active" href="#reality">Reality</a>
+        <a class="tab" href="#training">Training</a>
+        <a class="tab" href="#law">DPDP</a>
+        <a class="tab" href="#incident">Incident</a>
+        <a class="tab" href="#actions">Actions</a>
+      </nav>
+      <button class="present-btn" type="button" id="presentBtn" aria-pressed="false">Present ↗</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="reality">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">A visual briefing for doctors · India</p>
+          <h1>Patient data <span>+ AI</span></h1>
+          <p class="hero-copy">A report pasted into an AI tool is not “just a prompt.” It is patient data entering another system—with new people, policies, storage, logs, and sharing paths.</p>
+          <div class="hero-meta">
+            <span class="hero-chip">Discussion guide</span>
+            <span class="hero-chip">Updated 10 August 2026</span>
+            <span class="hero-chip">Not a training course</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Illustration showing a patient record surrounded by four privacy risk paths">
+          <div class="data-orbit">
+            <div class="patient-file">
+              <div class="file-top"><span class="avatar">P</span><div><strong>Patient report</strong><small>Identifiable clinical data</small></div></div>
+              <div class="file-line red"></div><div class="file-line"></div><div class="file-line short"></div><div class="file-line"></div>
+            </div>
+            <div class="orbit-note one"><b>↗ Upload</b>Leaves the clinic boundary</div>
+            <div class="orbit-note two"><b>▣ Retention</b>Copies, logs and history</div>
+            <div class="orbit-note three"><b>◎ Reuse</b>May improve models by plan/settings</div>
+            <div class="orbit-note four"><b>⌁ Sharing</b>Links, exports and connectors</div>
+          </div>
+          <div class="hero-warning">⚠ Training off ≠ data invisible</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="key-message">
+      <div class="wrap">
+        <div class="big-callout">
+          <div class="big-number">3</div>
+          <div>
+            <p class="eyebrow">Do not collapse these risks</p>
+            <h2>Three different questions.</h2>
+            <p>Doctors often ask only, “Will this train the model?” Privacy begins one step earlier: should identifiable data enter this vendor’s system at all?</p>
+          </div>
+        </div>
+        <div class="three-risks">
+          <article class="risk-card" data-num="1"><div class="icon">↗</div><h3>Processing</h3><p>Who receives, stores, logs, reviews, or routes the patient data when you submit it?</p></article>
+          <article class="risk-card" data-num="2"><div class="icon">◎</div><h3>Model improvement</h3><p>Can prompts or outputs be reused later to improve a general model? This depends on product, plan, settings, and exceptions.</p></article>
+          <article class="risk-card" data-num="3"><div class="icon">⌁</div><h3>Exposure</h3><p>Can a share link, export, plug-in, connector, compromised account, or human mistake disclose it?</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">What an upload actually does</p>
+          <h2 class="section-title">A five-stop data journey</h2>
+          <p class="section-lede">The answer appears in seconds. The data journey can last much longer.</p>
+        </header>
+        <div class="journey-flow">
+          <article class="journey-step"><div class="step-icon">📄</div><span class="step-num">Stop 01</span><h3>Patient record</h3><p>Name, MRN, exact dates, scan, voice note, history, or a rare case combination.</p></article>
+          <article class="journey-step"><div class="step-icon">☁</div><span class="step-num">Stop 02</span><h3>Vendor system</h3><p>The prompt, attachment, and metadata cross into a processor’s infrastructure.</p></article>
+          <article class="journey-step"><div class="step-icon">⚙</div><span class="step-num">Stop 03</span><h3>Inference</h3><p>The model processes this input now to generate the answer you requested.</p></article>
+          <article class="journey-step"><div class="step-icon">▤</div><span class="step-num">Stop 04</span><h3>History & logs</h3><p>Retention, abuse monitoring, backups, admin tools, or human review may still apply.</p></article>
+          <article class="journey-step"><div class="step-icon">↗</div><span class="step-num">Stop 05</span><h3>Reuse or release</h3><p>Training, feedback, exports, connected tools, and public links are separate pathways.</p></article>
+        </div>
+        <p class="journey-caption"><strong>Key distinction:</strong> “Not used to train” describes Stop 05’s model-improvement branch. It does not erase Stops 02–04.</p>
+      </div>
+    </section>
+
+    <section class="training-lab" id="training">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">How training works—in plain English</p>
+          <h2 class="section-title">One switch. Five remaining paths.</h2>
+          <p class="section-lede">Try the switch. It demonstrates why a privacy setting is useful, but never permission to upload patient-identifiable information.</p>
+        </header>
+        <div class="toggle-panel">
+          <div class="control-card">
+            <h3>Model improvement</h3>
+            <p>A provider may use selected conversations to adjust future model behaviour—depending on the product, plan, settings, feedback, and safety rules.</p>
+            <div class="switch-row">
+              <div class="switch-label"><strong>Allow training</strong><small>Demonstration only</small></div>
+              <button class="switch" id="trainingSwitch" type="button" role="switch" aria-checked="true"><span class="sr-only">Toggle model training path</span></button>
+            </div>
+            <div class="switch-state" id="switchState">Model-improvement path: OPEN</div>
+            <p class="plain-rule"><strong>Safer rule:</strong> use only an institution-approved workspace and remove identifiers before upload—even when training is off.</p>
+          </div>
+          <div class="paths" aria-live="polite">
+            <div class="path"><div class="path-icon">⚙</div><div><strong>Immediate processing</strong><small>The model must read the input to answer.</small></div><span class="status on">Still on</span></div>
+            <div class="path"><div class="path-icon">▤</div><div><strong>Conversation history</strong><small>May remain visible in the account unless deleted or temporary mode is used.</small></div><span class="status varies">Varies</span></div>
+            <div class="path"><div class="path-icon">◉</div><div><strong>Safety / abuse review</strong><small>Limited review or monitoring may still apply under provider terms.</small></div><span class="status varies">Varies</span></div>
+            <div class="path training-path"><div class="path-icon">◎</div><div><strong>Future model improvement</strong><small>This is the branch controlled by the training preference.</small></div><span class="status on training-status">Open</span></div>
+            <div class="path"><div class="path-icon">⌁</div><div><strong>Share links and exports</strong><small>A separate user action can publish or copy content.</small></div><span class="status on">Still on</span></div>
+            <div class="path"><div class="path-icon">◫</div><div><strong>Connected tools</strong><small>Browser tools, plug-ins, or integrations can create additional recipients.</small></div><span class="status varies">Varies</span></div>
+          </div>
+        </div>
+        <div class="account-strip" aria-label="Examples of provider data controls">
+          <article class="account-card"><span class="account-label">ChatGPT · personal</span><strong>Turn off “Improve the model for everyone”</strong><p>Settings → Data Controls. Temporary Chat is not used for training, but OpenAI says it may be reviewed for abuse and is deleted after 30 days.</p></article>
+          <article class="account-card"><span class="account-label">Claude · consumer</span><strong>Turn off “Help Improve Claude”</strong><p>Settings → Privacy. Anthropic notes that safety-flagged conversations may still support trust-and-safety work.</p></article>
+          <article class="account-card"><span class="account-label">Managed business / API</span><strong>No training by default is better—not sufficient</strong><p>OpenAI business/API and Anthropic commercial offerings state no training by default. Approval, contract, configuration, retention, and minimum-necessary rules still apply.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="identifiers">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Uploading PII / patient data</p>
+          <h2 class="section-title">A name is not the only name tag.</h2>
+          <p class="section-lede">Deleting the patient’s name is not enough if the remaining details can still identify them.</p>
+        </header>
+        <div class="identifier-grid">
+          <article class="id-card"><div class="id-icon">🪪</div><h3>Direct identifiers</h3><ul><li>Name, MRN, ABHA or insurance ID</li><li>Phone, email, address</li><li>Signatures and account numbers</li></ul></article>
+          <article class="id-card"><div class="id-icon">📅</div><h3>Indirect identifiers</h3><ul><li>Exact dates and precise location</li><li>Occupation, family details</li><li>Rare diagnosis + small community</li></ul></article>
+          <article class="id-card"><div class="id-icon">🩻</div><h3>Hidden in files</h3><ul><li>Headers, footers, QR codes, barcodes</li><li>Faces, tattoos, voice, screenshots</li><li>Filename and document metadata</li></ul></article>
+          <article class="id-card"><div class="id-icon">🧩</div><h3>Re-identification</h3><ul><li>Several “harmless” facts combined</li><li>External news or social posts</li><li>Unique clinical timelines</li></ul></article>
+        </div>
+        <div class="deid-example">
+          <div class="mini-record bad"><span class="record-label">Too identifiable</span><p><strong>Meera S., MRN 47192</strong><br>34 years · Indiranagar<br>Admitted 7 Aug 2026 after…</p></div>
+          <div class="arrow-circle">→</div>
+          <div class="mini-record good"><span class="record-label">Minimum necessary</span><p><strong class="redact">Patient removed</strong><br>Adult in their 30s · urban setting<br>Recent admission after…</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="law" id="law">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">India · legal context</p>
+          <h2 class="section-title">DPDP is phased—not a future excuse.</h2>
+          <p class="section-lede">The framework is coming into force in stages. Build the safeguards now; do not wait for the last commencement date.</p>
+        </header>
+        <div class="law-status">
+          <article class="timeline-card">
+            <h3>Where things stand on 10 August 2026</h3>
+            <div class="timeline">
+              <div class="time-item"><time>11 Aug 2023</time><strong>DPDP Act enacted</strong><p>Creates India’s digital personal-data framework.</p></div>
+              <div class="time-item now"><time>13 Nov 2025 · active</time><strong>Board-related provisions begin</strong><p>Data Protection Board established; selected institutional provisions commenced.</p></div>
+              <div class="time-item"><time>13 Nov 2026</time><strong>Consent-manager provisions</strong><p>A smaller next phase starts one year after notification.</p></div>
+              <div class="time-item"><time>13 May 2027</time><strong>Most operating duties begin</strong><p>Core consent, data-fiduciary, safeguards, rights, breach, and penalty provisions commence.</p></div>
+            </div>
+            <div class="status-note"><strong>Today:</strong> existing duties do not disappear. Medical records and health information are expressly sensitive personal data under the 2011 IT SPDI Rules, and professional confidentiality continues to matter.</div>
+          </article>
+          <article class="law-principles">
+            <h3>What the DPDP operating model expects</h3>
+            <div class="law-list">
+              <div class="law-item"><span class="check">1</span><div><strong>Lawful, specified purpose</strong><small>Do not reuse clinical data for unrelated demos, research, or model improvement without a valid basis.</small></div></div>
+              <div class="law-item"><span class="check">2</span><div><strong>Specific, informed consent where relied upon</strong><small>Clear notice; only data necessary for the stated purpose; withdrawal must be possible.</small></div></div>
+              <div class="law-item"><span class="check">3</span><div><strong>Clinic remains accountable</strong><small>A vendor is a processor, not an accountability escape hatch. Use a valid contract and verify controls.</small></div></div>
+              <div class="law-item"><span class="check">4</span><div><strong>Reasonable safeguards</strong><small>Masking or tokenisation, access control, monitoring, logs, incident response, and processor clauses.</small></div></div>
+              <div class="law-item"><span class="check">5</span><div><strong>Accuracy, rights, and erasure</strong><small>Support access, correction, grievance, and deletion when purpose ends—subject to legal retention duties.</small></div></div>
+              <div class="law-item"><span class="check">6</span><div><strong>Emergency is narrow</strong><small>Immediate threat to life or health can justify necessary processing; convenience, teaching, or a demo is not an emergency.</small></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="incident" id="incident">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Claude public-sharing incident</p>
+          <h2 class="section-title">“Anyone with the link” can become anyone.</h2>
+          <p class="section-lede">In July 2026, publicly shared Claude pages appeared in Google and Bing results. Reports described sensitive material, including patient reports and clinical-trial data.</p>
+        </header>
+        <div class="incident-board">
+          <div class="incident-flow">
+            <article class="incident-step"><div class="incident-icon">💬</div><span class="incident-num">01 · PRIVATE</span><strong>User has a chat</strong><p>Claude chats start private by default.</p></article>
+            <article class="incident-step"><div class="incident-icon">⌁</div><span class="incident-num">02 · SHARE</span><strong>Public snapshot created</strong><p>The share action makes a link that anyone holding it can view.</p></article>
+            <article class="incident-step"><div class="incident-icon">🌐</div><span class="incident-num">03 · DISCOVER</span><strong>Link reaches the public web</strong><p>A forum, social post, archive, or other crawlable page can expose the URL.</p></article>
+            <article class="incident-step"><div class="incident-icon">🔎</div><span class="incident-num">04 · INDEX</span><strong>Search amplifies access</strong><p>Indexed pages become discoverable far beyond the intended recipient.</p></article>
+          </div>
+          <div class="incident-verdict">
+            <div class="verdict no"><b>What it was not</b>A breach exposing every private Claude chat. Reporting said the affected content had been intentionally shared.</div>
+            <div class="verdict yes"><b>What it demonstrates</b>A public link is publication, not private messaging. Removing the attachment does not remove details repeated in the conversation or output.</div>
+          </div>
+          <div class="incident-actions"><span class="action-chip">Review Settings → Privacy → Shared chats</span><span class="action-chip">Revoke stale links</span><span class="action-chip">Never share patient-identifiable chats</span><span class="action-chip">Assume copies and archives may remain</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scenarios">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Real-world choices</p>
+          <h2 class="section-title">Same tool. Very different risk.</h2>
+        </header>
+        <div class="scenario-grid">
+          <article class="scenario safe"><span class="scenario-badge">Safer pattern</span><h3>Summarising a pattern, not a person</h3><p>A clinician wants help explaining a glucose trend.</p><div class="scenario-visual">📈 → 🗣</div><ul><li>Uses an approved managed workspace</li><li>Removes name, ID, exact dates, and rare context</li><li>Uploads only the relevant values</li><li>Checks the output; deletes it per policy</li></ul></article>
+          <article class="scenario unsafe"><span class="scenario-badge">Avoid</span><h3>“Quick second opinion” in a personal account</h3><p>A full PDF discharge summary is pasted into a consumer chatbot.</p><div class="scenario-visual">📄 → 🌐</div><ul><li>Name, MRN, address, and QR code remain</li><li>Training toggle is assumed to solve privacy</li><li>Chat link is posted to a doctors’ group</li><li>No contract, approval, audit trail, or deletion plan</li></ul></article>
+          <article class="scenario emergency"><span class="scenario-badge">Narrow exception</span><h3>Immediate threat to life or health</h3><p>Only the information necessary to respond to the emergency is processed.</p><div class="scenario-visual">🚑 → ⏱</div><ul><li>Use the approved clinical pathway if available</li><li>Minimise data and record the necessity</li><li>Do not reuse later for teaching or model training</li><li>Report any accidental disclosure promptly</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dos" id="actions">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">Dos and don’ts</p>
+          <h2 class="section-title">Make the safe path the easy path.</h2>
+        </header>
+        <div class="do-grid">
+          <article class="do-panel yes">
+            <h3><span class="do-symbol">✓</span> Do</h3>
+            <div class="do-list">
+              <div class="do-item"><span>01</span><div><strong>Use the hospital-approved account</strong><small>Managed workspace, written terms, access control, audit, retention, and incident route.</small></div></div>
+              <div class="do-item"><span>02</span><div><strong>Minimise before uploading</strong><small>Prefer a short de-identified extract over a full report, scan, recording, or screenshot.</small></div></div>
+              <div class="do-item"><span>03</span><div><strong>Check every surface</strong><small>Training preference, history, memory, retention, residency, human review, connectors, links, and exports.</small></div></div>
+              <div class="do-item"><span>04</span><div><strong>Keep a human in charge</strong><small>Verify clinical facts and citations. AI output does not transfer professional accountability.</small></div></div>
+              <div class="do-item"><span>05</span><div><strong>Delete and document</strong><small>Follow the approved retention rule; log the purpose, tool, data class, reviewer, and deletion.</small></div></div>
+            </div>
+          </article>
+          <article class="do-panel no">
+            <h3><span class="do-symbol">×</span> Don’t</h3>
+            <div class="do-list">
+              <div class="do-item"><span>01</span><div><strong>Do not upload “just this once”</strong><small>Speed, curiosity, panel preparation, or convenience is not a legal basis or control.</small></div></div>
+              <div class="do-item"><span>02</span><div><strong>Do not trust name removal alone</strong><small>Exact dates, faces, rare diagnoses, location, metadata, or combinations can re-identify.</small></div></div>
+              <div class="do-item"><span>03</span><div><strong>Do not use a public link as a handoff</strong><small>If a patient chat must move, use the approved clinical system—not a share URL.</small></div></div>
+              <div class="do-item"><span>04</span><div><strong>Do not add unapproved connectors</strong><small>Browser extensions and plug-ins may become additional data recipients.</small></div></div>
+              <div class="do-item"><span>05</span><div><strong>Do not mistake “enterprise” for approval</strong><small>The product still needs organisational review, a contract, configured controls, and a permitted workflow.</small></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="decision">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">60-second upload gate</p>
+          <h2 class="section-title">Can this patient data go in?</h2>
+          <p class="section-lede">Four yeses before upload. One no means stop and use a safer route.</p>
+        </header>
+        <div class="gate">
+          <article class="gate-step"><div class="gate-num">01</div><h3>Approved purpose?</h3><p>Direct care or another documented lawful purpose—not curiosity, teaching, demo, or convenience.</p><span class="gate-answer">Must be yes</span></article>
+          <article class="gate-step"><div class="gate-num">02</div><h3>Approved system?</h3><p>Institution-approved product, workspace, vendor contract, configuration, and accountable owner.</p><span class="gate-answer">Must be yes</span></article>
+          <article class="gate-step"><div class="gate-num">03</div><h3>Minimum necessary?</h3><p>Identifiers removed, hidden metadata checked, and only task-relevant facts included.</p><span class="gate-answer">Must be yes</span></article>
+          <article class="gate-step"><div class="gate-num">04</div><h3>Controlled exit?</h3><p>No public link; output verified; deletion, logging, and incident route are known.</p><span class="gate-answer">Must be yes</span></article>
+        </div>
+        <div class="stop-rule">If you cannot answer confidently, do not upload. Ask your hospital’s privacy, security, legal, or data-protection lead.</div>
+      </div>
+    </section>
+
+    <section class="response">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">If data was uploaded or shared accidentally</p>
+          <h2 class="section-title">Contain first. Do not conceal.</h2>
+        </header>
+        <div class="response-card">
+          <div><h3>A practical first response</h3><p>Use your organisation’s incident plan. These steps are a discussion aid, not a substitute for the designated response team.</p></div>
+          <div class="response-steps">
+            <div class="response-step"><div><strong>Stop further disclosure</strong><small>Unshare the link, remove access, pause the connector, and do not forward screenshots.</small></div></div>
+            <div class="response-step"><div><strong>Preserve the facts</strong><small>Record tool, account type, data involved, recipients, timestamps, settings, links, and actions taken.</small></div></div>
+            <div class="response-step"><div><strong>Notify internally now</strong><small>Escalate to the hospital privacy/security/legal or DPO route; do not wait to prove harm.</small></div></div>
+            <div class="response-step"><div><strong>Use the formal breach process</strong><small>Let the accountable team assess patient and regulator notification under applicable law and policy.</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <div class="wrap">
+        <blockquote>AI can assist with the case.<br><span>It must not inherit the patient.</span></blockquote>
+        <p>Purpose. Approved system. Minimum necessary. No public links. Human review. Delete and document.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><h2>Sources & further reading</h2><p>Primary sources are linked wherever available. Vendor settings and legal commencement can change; verify before operational use.</p></div>
+        <div class="source-list">
+          <a href="https://www.meity.gov.in/static/uploads/2024/02/Digital-Personal-Data-Protection-Act-2023.pdf" target="_blank" rel="noopener">MeitY · Digital Personal Data Protection Act, 2023 ↗</a>
+          <a href="https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf" target="_blank" rel="noopener">MeitY · DPDP commencement notification, 2025 ↗</a>
+          <a href="https://www.meity.gov.in/static/uploads/2025/11/53450e6e5dc0bfa85ebd78686cadad39.pdf" target="_blank" rel="noopener">MeitY · Digital Personal Data Protection Rules, 2025 ↗</a>
+          <a href="https://www.meity.gov.in/documents/act-and-policies/rules-for-information-technology-act-2000-YDO5AjMtQWa" target="_blank" rel="noopener">MeitY · Rules under the IT Act, 2000 ↗</a>
+          <a href="https://www.nmc.org.in/rules-regulations/code-of-medical-ethics-regulations-2002/" target="_blank" rel="noopener">NMC · Code of Medical Ethics ↗</a>
+          <a href="https://privacy.claude.com/en/articles/10593882-share-and-unshare-chats" target="_blank" rel="noopener">Anthropic · Share and unshare chats ↗</a>
+          <a href="https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training" target="_blank" rel="noopener">Anthropic · Personal data in model training ↗</a>
+          <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener">Anthropic · Commercial data and training ↗</a>
+          <a href="https://www.axios.com/2026/07/27/anthropic-claude-public-chats-google-search" target="_blank" rel="noopener">Axios · Claude public pages in search, July 2026 ↗</a>
+          <a href="https://help.openai.com/en/articles/7730893-temporary-chat" target="_blank" rel="noopener">OpenAI · Data Controls FAQ ↗</a>
+          <a href="https://openai.com/enterprise-privacy/" target="_blank" rel="noopener">OpenAI · Enterprise privacy ↗</a>
+        </div>
+      </div>
+      <div class="legal-note">Educational discussion guide, not legal advice or a substitute for hospital policy, professional judgment, or incident-response procedures. “PII” is used conversationally; the DPDP Act uses “personal data.” Product controls differ across consumer, business, enterprise, and API offerings.</div>
+    </div>
+  </footer>
+
+  <script>
+    const trainingSwitch = document.getElementById('trainingSwitch');
+    const switchState = document.getElementById('switchState');
+    const trainingPath = document.querySelector('.training-path');
+    const trainingStatus = document.querySelector('.training-status');
+
+    trainingSwitch.addEventListener('click', () => {
+      const enabled = trainingSwitch.getAttribute('aria-checked') === 'true';
+      trainingSwitch.setAttribute('aria-checked', String(!enabled));
+      trainingSwitch.classList.toggle('off', enabled);
+      trainingPath.classList.toggle('training-disabled', enabled);
+      trainingStatus.textContent = enabled ? 'Closed' : 'Open';
+      trainingStatus.className = `status training-status ${enabled ? 'off' : 'on'}`;
+      switchState.textContent = enabled ? 'Model-improvement path: CLOSED' : 'Model-improvement path: OPEN';
+      switchState.classList.toggle('safeish', enabled);
+    });
+
+    const presentBtn = document.getElementById('presentBtn');
+    presentBtn.addEventListener('click', async () => {
+      const on = document.body.classList.toggle('present-mode');
+      presentBtn.setAttribute('aria-pressed', String(on));
+      if (on && document.documentElement.requestFullscreen) {
+        try { await document.documentElement.requestFullscreen(); } catch (_) {}
+      } else if (!on && document.fullscreenElement) {
+        try { await document.exitFullscreen(); } catch (_) {}
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) document.body.classList.remove('present-mode');
+    });
+
+    const progress = document.querySelector('.progress');
+    const tabs = [...document.querySelectorAll('.tab')];
+    const sections = tabs.map(tab => document.querySelector(tab.getAttribute('href'))).filter(Boolean);
+    const updateScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+      const marker = scrollY + innerHeight * .33;
+      let current = sections[0]?.id;
+      sections.forEach(section => { if (section.offsetTop <= marker) current = section.id; });
+      tabs.forEach(tab => tab.classList.toggle('active', tab.getAttribute('href') === `#${current}`));
+    };
+    addEventListener('scroll', updateScroll, { passive: true });
+    addEventListener('resize', updateScroll);
+    updateScroll();
+  </script>
+</body>
+</html>
