@@ -4,24 +4,129 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="theme-color" content="#102a43" />
     <meta
-      http-equiv="refresh"
-      content="0; url=https://prototype-archives-including-ruling.trycloudflare.com/neurabrix/videochat/"
+      name="description"
+      content="Watch a NbxVideo sample composed from three interview-style videos with transitions and branded opening and closing cards."
     />
-    <title>Opening NbxVideo Editor</title>
+    <meta property="og:title" content="NbxVideo branded multi-video Short" />
+    <meta property="og:description" content="Three source moments, one branded vertical Short." />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:url" content="https://neurabrix.co/videochat/" />
+    <meta
+      property="og:image"
+      content="https://neurabrix.co/videochat/sample/branded-multiclip-short-poster.png"
+    />
+    <link rel="canonical" href="https://neurabrix.co/videochat/" />
+    <title>NbxVideo Branded Short | Neurabrix</title>
     <style>
-      :root { color-scheme: dark; }
-      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #111315; color: #f7f4ed; font: 16px/1.5 system-ui, sans-serif; }
-      main { max-width: 34rem; padding: 2rem; text-align: center; }
-      p { color: #a9b0b4; }
-      a { color: #ffb24a; }
+      :root {
+        color-scheme: light;
+        --ink: #122033;
+        --muted: #607184;
+        --paper: #f4f8fb;
+        --white: #ffffff;
+        --night: #102a43;
+        --teal: #087f8c;
+        --mint: #e5f6f3;
+        --line: rgba(18, 43, 67, 0.12);
+        --accent: #ffb24a;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 84% 0, rgba(49, 161, 181, 0.15), transparent 30rem),
+          var(--paper);
+      }
+      a { color: inherit; text-decoration: none; }
+      .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10; padding: 10px 14px; transform: translateY(-160%); border-radius: 8px; color: white; background: var(--night); }
+      .skip-link:focus { transform: none; }
+      header { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(18px); }
+      .header-inner { width: min(1120px, calc(100% - 40px)); min-height: 74px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 19px; font-weight: 820; letter-spacing: -0.035em; }
+      .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 11px; color: white; background: linear-gradient(145deg, #0d9a9a, #1577d4); box-shadow: 0 10px 24px rgba(24, 102, 178, 0.2); }
+      .home-link { color: var(--teal); font-size: 14px; font-weight: 750; }
+      main { width: min(1120px, calc(100% - 40px)); margin: auto; padding: 62px 0 72px; }
+      .eyebrow { margin: 0 0 10px; color: var(--teal); font-size: 12px; font-weight: 850; letter-spacing: 0.16em; }
+      h1 { max-width: 850px; margin: 0; font-size: clamp(42px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.055em; text-wrap: balance; }
+      .lede { max-width: 760px; margin: 22px 0 0; color: var(--muted); font-size: clamp(18px, 2vw, 22px); line-height: 1.55; }
+      .studio { display: grid; grid-template-columns: minmax(280px, 430px) minmax(300px, 1fr); gap: 28px; align-items: start; margin-top: 42px; }
+      .player-card, .details { border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 24px 70px rgba(31, 67, 98, 0.11); }
+      .player-card { padding: 16px; background: #111315; }
+      video { display: block; width: 100%; max-height: 72vh; border-radius: 14px; background: #070808; }
+      .player-note { display: flex; justify-content: space-between; gap: 14px; margin: 12px 3px 0; color: #aeb6bb; font-size: 12px; }
+      .details { padding: 28px; background: rgba(255, 255, 255, 0.9); }
+      h2 { margin: 0 0 10px; font-size: 29px; letter-spacing: -0.035em; }
+      .details > p { color: var(--muted); line-height: 1.65; }
+      .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 24px 0; }
+      .metric { padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); }
+      .metric strong { display: block; color: var(--night); font-size: 19px; }
+      .metric span { color: var(--muted); font-size: 12px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+      .button { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 0 17px; border: 1px solid var(--line); border-radius: 12px; font-weight: 780; }
+      .button.primary { border-color: var(--teal); color: white; background: var(--teal); }
+      .button.secondary { background: var(--white); }
+      .review-note { margin-top: 20px; padding: 13px 15px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; color: #67502f; background: #fff7e9; font-size: 13px; line-height: 1.55; }
+      footer { padding: 22px 0 32px; color: var(--muted); text-align: center; font-size: 13px; }
+      @media (max-width: 820px) {
+        main { padding-top: 42px; }
+        .studio { grid-template-columns: 1fr; }
+        .player-card { max-width: 480px; width: 100%; margin: auto; }
+      }
+      @media (max-width: 520px) {
+        .header-inner, main { width: min(100% - 24px, 1120px); }
+        .header-inner { min-height: 64px; }
+        h1 { font-size: 42px; }
+        .details { padding: 20px; }
+        .metrics { grid-template-columns: 1fr 1fr; }
+        .actions { display: grid; }
+        .player-note { display: grid; }
+      }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#sample">Skip to video</a>
+    <header>
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Neurabrix home"><span class="brand-mark">N</span><span>Neurabrix</span></a>
+        <a class="home-link" href="/">Back to neurabrix.co</a>
+      </div>
+    </header>
     <main>
-      <h1>Opening the private NbxVideo editor…</h1>
-      <p>You will be asked for the internal editor username and password.</p>
-      <p><a href="https://prototype-archives-including-ruling.trycloudflare.com/neurabrix/videochat/">Continue to NbxVideo</a></p>
+      <p class="eyebrow">NBXVIDEO · GENERATED SAMPLE</p>
+      <h1>Three conversations. One branded Short.</h1>
+      <p class="lede">Created by selecting moments from an interview, a three-person panel, and a video podcast—then adding consistent transitions and NEURABRIX opening and closing cards.</p>
+      <section class="studio" aria-label="Generated video sample">
+        <div class="player-card" id="sample">
+          <video controls playsinline preload="metadata" poster="sample/branded-multiclip-short-poster.png">
+            <source src="sample/branded-multiclip-short-preview.mp4" type="video/mp4" />
+            Your browser does not support HTML video. Use the preview download link beside the player.
+          </video>
+          <div class="player-note"><span>1080 × 1920 review</span><span>10.04 seconds · sound included</span></div>
+        </div>
+        <div class="details">
+          <h2>Built without a traditional timeline</h2>
+          <p>The same composition is available through the NbxVideo web editor and Codex: ordered source ranges, Fit or Fill framing, restrained video and audio transitions, and editable front/end branding.</p>
+          <div class="metrics" aria-label="Sample specifications">
+            <div class="metric"><strong>3</strong><span>source videos</span></div>
+            <div class="metric"><strong>4</strong><span>crossfades</span></div>
+            <div class="metric"><strong>1080p</strong><span>browser preview</span></div>
+            <div class="metric"><strong>4K</strong><span>vertical master</span></div>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="sample/branded-multiclip-short-preview.mp4">Open video directly</a>
+            <a class="button secondary" href="sample/branded-multiclip-short-4k.mp4" download>Download 4K master</a>
+            <a class="button secondary" href="https://prototype-archives-including-ruling.trycloudflare.com/neurabrix/videochat/">Open private editor</a>
+          </div>
+          <p class="review-note"><strong>Review note:</strong> This is controlled synthetic test media. The editor explicitly accepted the sample’s synthetic competitor-reference warning before publication.</p>
+        </div>
+      </section>
     </main>
+    <footer>© Neurabrix · Applied AI systems built for clear human review</footer>
   </body>
 </html>
