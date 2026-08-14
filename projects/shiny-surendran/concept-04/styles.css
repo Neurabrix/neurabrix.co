@@ -21,7 +21,7 @@ a:focus-visible { outline: 3px solid #f4b93e; outline-offset: 4px; border-radius
 .skip-link { position: fixed; top: 8px; left: 8px; padding: 10px 16px; background: white; transform: translateY(-150%); z-index: 100; }
 .skip-link:focus { transform: none; }
 
-.site-header { width: min(1280px, calc(100% - 64px)); min-height: 94px; margin: 0 auto; display: flex; align-items: center; gap: 48px; }
+.site-header { --masthead-radius: 24px; width: min(1280px, calc(100% - 64px)); min-height: 94px; margin: 12px auto 0; padding-inline: clamp(24px, 3vw, 42px); display: flex; align-items: center; gap: 48px; }
 .brand { display: inline-flex; flex-direction: column; text-transform: uppercase; line-height: 1; min-width: max-content; }
 .brand span { font-family: var(--serif); font-size: 24px; font-weight: 700; text-transform: none; }
 .brand small { margin-top: 8px; font-size: 9px; font-weight: 700; letter-spacing: .2em; }
@@ -127,7 +127,7 @@ footer address { color: #5e5b62; font-size: 14px; font-style: normal; }
 
 @media (max-width: 680px) {
   .site-header, .hero, .section, footer { width: calc(100% - 32px); }
-  .site-header { min-height: 78px; gap: 12px; }
+  .site-header { --masthead-radius: 20px; min-height: 78px; margin-top: 8px; padding-inline: 20px; gap: 12px; }
   .brand span { font-size: 19px; }
   .brand small { font-size: 7px; }
   .header-cta { min-height: 42px; padding: 0 14px; font-size: 12px; }
@@ -157,7 +157,7 @@ footer address { color: #5e5b62; font-size: 14px; font-style: normal; }
 /* Embedded previews can be much narrower than a phone. Preserve actions without clipping. */
 @media (max-width: 240px) {
   .site-header, .hero, .section, footer { width: calc(100% - 16px); }
-  .site-header { min-height: 58px; gap: 8px; }
+  .site-header { --masthead-radius: 14px; min-height: 58px; margin-top: 6px; padding-inline: 10px; gap: 8px; }
   .brand { min-width: 0; max-width: calc(100% - 46px); }
   .brand span { font-size: 0; white-space: nowrap; }
   .brand span::after { content: "SS"; font-family: var(--serif); font-size: 18px; font-weight: 700; }
