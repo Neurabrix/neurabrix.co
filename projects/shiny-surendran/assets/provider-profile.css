@@ -172,6 +172,10 @@
   margin-bottom: 48px;
 }
 
+.provider-section-heading > * {
+  min-width: 0;
+}
+
 .provider-section-heading > span {
   color: var(--provider-accent);
   font-size: 11px;
@@ -626,12 +630,133 @@
 .source-links a:hover { border-color: var(--provider-accent); }
 .source-links span { color: var(--provider-muted); font-size: 12px; }
 .provider-source-warning { margin: 24px 0 0; padding: 16px 18px; color: var(--provider-muted); border-left: 3px solid var(--provider-accent); background: var(--provider-soft); font-size: 12px; }
+
+.provider-gallery {
+  scroll-margin-top: 180px;
+}
+
+.provider-gallery-intro {
+  max-width: 720px;
+  margin: -24px 0 38px;
+  color: var(--provider-muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.provider-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: clamp(160px, 15vw, 224px);
+  gap: 14px;
+}
+
+.provider-gallery-item {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  grid-column: span 4;
+  color: #fff;
+  background: var(--provider-surface);
+  border: 1px solid var(--provider-border);
+  border-radius: var(--provider-radius);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.provider-gallery-wide {
+  grid-column: span 8;
+  grid-row: span 2;
+}
+
+.provider-gallery-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.provider-gallery-wide img {
+  object-position: 70% center;
+}
+
+.provider-gallery-feature img {
+  object-position: 58% center;
+}
+
+.provider-gallery-item figcaption,
+.provider-gallery-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 54px 20px 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(5, 10, 18, 0.88));
+}
+
+.provider-gallery-item figcaption span,
+.provider-gallery-caption small {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.provider-gallery-item figcaption strong,
+.provider-gallery-caption strong {
+  font-size: clamp(15px, 1.5vw, 21px);
+  line-height: 1.15;
+}
+
+.provider-gallery-video img {
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.provider-gallery-video:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.8);
+}
+
+.provider-gallery-play {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--provider-accent-strong);
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 50%;
+  font-size: 13px;
+  box-shadow: 0 8px 20px rgba(5, 10, 18, 0.2);
+}
+
+.provider-gallery-source {
+  margin: 18px 0 0;
+  color: var(--provider-muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
 @media (max-width: 680px) {
   .provider-complete { margin-top: -28px; padding-top: 32px; }
   .provider-complete-intro { margin-top: -12px; }
   .provider-complete-list > details > summary { grid-template-columns: minmax(0,1fr) 24px; gap: 10px; }
   .provider-complete-list summary span { display: none; }
   .provider-complete-body { grid-template-columns: 1fr; }
+  .provider-gallery-intro { margin-top: -12px; margin-bottom: 26px; }
+  .provider-gallery-grid { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; gap: 10px; }
+  .provider-gallery-item,
+  .provider-gallery-wide { grid-column: 1; grid-row: auto; aspect-ratio: 4 / 3; }
+  .provider-gallery-wide { aspect-ratio: 3 / 2; }
 }
 @media (max-width: 240px) {
   .provider-complete { margin-top: -18px; padding-top: 24px; }
@@ -639,11 +764,18 @@
   .provider-complete-list summary strong { font-size: 15px; overflow-wrap: anywhere; }
   .provider-complete-body article, .source-links a { padding: 12px; border-radius: 10px; }
   .provider-source-warning { padding: 10px; overflow-wrap: anywhere; }
+  .provider-gallery-item figcaption,
+  .provider-gallery-caption { padding: 38px 12px 12px; }
+  .provider-gallery .provider-section-heading h2 { width: 100%; font-size: 24px; overflow-wrap: normal; }
+  .provider-gallery-item figcaption strong,
+  .provider-gallery-caption strong { font-size: 13px; overflow-wrap: anywhere; }
+  .provider-gallery-play { top: 9px; left: 9px; width: 30px; height: 30px; font-size: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .provider-disclosures details::before,
-  .provider-disclosures summary i {
+  .provider-disclosures summary i,
+  .provider-gallery-video img {
     transition: none;
   }
 }
