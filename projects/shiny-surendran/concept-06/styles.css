@@ -23,7 +23,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--coral); outlin
 .skip-link { position: fixed; top: 8px; left: 8px; padding: 10px 16px; background: white; transform: translateY(-150%); z-index: 100; }
 .skip-link:focus { transform: none; }
 
-.site-header { width: min(1280px, calc(100% - 64px)); min-height: 110px; margin: 0 auto; display: flex; align-items: center; gap: 44px; }
+.site-header { width: 100%; min-height: 110px; margin: 0; padding-inline: max(32px, calc((100% - 1280px) / 2)); display: flex; align-items: center; gap: 44px; }
 .brand { display: flex; flex-direction: column; font-family: var(--serif); font-size: 25px; line-height: .82; }
 .brand strong { font-weight: 600; }
 .brand span { color: var(--coral); font-style: italic; }
@@ -143,7 +143,8 @@ footer nav { display: flex; gap: 18px; font-size: 11px; font-weight: 800; text-t
 }
 
 @media (max-width: 660px) {
-  .site-header, .hero, .section, footer { width: calc(100% - 32px); }
+  .site-header { width: 100%; padding-inline: 16px; }
+  .hero, .section, footer { width: calc(100% - 32px); }
   .site-header { min-height: 88px; }
   .round-action { width: 88px; height: 62px; }
   .hero { gap: 24px; grid-template-rows: auto auto 360px; }
@@ -174,7 +175,8 @@ footer nav { display: flex; gap: 18px; font-size: 11px; font-weight: 800; text-t
 
 /* Embedded previews can be much narrower than a phone. Preserve actions without clipping. */
 @media (max-width: 240px) {
-  .site-header, .hero, .section, footer { width: calc(100% - 16px); }
+  .site-header { width: 100%; padding-inline: 8px; }
+  .hero, .section, footer { width: calc(100% - 16px); }
   .site-header { min-height: 60px; gap: 8px; }
   .brand { min-width: 0; font-size: 0; }
   .brand strong { font-size: 0; }
