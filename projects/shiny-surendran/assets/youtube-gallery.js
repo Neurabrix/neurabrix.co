@@ -77,12 +77,13 @@
 
       const visual = make("span", "provider-youtube-visual");
       const image = document.createElement("img");
-      image.src = `https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`;
+      image.src = `../assets/youtube/${video.id}.jpg`;
       image.alt = "";
       image.width = 480;
       image.height = 360;
       image.loading = "lazy";
       image.decoding = "async";
+      image.addEventListener("error", () => image.remove(), { once: true });
       visual.append(image, make("span", "provider-youtube-play", "▶"));
 
       const copy = make("span", "provider-youtube-copy");

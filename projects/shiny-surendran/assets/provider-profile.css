@@ -256,7 +256,13 @@
 }
 
 .provider-disclosures details[open] summary i {
-  transform: rotate(45deg);
+  transform: none;
+  font-size: 0;
+}
+
+.provider-disclosures details[open] summary i::after {
+  content: "−";
+  font-size: 24px;
 }
 
 .provider-disclosure-body {
@@ -560,6 +566,9 @@
 
 /* Guardrail for embedded preview panes narrower than a standard phone. */
 @media (max-width: 240px) {
+  html { scrollbar-width: none; }
+  html::-webkit-scrollbar { width: 0; height: 0; }
+
   .provider-concept { padding-bottom: 92px; }
 
   .provider-utility,
@@ -602,6 +611,17 @@
 
   .provider-proof-grid h3 { overflow-wrap: anywhere; }
 
+  .provider-proof-grid :is(ul, li),
+  .provider-complete,
+  .provider-complete-list,
+  .provider-complete-list > details,
+  .provider-complete-body,
+  .provider-complete-body article { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+
+  .provider-complete-list > details > summary { min-width: 0; grid-template-columns: minmax(0, 1fr) 16px; gap: 4px; }
+
+  .provider-complete-list > details > summary strong { min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+
   .provider-visit-details p { grid-template-columns: 1fr; gap: 4px; }
 
   .provider-mobile-action { padding: 5px 6px calc(5px + env(safe-area-inset-bottom)); grid-template-columns: 1fr; gap: 4px; }
@@ -619,7 +639,8 @@
 .provider-complete-list summary strong { font-size: clamp(18px, 2vw, 25px); }
 .provider-complete-list summary span { color: var(--provider-muted); font-size: 12px; }
 .provider-complete-list summary i { color: var(--provider-accent); font-size: 24px; font-style: normal; text-align: center; transition: transform .2s ease; }
-.provider-complete-list details[open] summary i { transform: rotate(45deg); }
+.provider-complete-list details[open] summary i { transform: none; font-size: 0; }
+.provider-complete-list details[open] summary i::after { content: "−"; font-size: 24px; }
 .provider-complete-body { padding: 0 0 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .provider-complete-body article, .source-links a { min-width: 0; padding: 20px; border: 1px solid var(--provider-border); border-radius: var(--provider-radius); background: var(--provider-surface); }
 .provider-complete-body h3 { margin: 0 0 10px; color: var(--provider-ink); font-size: 19px; }
@@ -864,7 +885,13 @@
 }
 
 .provider-youtube-library[open] > summary i {
-  transform: rotate(45deg);
+  transform: none;
+  font-size: 0;
+}
+
+.provider-youtube-library[open] > summary i::after {
+  content: "−";
+  font-size: 24px;
 }
 
 .provider-youtube-grid {

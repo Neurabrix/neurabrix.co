@@ -1,0 +1,9 @@
+@media (max-width: 180px) {
+  html { scrollbar-width: none; }
+  html::-webkit-scrollbar { width: 0; height: 0; }
+  .shell { min-width: 0; overflow-x: clip; }
+  .concept,
+  .concept-mark,
+  .concept-copy,
+  .actions { width: 100%; min-width: 0; }
+}

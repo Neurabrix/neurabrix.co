@@ -71,6 +71,7 @@
 }
 
 @media (max-width: 180px) {
-  .concept-watermark { font-size: 11px; letter-spacing: .04em; }
+  .concept-watermark { max-width: 100vw; transform: none; font-size: 11px; letter-spacing: .04em; }
+  .concept-watermark span { width: 100%; white-space: normal; overflow-wrap: anywhere; }
   .project-comparison .rights-notice { overflow-wrap: anywhere; }
 }
