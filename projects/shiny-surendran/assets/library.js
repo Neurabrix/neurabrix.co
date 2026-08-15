@@ -1,6 +1,7 @@
 (() => {
   const data = window.SHINY_LIBRARY_DATA;
   const assetRoot = document.body.dataset.assetRoot || "./assets/";
+  const integrated = Boolean(document.querySelector("[data-integrated-library]"));
   const status = document.querySelector("[data-library-status]");
   if (!data) {
     if (status) {
@@ -112,7 +113,9 @@
       summary.append(make("span", "library-index", String(article.id).padStart(2, "0")), make("strong", "", article.title), make("span", "library-open-label", "Read article"));
       const body = make("div", "library-article-body");
       article.blocks.forEach((block) => {
-        const safeTag = ["h2", "h3", "h4", "p", "li"].includes(block.tag) ? block.tag : "p";
+        const safeTag = integrated && ["h2", "h3", "h4"].includes(block.tag)
+          ? "h4"
+          : (["h2", "h3", "h4", "p", "li"].includes(block.tag) ? block.tag : "p");
         if (safeTag === "li") {
           let list = body.lastElementChild;
           if (!list || list.tagName !== "UL") {

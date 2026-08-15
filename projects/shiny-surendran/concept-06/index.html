@@ -11,10 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260815-1">
   <link rel="stylesheet" href="../assets/provider-profile.css?v=20260815-1">
+  <link rel="stylesheet" href="../assets/integrated-library.css?v=20260815-2">
   <link rel="stylesheet" href="../assets/protection.css?v=20260815-1">
   <script src="../assets/youtube-gallery.js?v=20260815-1" defer></script>
+  <script src="../assets/library-data.js?v=20260815-2" defer></script>
+  <script src="../assets/integrated-library.js?v=20260815-2" defer></script>
+  <script src="../assets/library.js?v=20260815-2" defer></script>
 </head>
-<body class="provider-concept provider-service">
+<body class="provider-concept provider-service" data-asset-root="../assets/">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="provider-utility" aria-label="Contact options">
     <div class="provider-utility-inner"><span class="provider-utility-label">Personalised nutrition · Online and Chennai</span><div class="provider-utility-links">
@@ -26,7 +30,7 @@
   </div>
   <header class="site-header">
     <a class="brand" href="#top"><strong>Shiny</strong><span>Surendran</span></a>
-    <nav aria-label="Primary navigation"><a href="#choose">Find support</a><a href="#approach">Approach</a><a href="#programmes">Programs</a><a href="#gallery">Gallery</a><a href="../library.html?concept=3">Library</a><a href="#visit">Visit</a></nav>
+    <nav aria-label="Primary navigation"><a href="#choose">Find support</a><a href="#approach">Approach</a><a href="#programmes">Programs</a><a href="#gallery">Gallery</a><a href="#library">Library</a><a href="#visit">Visit</a></nav>
     <a class="round-action" href="https://wa.me/916381501165?text=Hello%20I%27d%20like%20to%20schedule%20a%20nutrition%20consultation." target="_blank" rel="noreferrer"><span>Book a<br>consultation</span><b aria-hidden="true">↗</b></a>
   </header>
 
@@ -191,19 +195,13 @@
       </div>
     </section>
 
-    <section class="notes section" id="library">
-      <div class="notes-heading"><p class="overline">From Shiny’s library</p><h2>Food for thought.</h2><p>Explore the complete collection of practical writing, public features and client experiences.</p></div>
-      <div class="note-grid">
-        <article><span>59 public videos</span><h3>Sport, health and everyday nutrition</h3></article>
-        <article><span>11 full articles</span><h3>Practical nutrition reading</h3></article>
-        <article><span>Press &amp; client experiences</span><h3>Public features, reviews and stories</h3></article>
-      </div>
-      <a class="provider-complete-link" href="../library.html?concept=3">Open the nutrition library <span aria-hidden="true">↗</span></a>
+    <section class="provider-library" id="library" data-integrated-library aria-labelledby="library-title">
+      <noscript><p>The nutrition library needs JavaScript to provide article search and filtering. Please contact the clinic if you need any material directly.</p></noscript>
     </section>
 
     <section class="provider-complete provider-section" id="programmes">
       <div class="provider-section-heading"><span>Programmes &amp; support</span><h2>Understand the process before you choose a consultation.</h2></div>
-      <p class="provider-complete-intro">Explore programme formats, online consultation, sports nutrition, preventive support and Shiny’s professional evidence. Articles, press, reviews and client experiences continue in the website’s nutrition library.</p>
+      <p class="provider-complete-intro">Explore programme formats, online consultation, sports nutrition, preventive support and Shiny’s professional evidence. Articles, press, reviews and client experiences are included in the integrated nutrition library above.</p>
       <div class="provider-complete-list">
         <details open><summary><strong>Consultation programmes &amp; previously published fees</strong><span>Plans, delivery and follow-up</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body">
           <article><h3>One-month programme</h3><p>Initial phone or direct assessment; front and side photographs; online or clinic measurements; customised plan emailed within 24–48 hours; one clarification call; food diary every 15 days; reviews on days 15 and 30; revised plan on day 30; end-of-package photograph.</p><p><b>Previously published fee:</b> ₹15,000 + 18% GST = ₹17,700. Confirm the current fee and availability with the clinic.</p></article>
@@ -218,7 +216,7 @@
         <details><summary><strong>How online consultation works</strong><span>From the first form to ongoing support</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body columns"><article><h3>1. Share your goals and health context</h3><p>Complete a pre-consultation document covering health history, current health information and realistic goals.</p></article><article><h3>2. Describe daily life</h3><p>A second assessment explores eating patterns, preferences, physical activity and sleep so guidance can fit real routines.</p></article><article><h3>3. Receive a personalised plan</h3><p>The previously published process states that a personalised meal plan is sent after the assessment, generally within two to three days.</p></article><article><h3>4. Review and adapt</h3><p>Follow-ups use food and activity records to support progress, including planning for travel, holidays, weddings and festivals.</p></article><article><h3>5. Build a sustainable routine</h3><p>The emphasis is steady progress, practical food choices and habits that can continue beyond a programme.</p></article></div></details>
         <details><summary><strong>Sports nutrition in depth</strong><span>Training, competition, recovery and travel</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body columns"><article><h3>Assessment and planning</h3><p>Dietary practices, body composition and energy balance are considered in the context of performance and health. Meal, snack and hydration planning can be aligned with training phases, competition and recovery.</p></article><article><h3>Performance challenges</h3><p>Support may address travel, immunity, gastrointestinal concerns, food allergies, iron depletion, bone-mineral concerns, disordered eating and appropriate supplementation.</p></article><article><h3>Collaborative support</h3><p>When appropriate, the process can involve family, physicians, coaches and other health professionals, alongside education for athletes, parents and teams.</p></article></div></details>
         <details><summary><strong>Weight management &amp; preventive nutrition</strong><span>Individual counselling and practical care areas</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body columns"><article><h3>Body composition and everyday goals</h3><p>Personalised counselling can support weight loss, healthy weight gain, muscle gain, body-fat reduction and sustainable food habits, with milestones reviewed against individual needs.</p></article><article><h3>Health-related nutrition</h3><p>Published areas include diabetes, cholesterol, hypertension, PCOS, thyroid health, digestive concerns, food intolerance, bariatric nutrition, pregnancy nutrition, anemia, fatty liver, skin and hair health.</p></article><article><h3>Life beyond routine days</h3><p>Guidance can account for business travel, holidays, celebrations and other situations where a practical plan matters more than a rigid diet.</p></article></div></details>
-        <details><summary><strong>Articles, press, reviews &amp; client experiences</strong><span>All available material, organised for reading</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body"><article><h3>Continue into the nutrition library</h3><p>Read 11 full nutrition articles, search 98 previously published client experiences, browse 14 public features, view 17 historical press images and see the Google review gallery in one place.</p><p><a class="provider-action" href="../library.html?concept=3">Open the nutrition library <span aria-hidden="true">↗</span></a></p></article></div></details>
+        <details><summary><strong>Articles, press, reviews &amp; client experiences</strong><span>All available material, organised for reading</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body"><article><h3>Everything is part of this concept</h3><p>Read 11 full nutrition articles, search 98 previously published client experiences, browse 14 public features, view 17 historical press images and see the Google review gallery in one place.</p><p><a class="provider-action" href="#library">Return to the nutrition library <span aria-hidden="true">↑</span></a></p></article></div></details>
         <details><summary><strong>Independent public documentation</strong><span>High-confidence records and credited media</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body source-links">
           <a href="https://asnfs.org/about/" target="_blank" rel="noreferrer"><b>ASNFS profile</b><span>Sports and preventive nutrition; MSc and IOC diploma</span></a>
           <a href="https://asnfs.org/wp-content/uploads/Batch-6-Faculty-Brochure-2025.pdf" target="_blank" rel="noreferrer"><b>ASNFS 2025 faculty</b><span>Nutrition for racket sports</span></a>

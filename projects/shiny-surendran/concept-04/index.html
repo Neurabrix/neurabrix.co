@@ -11,10 +11,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260815-1">
   <link rel="stylesheet" href="../assets/provider-profile.css?v=20260815-1">
+  <link rel="stylesheet" href="../assets/integrated-library.css?v=20260815-2">
   <link rel="stylesheet" href="../assets/protection.css?v=20260815-1">
   <script src="../assets/youtube-gallery.js?v=20260815-1" defer></script>
+  <script src="../assets/library-data.js?v=20260815-2" defer></script>
+  <script src="../assets/integrated-library.js?v=20260815-2" defer></script>
+  <script src="../assets/library.js?v=20260815-2" defer></script>
 </head>
-<body class="provider-concept provider-editorial">
+<body class="provider-concept provider-editorial" data-asset-root="../assets/">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="provider-utility" aria-label="Contact options">
     <div class="provider-utility-inner"><span class="provider-utility-label">Appointments · Online and Chennai</span><div class="provider-utility-links">
@@ -34,7 +38,7 @@
       <a href="#care">Services</a>
       <a href="#programmes">Programs</a>
       <a href="#gallery">Gallery</a>
-      <a href="../library.html?concept=1">Library</a>
+      <a href="#library">Library</a>
       <a href="#visit">Visit</a>
     </nav>
     <a class="header-cta" href="https://wa.me/916381501165?text=Hello%20I%27d%20like%20to%20schedule%20a%20nutrition%20consultation." target="_blank" rel="noreferrer">Book a consultation</a>
@@ -224,23 +228,13 @@
       </div>
     </section>
 
-    <section class="insights section" id="library">
-      <div class="section-label"><span>04</span> Ideas & media</div>
-      <div class="insights-heading">
-        <h2>Nutrition, made useful.</h2>
-        <p>Explore Shiny’s videos, interviews and practical writing on sport, food and everyday health.</p>
-      </div>
-      <div class="insight-grid">
-        <article><span>59 public videos</span><h3>Sport, health and everyday nutrition</h3></article>
-        <article><span>11 full articles</span><h3>Practical nutrition reading</h3></article>
-        <article><span>Press &amp; client experiences</span><h3>Public features and stories</h3></article>
-      </div>
-      <a class="provider-complete-link" href="../library.html?concept=1">Open the nutrition library <span aria-hidden="true">↗</span></a>
+    <section class="provider-library" id="library" data-integrated-library aria-labelledby="library-title">
+      <noscript><p>The nutrition library needs JavaScript to provide article search and filtering. Please contact the clinic if you need any material directly.</p></noscript>
     </section>
 
     <section class="provider-complete provider-section" id="programmes">
       <div class="provider-section-heading"><span>Programmes &amp; support</span><h2>Understand the process before you choose a consultation.</h2></div>
-      <p class="provider-complete-intro">Explore programme formats, online consultation, sports nutrition, preventive support and Shiny’s professional evidence. Articles, press, reviews and client experiences continue in the website’s nutrition library.</p>
+      <p class="provider-complete-intro">Explore programme formats, online consultation, sports nutrition, preventive support and Shiny’s professional evidence. Articles, press, reviews and client experiences are included in the integrated nutrition library above.</p>
       <div class="provider-complete-list">
         <details open><summary><strong>Consultation programmes &amp; previously published fees</strong><span>Plans, delivery and follow-up</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body">
           <article><h3>One-month programme</h3><p>Initial phone or direct assessment; front and side photographs; online or clinic measurements; customised plan emailed within 24–48 hours; one clarification call; food diary every 15 days; reviews on days 15 and 30; revised plan on day 30; end-of-package photograph.</p><p><b>Previously published fee:</b> ₹15,000 + 18% GST = ₹17,700. Confirm the current fee and availability with the clinic.</p></article>
@@ -269,7 +263,7 @@
           <article><h3>Health-related nutrition</h3><p>Published areas include diabetes, cholesterol, hypertension, PCOS, thyroid health, digestive concerns, food intolerance, bariatric nutrition, pregnancy nutrition, anemia, fatty liver, skin and hair health.</p></article>
           <article><h3>Life beyond routine days</h3><p>Guidance can account for business travel, holidays, celebrations and other situations where a practical plan matters more than a rigid diet.</p></article>
         </div></details>
-        <details><summary><strong>Articles, press, reviews &amp; client experiences</strong><span>All available material, organised for reading</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body"><article><h3>Continue into the nutrition library</h3><p>Read 11 full nutrition articles, search 98 previously published client experiences, browse 14 public features, view 17 historical press images and see the Google review gallery in one place.</p><p><a class="provider-action" href="../library.html?concept=1">Open the nutrition library <span aria-hidden="true">↗</span></a></p></article></div></details>
+        <details><summary><strong>Articles, press, reviews &amp; client experiences</strong><span>All available material, organised for reading</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body"><article><h3>Everything is part of this concept</h3><p>Read 11 full nutrition articles, search 98 previously published client experiences, browse 14 public features, view 17 historical press images and see the Google review gallery in one place.</p><p><a class="provider-action" href="#library">Return to the nutrition library <span aria-hidden="true">↑</span></a></p></article></div></details>
         <details><summary><strong>Independent public documentation</strong><span>High-confidence records and credited media</span><i aria-hidden="true">+</i></summary><div class="provider-complete-body source-links">
           <a href="https://asnfs.org/about/" target="_blank" rel="noreferrer"><b>ASNFS profile</b><span>Sports and preventive nutrition; MSc and IOC diploma</span></a>
           <a href="https://asnfs.org/wp-content/uploads/Batch-6-Faculty-Brochure-2025.pdf" target="_blank" rel="noreferrer"><b>ASNFS 2025 faculty</b><span>Nutrition for racket sports</span></a>
