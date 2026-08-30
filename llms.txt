@@ -1,0 +1,33 @@
+# Neurabrix
+
+> Neurabrix builds AI products and provides end-to-end AI, software, cloud, automation, website, SEO, and digital presence services.
+
+- Official website: https://neurabrix.co/
+- Business inquiries: contact@neurabrix.co
+- Offices: Bellevue, USA; Bangalore, India
+
+## Products
+
+- ClinicOS: A clinic operating system for doctor queues, patient context, intake, search, review, routing, and in-context actions.
+- Momiva: A mobile gestational diabetes care experience for daily plans, health logs, trends, guidance, and care-team messaging.
+
+## Services
+
+- AI and machine learning development
+- AI agents, retrieval-augmented generation, and conversational systems
+- Custom software and product engineering
+- Mobile app development
+- Data, search, and document intelligence
+- Cloud, DevOps, and platform engineering
+- Workflow automation and integrations
+- IoT and edge systems
+- Product design and UX engineering
+- Website design and development
+- SEO, AI-search visibility, and digital presence management
+- Content, product demos, and video production
+
+## Official resources
+
+- ClinicOS product documentation: https://neurabrix.co/docs/clinicos/
+- Healthcare AI tools: https://neurabrix.co/tools/healthcare/
+- Privacy: https://neurabrix.co/privacy/
