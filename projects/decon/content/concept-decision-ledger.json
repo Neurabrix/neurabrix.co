@@ -1,0 +1,39 @@
+{
+  "study": "DECON 2027 six-concept controlled comparison",
+  "status": "implementation_complete_user_research_planned",
+  "constants": [
+    "DECON factual source and approved 2027 demo assumptions",
+    "core audience and clinical scope",
+    "programme, registration, venue and contact tasks",
+    "content depth and principal calls to action",
+    "evaluation criteria and scoring weights"
+  ],
+  "controlled_variables": [
+    "primary user goal",
+    "information hierarchy and flow",
+    "navigation model",
+    "page composition",
+    "typography and colour system",
+    "imagery treatment",
+    "information density",
+    "interaction pattern",
+    "mobile behaviour",
+    "deliberate tradeoff"
+  ],
+  "concepts": [
+    {"id":"concept-01","name":"Clinical Clarity","set":"baseline","primary_goal":"establish clinical trust and expose key actions","flow":"scientific-first action hub","navigation":"balanced section navigation","density":"medium","visual_voice":"bright clinical","interaction":"action cards","exploration":"low","tradeoff":"safe clarity over strong differentiation"},
+    {"id":"concept-02","name":"Delegate Navigator","set":"baseline","primary_goal":"complete practical delegate tasks quickly","flow":"utility-first planning modules","navigation":"dense quick-link system","density":"high","visual_voice":"structured operational","interaction":"task modules","exploration":"low-to-medium","tradeoff":"efficiency over emotional storytelling"},
+    {"id":"concept-03","name":"Immersive Forum","set":"baseline","primary_goal":"build event desire and human connection","flow":"paced editorial narrative","navigation":"story-led sections","density":"low","visual_voice":"photographic editorial","interaction":"scroll narrative","exploration":"medium-high","tradeoff":"impact over rapid information scanning"},
+    {"id":"concept-04","name":"Conference Standard","set":"new","experiment_role":"category_control","exploitation_exploration":"90/10","primary_goal":"reassure and orient a conventional congress visitor","flow":"chronological congress homepage","navigation":"familiar header and section anchors","density":"medium","visual_voice":"institutional navy and teal","interaction":"conventional links and cards","mobile":"collapsed navigation with linear flow","tradeoff":"maximum familiarity with limited novelty"},
+    {"id":"concept-05","name":"Your DECON Path","set":"new","experiment_role":"strategic_recommendation","exploitation_exploration":"70/30","primary_goal":"give each audience a relevant next step","flow":"role-guided journey backed by shared conference facts","navigation":"role selector plus standard sections","density":"medium","visual_voice":"warm aubergine, coral and lime","interaction":"accessible role tabs with keyboard control","mobile":"stacked role routes and focused calls to action","tradeoff":"relevance requires visitors to identify their role"},
+    {"id":"concept-06","name":"Programme Atlas","set":"new","experiment_role":"bounded_challenger","exploitation_exploration":"50/50","primary_goal":"make the scientific programme the main product","flow":"programme territories and signals","navigation":"visual atlas with day selector","density":"medium-high","visual_voice":"high-contrast black, lime, cyan and orange","interaction":"accessible day tabs with keyboard control","mobile":"single-column programme tiles with retained hierarchy","tradeoff":"distinctive energy may feel less institutionally conservative"}
+  ],
+  "evaluation": {
+    "weights_percent": {"task_success":25,"information_clarity":15,"trust_and_credibility":20,"brand_fit":20,"accessibility_and_mobile":10,"implementation_risk":10},
+    "tasks": ["find the programme","start registration or enquiry","find venue and travel guidance","identify the best next action for your role"],
+    "review_sequence": "six concepts to three finalists, then two, then one",
+    "internal_stakeholders": "3–5",
+    "representative_users": "5 lean first-round minimum; 8–12 for fuller validation",
+    "testing_status": "planned_not_completed"
+  }
+}

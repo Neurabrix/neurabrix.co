@@ -1,0 +1,39 @@
+html {
+  overflow-x: hidden;
+}
+
+.skip {
+  left: 0 !important;
+  top: 0;
+  transform: translateY(-120%);
+}
+
+.skip:focus {
+  left: 0 !important;
+  transform: none;
+}
+
+@media (max-width: 540px) {
+  .proof-photo::before {
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 180px) {
+  .light {
+    width: 100%;
+    white-space: normal !important;
+    text-align: center;
+  }
+
+  .proof-photo::before {
+    position: static;
+    display: block;
+    font-size: 16px;
+  }
+
+  .hero::before {
+    display: none;
+  }
+}

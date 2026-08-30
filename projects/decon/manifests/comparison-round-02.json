@@ -1,0 +1,19 @@
+{
+  "round": "02",
+  "date": "2026-08-30",
+  "baseline_concepts": ["concept-01", "concept-02", "concept-03"],
+  "new_concepts": ["concept-04", "concept-05", "concept-06"],
+  "comparison_entry": "index.html",
+  "recommendation": "Start evaluation with concept-05 as the strategic recommendation, retain concept-04 as the category control, and use concept-06 to measure appetite for a bolder programme-first direction.",
+  "selection_status": "awaiting_structured_client_evaluation",
+  "publication_status": "local_only",
+  "testing_status": "planned_not_completed",
+  "scoring_weights": {
+    "task_success": 25,
+    "information_clarity": 15,
+    "trust_and_credibility": 20,
+    "brand_fit": 20,
+    "accessibility_and_mobile": 10,
+    "implementation_risk": 10
+  }
+}

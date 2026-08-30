@@ -1,0 +1,15 @@
+{
+  "id": "concept-04",
+  "name": "Conference Standard",
+  "status": "content_complete_demo",
+  "experiment_role": "category_control",
+  "exploitation_ratio": 0.90,
+  "exploration_ratio": 0.10,
+  "reference_pattern": "ECE congress-standard hierarchy",
+  "entry": "concept-04/index.html",
+  "review_entry": "preview/concept-04.html",
+  "direct_page_watermark": false,
+  "review_wrapper_watermark": true,
+  "publication_status": "local_private_evaluation_preview",
+  "assets_source": "decon.co.in"
+}

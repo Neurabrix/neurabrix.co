@@ -1,8 +1,18 @@
 {
   "updated": "2026-08-30",
+  "factual_authority": {
+    "name": "DECON Medical Academy",
+    "url": "https://decon.co.in/decon-new/",
+    "scope": "DECON identity, history, programme domains, participation, venue context and contact details"
+  },
+  "reference_policy": "External conference sites inform reusable experience patterns only. Their branding, copy, assets and claims are not copied.",
   "references": [
     {"reference":"ADA Scientific Sessions","url":"https://professional.diabetes.org/scientific-sessions","adopted_pattern":"clear conference status, action-card hub, scientific-first hierarchy","applied_to":"concept-01","not_copied":"branding, copy, assets, claims"},
     {"reference":"EASD Annual Meeting","url":"https://www.easd.org/annual-meeting/easd-2026.html","adopted_pattern":"programme-first quick links and delegate planning modules","applied_to":"concept-02","not_copied":"branding, copy, assets, claims"},
-    {"reference":"RSNA Annual Meeting","url":"https://www.rsna.org/annual-meeting","adopted_pattern":"immersive editorial storytelling and large-scale event photography","applied_to":"concept-03","not_copied":"branding, copy, assets, claims"}
+    {"reference":"RSNA Annual Meeting","url":"https://www.rsna.org/annual-meeting","adopted_pattern":"immersive editorial storytelling and large-scale event photography","applied_to":"concept-03","not_copied":"branding, copy, assets, claims"},
+    {"reference":"European Congress of Endocrinology","url":"https://www.ese-hormones.org/ece2026","adopted_pattern":"familiar congress hierarchy, visible essentials and restrained institutional trust cues","applied_to":"concept-04","not_copied":"branding, copy, assets, claims"},
+    {"reference":"ENDO Annual Meeting","url":"https://www.endocrine.org/meetings-and-events/endo-annual-meetings","adopted_pattern":"clear pathways for different participant intentions","applied_to":"concept-05","not_copied":"branding, copy, assets, claims"},
+    {"reference":"ISPAD Annual Conference","url":"https://2026.ispad.org/","adopted_pattern":"audience-specific resources and welcoming community framing","applied_to":"concept-05","not_copied":"branding, copy, assets, claims"},
+    {"reference":"ATTD Conference","url":"https://attd.kenes.com/conferences/","adopted_pattern":"high-energy programme emphasis and innovation-forward visual signalling","applied_to":"concept-06","not_copied":"branding, copy, assets, claims"}
   ]
 }
