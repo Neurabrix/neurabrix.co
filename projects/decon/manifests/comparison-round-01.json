@@ -1,0 +1,11 @@
+{
+  "round":"01",
+  "date":"2026-08-30",
+  "concepts":["concept-01","concept-02","concept-03"],
+  "comparison_entry":"index.html",
+  "recommendation":"Use concept-02 as the operational foundation and selectively borrow the authentic-photo storytelling from concept-03.",
+  "selection_status":"awaiting_client_direction",
+  "publication_status":"public_noindex_evaluation_preview",
+  "registration_status":"not_connected",
+  "required_next_inputs":["selected design concept","approved production copy","registration/payment provider and destination","approved official communications provider"]
+}

@@ -1,0 +1,25 @@
+{
+  "project": "Decon Medical Academy — Decon 2027 Website",
+  "updated": "2026-08-30",
+  "approved_source": "https://decon.co.in/",
+  "facts": [
+    {"topic":"conference_scope","content":"Diabetes, endocrinology, maternal medicine and connected areas of medicine","status":"supported","source":"https://decon.co.in/"},
+    {"topic":"history","content":"Launched in 2014 as the Diabetes Summit with 400+ registrations","status":"supported","source":"https://decon.co.in/event-decon.php"},
+    {"topic":"2020_reach","content":"The 2020 digital edition recorded 8,000+ registrations from around the world","status":"supported","source":"https://decon.co.in/event-decon.php"},
+    {"topic":"2027_edition","content":"13th International Diabetes and Endocrine Conference","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_dates","content":"7–8 August 2027","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_venue","content":"Le Méridien, Coimbatore","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_accreditation","content":"4 CME credit hours from Tamil Nadu Medical Council","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_faculty","content":"National and international faculty carried into the client demo from the approved source","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_programme","content":"Diabetes, thyroid, endocrinology, maternal medicine, connected medicine, orations, workshops, oral and poster presentations","status":"demo_adaptation_from_2026_source"},
+    {"topic":"2027_registration","content":"Registration and enquiry call-to-actions route to the conference team","status":"demo_only_no_payment_collection"},
+    {"topic":"contact_address","content":"14 Thanneer Pandal Road, opposite Wipro building–Tidel Park, Peelamedu, Coimbatore 641004","status":"supported","source":"https://decon.co.in/"},
+    {"topic":"contact_phone_1","content":"+91 63747 06651","status":"supported","source":"https://decon.co.in/"},
+    {"topic":"contact_phone_2","content":"+91 95660 12330","status":"supported","source":"https://decon.co.in/"}
+  ],
+  "excluded": [
+    "stale placeholder template copy found on the current website",
+    "unrelated supplier-template content",
+    "CMC Pharmacology discussion"
+  ]
+}
