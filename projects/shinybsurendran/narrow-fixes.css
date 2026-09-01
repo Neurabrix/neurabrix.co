@@ -1,0 +1,78 @@
+.skip-link {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  transform: none;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+  width: auto;
+  height: auto;
+  padding: 10px 14px;
+  overflow: visible;
+  clip-path: none;
+}
+
+.hero-grid > *,
+.approach-grid > *,
+.section-heading > *,
+.service-columns > *,
+.proof-grid > *,
+.speaking-grid > *,
+.consultation-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+/* Text-first testimonials preserve the source wording while matching the route-led system. */
+.review-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.review-route {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.review-route span:last-child { letter-spacing: .12em; }
+.review-card blockquote { margin: 24px 0 28px; color: var(--ink); font-size: 15px; line-height: 1.75; }
+.review-card blockquote p { margin: 0; }
+.review-card figcaption { display: grid; gap: 5px; margin-top: auto; padding: 16px 0 0; border-top: 1px solid var(--line); color: inherit; }
+.review-card figcaption strong { color: var(--green); font-size: 14px; }
+.review-card figcaption span { color: var(--muted); font-size: 11px; }
+
+@media (max-width: 760px) {
+  :root { --shell: calc(100% - 28px); }
+  .pillar-card { min-height: 425px; }
+}
+
+@media (max-width: 240px) {
+  :root { --shell: calc(100% - 14px); }
+  h1, h2, h3, h4, p, a, span, small, strong, figcaption, label { overflow-wrap: anywhere; }
+  .pillar-card { height: 525px; min-height: 525px; }
+  .service-card { height: 360px; min-height: 360px; }
+  .principle-list article { grid-template-columns: 34px minmax(0, 1fr); gap: 8px; }
+  .review-card { padding: 16px 12px; }
+  .review-route { align-items: flex-start; gap: 8px; }
+}
