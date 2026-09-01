@@ -1,0 +1,59 @@
+.legacy-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .legacy-nav-toggle {
+    display: inline-flex;
+    min-width: 64px;
+    min-height: 42px;
+    margin-left: auto;
+    padding: 8px 14px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line, var(--provider-border, rgba(23, 24, 43, .2)));
+    border-radius: 999px;
+    color: inherit;
+    background: var(--paper, var(--provider-surface, #fff));
+    font: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .site-header > nav#primary-nav {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 8px);
+    right: 0;
+    left: 0;
+    display: none;
+    max-height: calc(100vh - 120px);
+    margin: 0;
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    overflow-y: auto;
+    border: 1px solid var(--line, var(--provider-border, rgba(23, 24, 43, .2)));
+    border-radius: 14px;
+    background: var(--paper, var(--provider-surface, #fff));
+    box-shadow: 0 18px 45px rgba(3, 72, 63, .16);
+  }
+
+  .site-header > nav#primary-nav[data-open="true"] {
+    display: flex;
+  }
+
+  .site-header > nav#primary-nav a {
+    width: 100%;
+    padding: 11px 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header > :is(.header-cta, .top-action, .round-action),
+  .round-header > .round-button {
+    display: none;
+  }
+}

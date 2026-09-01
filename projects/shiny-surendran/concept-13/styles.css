@@ -221,3 +221,9 @@ footer { padding: 58px 0 22px; background: #052e29; color: #fff; }
   .footer-brand { width: 90px; }
   .mobile-action { left: 7px; right: 7px; font-size: 12px; text-align: center; }
 }
+
+/* Complete the final desktop media row without changing the mobile card order. */
+@media (min-width: 821px) {
+  .media-grid > .media-card:nth-child(4),
+  .media-grid > .media-card:nth-child(5) { grid-column: span 2; }
+}
