@@ -5,6 +5,7 @@
   --cream: #f5f0e6;
   --paper: #fffdf8;
   --gold: #c3923e;
+  --gold-ink: #87621c;
   --line: #d9d4c9;
   --muted: #5d6f6b;
   --shell: min(1220px, calc(100% - 40px));
@@ -47,17 +48,17 @@ button, input, select, textarea { font: inherit; }
 .hero-portrait figcaption span { color: var(--muted); }
 .margin-note { align-self: center; padding: 24px 0 24px 22px; border-left: 2px solid var(--gold); }
 .margin-note span, .margin-note strong, .margin-note small { display: block; }
-.margin-note span { margin-bottom: 18px; color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.margin-note span { margin-bottom: 18px; color: var(--gold-ink); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .margin-note strong { margin: 8px 0; font-size: 15px; }
 .margin-note small { margin-top: 20px; color: var(--muted); }
 
 .editorial-shell { display: grid; grid-template-columns: 176px minmax(0, 1fr); gap: 54px; }
 .chapter-rail { position: sticky; top: 112px; align-self: start; display: flex; flex-direction: column; gap: 11px; margin-top: 96px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.chapter-rail span { margin-bottom: 7px; color: var(--gold); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.chapter-rail span { margin-bottom: 7px; color: var(--gold-ink); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .chapter-rail a { font-size: 13px; font-weight: 700; text-decoration: none; }
 .chapters, .chapter-content, .record-grid > *, .speaking-layout > *, .method-grid > * { min-width: 0; }
 .chapter { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 28px; padding: 96px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 86px; }
-.chapter-number { padding-top: 5px; color: var(--gold); font-size: 13px; font-weight: 800; letter-spacing: .16em; }
+.chapter-number { padding-top: 5px; color: var(--gold-ink); font-size: 13px; font-weight: 800; letter-spacing: .16em; }
 .chapter-content > p:not(.eyebrow), .intro { max-width: 780px; color: var(--muted); }
 .record-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; margin-top: 38px; }
 .record-grid blockquote { margin: 0; padding: 30px; border-left: 4px solid var(--gold); background: var(--cream); }
@@ -91,7 +92,7 @@ svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width:
 .service-groups { margin-top: 42px; }
 .service-group { margin-top: 50px; scroll-margin-top: 100px; }
 .group-heading { display: flex; align-items: baseline; gap: 18px; margin-bottom: 20px; }
-.group-heading span { color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.group-heading span { color: var(--gold-ink); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .group-heading h3 { margin: 0; font-size: 24px; }
 .service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .service-card { display: flex; min-width: 0; height: 326px; min-height: 326px; flex-direction: column; align-items: center; padding: 24px 18px; border: 1px solid var(--line); background: var(--paper); text-align: center; }
@@ -101,7 +102,7 @@ svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width:
 
 .review-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
 .review-card { display: flex; min-width: 0; flex-direction: column; margin: 0; padding: 28px; border-left: 4px solid var(--gold); background: var(--cream); }
-.review-folio { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--line); color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.review-folio { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--line); color: var(--gold-ink); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .review-folio span:last-child { letter-spacing: .12em; }
 .review-card blockquote { margin: 24px 0 28px; font-size: 15px; line-height: 1.75; }
 .review-card blockquote p { margin: 0; }
@@ -112,7 +113,7 @@ svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width:
 .media-card { display: flex; min-width: 0; flex-direction: column; text-decoration: none; }
 .media-card.feature { grid-column: span 2; }
 .media-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.media-card span { margin-top: 12px; color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.media-card span { margin-top: 12px; color: var(--gold-ink); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .media-card strong { margin-top: 6px; font-size: 15px; line-height: 1.35; }
 .speaking-layout { display: grid; grid-template-columns: .65fr 1.35fr; gap: 44px; align-items: start; }
 form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 28px; background: var(--cream); }
